@@ -22,9 +22,8 @@ public class BuildingController {
     private BuildingService buildingService;
 
     @GetMapping
-    public List<BuildingSearchResponse> searchBuildings(@RequestBody BuildingSearchRequest buildingSearchRequest) {
+    public List<BuildingSearchResponse> searchBuildings(@ModelAttribute BuildingSearchRequest buildingSearchRequest) {
         List<BuildingSearchResponse> res = buildingService.searchBuildings(buildingSearchRequest);
-        System.out.println("ok");
         return res;
     }
 

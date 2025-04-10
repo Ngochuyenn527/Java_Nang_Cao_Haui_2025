@@ -10,7 +10,7 @@ public class BuildingSearchBuilder {
     private String rank;
     private Double areaFrom;
     private Double areaTo;
-    private Double sellingPrice;
+    private Long sellingPrice;
     private Integer numberLivingFloor;
     private Integer numberBasement;
 
@@ -31,7 +31,7 @@ public class BuildingSearchBuilder {
         private String rank;
         private Double areaFrom;
         private Double areaTo;
-        private Double sellingPrice;
+        private Long sellingPrice;
         private Integer numberLivingFloor;
         private Integer numberBasement;
 
@@ -60,7 +60,7 @@ public class BuildingSearchBuilder {
             return this;
         }
 
-        public Builder setSellingPrice(Double sellingPrice) {
+        public Builder setSellingPrice(Long sellingPrice) {
             this.sellingPrice = sellingPrice;
             return this;
         }

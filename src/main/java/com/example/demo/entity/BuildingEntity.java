@@ -31,10 +31,10 @@ public class BuildingEntity extends BaseEntity  {
     private Double totalArea;
 
     @Column(name = "min_selling_price")
-    private Double minSellingPrice;
+    private Long minSellingPrice;
 
     @Column(name = "max_selling_price")
-    private Double maxSellingPrice;
+    private Long maxSellingPrice;
 
     @Column(name = "number_ele")
     private Integer numberEle;

@@ -53,21 +53,20 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
 
         Double areaTo = buildingSearchBuilder.getAreaTo();
         Double areaFrom = buildingSearchBuilder.getAreaFrom();
-        if (NumberUtils.checkNumber(areaTo) || NumberUtils.checkNumber(areaFrom)) {
-            if (NumberUtils.checkNumber(areaFrom)) {
+        if (NumberUtils.checkNumberDouble(areaTo) || NumberUtils.checkNumberDouble(areaFrom)) {
+            if (NumberUtils.checkNumberDouble(areaFrom)) {
                 where.append(" AND b.total_area >= " + areaFrom);
             }
-            if (NumberUtils.checkNumber(areaTo)) {
+            if (NumberUtils.checkNumberDouble(areaTo)) {
                 where.append(" AND b.total_area <= " + areaTo);
             }
         }
 
-        Double sellingPrice = buildingSearchBuilder.getSellingPrice();
-        if (NumberUtils.checkNumber(sellingPrice)) {
-            if (NumberUtils.checkNumber(sellingPrice)) {
+        Long sellingPrice = buildingSearchBuilder.getSellingPrice();
+        if (NumberUtils.checkNumberLong(sellingPrice)) {
                 where.append(" AND b.min_selling_price <= " + sellingPrice);
                 where.append(" AND b.max_selling_price >= " + sellingPrice);
-            }
+
         }
     }
 

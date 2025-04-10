@@ -21,7 +21,14 @@ public class NumberUtils {
         return true;
     }
 
-    public static boolean checkNumber(Double number) {
+    public static boolean checkNumberDouble(Double number) {
+        if (number != null) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean checkNumberLong(Long number) {
         if (number != null) {
             return true;
         }

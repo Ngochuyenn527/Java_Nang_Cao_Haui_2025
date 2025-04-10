@@ -15,7 +15,7 @@ public class BuildingSearchBuilderConverter {
                 .setRank(MapUtils.getObjects(request.getRank(), String.class))
                 .setAreaFrom(MapUtils.getObjects(request.getAreaFrom(), Double.class))
                 .setAreaTo(MapUtils.getObjects(request.getAreaTo(), Double.class))
-                .setSellingPrice(MapUtils.getObjects(request.getSellingPrice(), Double.class))
+                .setSellingPrice(MapUtils.getObjects(request.getSellingPrice(), Long.class))
                 .setNumberLivingFloor(MapUtils.getObjects(request.getNumberLivingFloor(), Integer.class))
                 .setNumberBasement(MapUtils.getObjects(request.getNumberBasement(), Integer.class))
                 .build();

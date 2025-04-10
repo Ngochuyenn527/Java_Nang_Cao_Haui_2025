@@ -13,8 +13,8 @@ public class BuildingDTO  extends AbstractDTO {
     private String developerName;
     private String rank;
     private Double totalArea;
-    private Double minSellingPrice;
-    private Double maxSellingPrice;
+    private Long minSellingPrice;
+    private Long maxSellingPrice;
     private Integer numberEle;
     private Integer numberLivingFloor;
     private Integer numberBasement;

@@ -13,10 +13,8 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -121,4 +119,6 @@ public class BuildingServiceImpl implements BuildingService {
             throw new RuntimeException("Có lỗi xảy ra khi xóa tòa nhà: " + e.getMessage());
         }
     }
+
+
 }
