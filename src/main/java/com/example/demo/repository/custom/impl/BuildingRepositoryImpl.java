@@ -22,7 +22,7 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
     private EntityManager entityManager;
 
 
-    // field cua chinh bang do (ngoai tru cac field tinh toan phuc tap)
+    // xử lý các câu query => field cua chinh bang do (ngoai tru cac field tinh toan phuc tap)
     public static void queryNormal(BuildingSearchBuilder buildingSearchBuilder, StringBuilder where) {
         try {
             Field[] fields = BuildingSearchBuilder.class.getDeclaredFields();
@@ -48,7 +48,7 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
         }
     }
 
-    // field phai join voi cac bang khac va cac cau querry tinh toan phuc tap cua chinh no
+    //  xử lý các câu query => field phai join voi cac bang khac va cac cau querry tinh toan phuc tap cua chinh no
     public static void querySpecial(BuildingSearchBuilder buildingSearchBuilder, StringBuilder where) {
 
         Double areaTo = buildingSearchBuilder.getAreaTo();

@@ -8,7 +8,7 @@
 		<version>3.4.4</version> <!-- ✅ Đây là phiên bản Spring Boot -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo</name>
 

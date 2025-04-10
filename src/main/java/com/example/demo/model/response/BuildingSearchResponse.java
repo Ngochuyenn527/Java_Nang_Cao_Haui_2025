@@ -4,6 +4,7 @@ package com.example.demo.model.response;
 import com.example.demo.model.dto.AbstractDTO;
 import lombok.*;
 
+//hứng data kết quả tòa nhà tìm kiếm được
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
