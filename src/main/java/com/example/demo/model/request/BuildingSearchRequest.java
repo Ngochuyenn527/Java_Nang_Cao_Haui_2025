@@ -1,7 +1,9 @@
 package com.example.demo.model.request;
 
 import com.example.demo.model.dto.AbstractDTO;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
@@ -12,7 +14,7 @@ public class BuildingSearchRequest extends AbstractDTO {
     private String rank;
     private Double areaFrom;
     private Double areaTo;
-    private Double sellingPrice;
+    private Long sellingPrice;
     private Integer numberLivingFloor;
     private Integer numberBasement;
 }

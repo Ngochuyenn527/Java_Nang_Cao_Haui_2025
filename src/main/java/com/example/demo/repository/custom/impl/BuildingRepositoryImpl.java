@@ -64,8 +64,8 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
 
         Long sellingPrice = buildingSearchBuilder.getSellingPrice();
         if (NumberUtils.checkNumberLong(sellingPrice)) {
-                where.append(" AND b.min_selling_price <= " + sellingPrice);
-                where.append(" AND b.max_selling_price >= " + sellingPrice);
+            where.append(" AND b.min_selling_price <= " + sellingPrice);
+            where.append(" AND b.max_selling_price >= " + sellingPrice);
 
         }
     }
