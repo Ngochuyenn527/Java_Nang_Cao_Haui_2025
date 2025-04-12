@@ -33,20 +33,6 @@ public class BuildingServiceImpl implements BuildingService {
     @Autowired
     private BuildingConverter buildingConverter;
 
-    @Override
-    public BuildingDTO findById(Long id) {
-        if (id == null) {
-            throw new IllegalArgumentException("Building ID must not be null!");
-        }
-
-        // Tìm tòa nhà theo ID, nếu không có thì ném ngoại lệ
-        BuildingEntity entity = buildingRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Không tìm thấy tòa nhà với ID: " + id));
-
-        // Chuyển đổi Entity -> DTO
-        return buildingConverter.toBuildingDTO(entity);
-    }
-
 
     @Override
     public List<BuildingSearchResponse> searchBuildings(BuildingSearchRequest buildingSearchRequest) {
