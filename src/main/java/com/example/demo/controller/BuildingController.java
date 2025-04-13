@@ -22,13 +22,20 @@ public class BuildingController {
     @Autowired
     private BuildingService buildingService;
 
-
-    @Operation(summary = "API get building")
+    @Operation(summary = "API search building")
     @GetMapping
     public List<BuildingSearchResponse> searchBuildings(@ModelAttribute BuildingSearchRequest buildingSearchRequest) {
         List<BuildingSearchResponse> res = buildingService.searchBuildings(buildingSearchRequest);
         return res;
     }
+
+    @Operation(summary = "API get building by id")
+    @GetMapping("/{id}")
+    public ResponseEntity<BuildingDTO> getBuildingById(@PathVariable Long id) {
+        BuildingDTO buildingDTO = buildingService.getBuildingById(id);
+        return ResponseEntity.ok(buildingDTO);
+    }
+
 
     @Operation(summary = "API add new building")
     @PostMapping

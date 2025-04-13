@@ -33,6 +33,12 @@ public class BuildingServiceImpl implements BuildingService {
     @Autowired
     private BuildingConverter buildingConverter;
 
+    // ✅ Kiểm tra tòa nhà theo ID có tồn tại không, nếu không có thì ném ngoại lệ
+    public BuildingEntity checkBuildingById(Long id) {
+        BuildingEntity existingBuilding = buildingRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tòa nhà không tồn tại với ID: " + id));
+        return existingBuilding;
+    }
 
     @Override
     public List<BuildingSearchResponse> searchBuildings(BuildingSearchRequest buildingSearchRequest) {
@@ -47,6 +53,15 @@ public class BuildingServiceImpl implements BuildingService {
                 .map(entity -> modelMapper.map(entity, BuildingSearchResponse.class))
                 .toList();
         return result;
+    }
+
+    @Override
+    public BuildingDTO getBuildingById(Long id) {
+        if (id == null) {
+            throw new IllegalArgumentException("Building ID must not be null!");
+        }
+        // Chuyển đổi Entity -> DTO
+        return buildingConverter.toBuildingDTO(checkBuildingById(id));
     }
 
 
@@ -71,9 +86,7 @@ public class BuildingServiceImpl implements BuildingService {
     @Override
     public BuildingDTO updateBuilding(@Valid Long id, BuildingDTO buildingDTO) {
         try {
-            // ✅ Kiểm tra tòa nhà có tồn tại không
-            BuildingEntity existingBuilding = buildingRepository.findById(id)
-                    .orElseThrow(() -> new RuntimeException("Tòa nhà không tồn tại với ID: " + id));
+            BuildingEntity existingBuilding = checkBuildingById(id);
 
             // ✅ Chuyển từ DTO -> Entity (giữ nguyên ID)
             BuildingEntity updatedBuildingEntity = buildingConverter.toBuildingEntity(buildingDTO);
@@ -93,9 +106,7 @@ public class BuildingServiceImpl implements BuildingService {
     @Override
     public void deleteBuilding(Long id) {
         try {
-            // ✅ Kiểm tra tòa nhà có tồn tại không
-            BuildingEntity existingBuilding = buildingRepository.findById(id)
-                    .orElseThrow(() -> new RuntimeException("Tòa nhà không tồn tại với ID: " + id));
+            BuildingEntity existingBuilding = checkBuildingById(id);
 
             // ✅ Xóa tòa nhà khỏi cơ sở dữ liệu
             buildingRepository.delete(existingBuilding);

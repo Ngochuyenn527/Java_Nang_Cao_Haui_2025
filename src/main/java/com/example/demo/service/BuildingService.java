@@ -9,6 +9,8 @@ public interface BuildingService {
 
     List<BuildingSearchResponse> searchBuildings(BuildingSearchRequest buildingSearchRequest);
 
+    BuildingDTO getBuildingById(Long id);
+
     BuildingDTO addBuilding(BuildingDTO buildingDTO);
 
     BuildingDTO updateBuilding(Long id, BuildingDTO buildingDTO);
