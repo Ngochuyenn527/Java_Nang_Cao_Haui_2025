@@ -61,7 +61,7 @@ public class BuildingServiceImpl implements BuildingService {
             throw new IllegalArgumentException("Building ID must not be null!");
         }
         // Chuyển đổi Entity -> DTO
-        return buildingConverter.toBuildingDTO(checkBuildingById(id));
+        return buildingConverter.convertToBuildingDTO(checkBuildingById(id));
     }
 
 
@@ -70,7 +70,7 @@ public class BuildingServiceImpl implements BuildingService {
 
         try {
             // ✅ Chuyển từ DTO -> Entity
-            BuildingEntity addbuildingEntity = buildingConverter.toBuildingEntity(buildingDTO);
+            BuildingEntity addbuildingEntity = buildingConverter.convertToBuildingEntity(buildingDTO);
 
             // ✅ Lưu lại tòa nhà (RentAreaEntities sẽ được lưu tự động nếu đã cấu hình cascade)
             buildingRepository.save(addbuildingEntity);
@@ -89,7 +89,7 @@ public class BuildingServiceImpl implements BuildingService {
             BuildingEntity existingBuilding = checkBuildingById(id);
 
             // ✅ Chuyển từ DTO -> Entity (giữ nguyên ID)
-            BuildingEntity updatedBuildingEntity = buildingConverter.toBuildingEntity(buildingDTO);
+            BuildingEntity updatedBuildingEntity = buildingConverter.convertToBuildingEntity(buildingDTO);
             updatedBuildingEntity.setId(id);
 
             // ✅ Lưu thông tin tòa nhà đã cập nhật (bao gồm cả RentAreaEntities nếu có cascade)

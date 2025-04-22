@@ -6,7 +6,7 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
-//Custom dùng để chứa các phương thức không được thư viện JpaRepository hỗ trợ
+// class tùy chỉnh (custom) cho repository, dùng để viết các câu SQL nâng cao (native SQL hoặc JPQL) mà Spring Data JPA mặc định không hỗ trợ.
 public interface BuildingRepositoryCustom {
     List<BuildingEntity> searchBuildings(BuildingSearchBuilder buildingSearchBuilder);
 }

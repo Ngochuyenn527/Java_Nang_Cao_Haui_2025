@@ -21,6 +21,11 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
     @PersistenceContext
     private EntityManager entityManager;
 
+    // map tên field Java với tên cột SQL tương ứng
+    private static String camelToSnake(String str) {
+        return str.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
+    }
+
 
     // xử lý các câu query => field cua chinh bang do (ngoai tru cac field tinh toan phuc tap)
     public static void queryNormal(BuildingSearchBuilder buildingSearchBuilder, StringBuilder where) {
@@ -36,7 +41,7 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
                         // check là số hay chuỗi
                         if (field.getType().getName().equals("java.lang.Long")
                                 || field.getType().getName().equals("java.lang.Integer")) {
-                            where.append(" AND b." + fieldName + " = " + value);
+                            where.append(" AND b." + camelToSnake(fieldName) + " = " + value);
                         } else if (field.getType().getName().equals("java.lang.String")) {
                             where.append(" AND b." + fieldName + " LIKE  '%" + value + "%' ");
                         }

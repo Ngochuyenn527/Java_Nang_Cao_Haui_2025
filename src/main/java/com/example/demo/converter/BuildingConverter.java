@@ -14,12 +14,12 @@ public class BuildingConverter {
     private ModelMapper modelMapper;
 
     //chuyển đổi BuildingEntity (be) thành BuildingDTO (fe) dùng modelMapper
-    public BuildingDTO toBuildingDTO(BuildingEntity buildingEntity) {
+    public BuildingDTO convertToBuildingDTO(BuildingEntity buildingEntity) {
       return modelMapper.map(buildingEntity, BuildingDTO.class);
     }
 
     //chuyển đổi BuildingDTO (fe) thành BuildingEntity (be) dùng modelMapper
-    public BuildingEntity toBuildingEntity(BuildingDTO buildingDTO) {
+    public BuildingEntity convertToBuildingEntity(BuildingDTO buildingDTO) {
         return modelMapper.map(buildingDTO, BuildingEntity.class);
     }
 }

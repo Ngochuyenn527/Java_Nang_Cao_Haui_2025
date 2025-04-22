@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import java.io.InputStream;
 import java.util.List;
 
-// Khi bạn chạy ứng dụng Spring Boot, hàm loadData() sẽ được gọi, đọc file JSON, và lưu toàn bộ dữ liệu vào database.
+// Khi chạy ứng dụng Spring Boot, hàm loadData() sẽ được gọi, đọc file JSON, và lưu toàn bộ dữ liệu vào database.
 @Configuration
 public class DataLoaderConfig {
 
