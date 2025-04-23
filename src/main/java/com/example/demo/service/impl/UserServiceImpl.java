@@ -82,6 +82,7 @@ public class UserServiceImpl implements UserService {
         UserEntity userEntity = userConverter.convertToUserEntity(newUser);
         userEntity.setRoles(Stream.of(role).collect(Collectors.toList())); //add role vao list role cua user đó
         userEntity.setStatus(1);
+        // ✅ Mã hóa mật khẩu mặc định trước khi lưu (mặc định pass = 123456)
         userEntity.setPassword(passwordEncoder.encode(SystemConstant.PASSWORD_DEFAULT));
         return userConverter.convertToUserDto(userRepository.save(userEntity));
     }

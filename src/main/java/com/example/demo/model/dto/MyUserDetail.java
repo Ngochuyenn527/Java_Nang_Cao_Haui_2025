@@ -1,36 +1,5 @@
 package com.example.demo.model.dto;
 
-//import org.springframework.security.core.GrantedAuthority;
-//import org.springframework.security.core.userdetails.User;
-//
-//import java.util.Collection;
-//
-//public class MyUserDetail extends User {
-//
-//    public MyUserDetail(String username, String password, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities) {
-//        super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
-//    }
-//
-//    private Long id;
-//    private String fullName;
-//
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
-//
-//    public String getFullName() {
-//        return fullName;
-//    }
-//
-//    public void setFullName(String fullName) {
-//        this.fullName = fullName;
-//    }
-//}
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -44,6 +13,8 @@ import java.util.Collection;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+//Là lớp trung gian giữa UserDTO (lấy từ database) và Spring Security.
+//👉 Spring Security không dùng trực tiếp UserDTO hay UserEntity, mà cần 1 class như MyUserDetail.
 public class MyUserDetail implements UserDetails {
 
     private String username;
