@@ -22,6 +22,8 @@ public interface UserService {
 
     void updatePassword(long id, PasswordDTO userDTO) throws MyExceptionConfig;
 
+    UserDTO resetPassword(long id);
+
     void deleteUser(Long id);
 }
 

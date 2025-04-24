@@ -131,6 +131,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
+    public UserDTO resetPassword(long id) {
+        UserEntity userEntity = userRepository.findById(id).get();
+        userEntity.setPassword(passwordEncoder.encode(SystemConstant.PASSWORD_DEFAULT));
+        return userConverter.convertToUserDto(userRepository.save(userEntity));
+    }
+
+
+    @Override
+    @Transactional
     public void deleteUser(Long id) {
         UserEntity userEntity = userRepository.findById(id).get();
         userEntity.setStatus(0);

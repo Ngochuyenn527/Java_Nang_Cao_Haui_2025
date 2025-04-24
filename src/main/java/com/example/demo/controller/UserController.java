@@ -76,6 +76,12 @@ public class UserController {
     }
 
 
+    @PutMapping("/password/{id}/reset")
+    public ResponseEntity<UserDTO> resetPassword(@PathVariable("id") long id) {
+        return ResponseEntity.ok(userService.resetPassword(id));
+    }
+
+
     @Operation(summary = "API delete user by id")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteUsers(@PathVariable Long id) {
