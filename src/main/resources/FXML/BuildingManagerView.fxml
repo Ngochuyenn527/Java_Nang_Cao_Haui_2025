@@ -35,7 +35,7 @@
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="53.0" prefWidth="110.0">
                      <children>
-                        <Button layoutX="71.0" layoutY="8.0" mnemonicParsing="false" text="Quản lý tài khoản" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                        <Button fx:id="btnAccMng" layoutX="71.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleAccMng" text="Quản lý tài khoản" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
                      </children>
                   </AnchorPane>
                </children></VBox>

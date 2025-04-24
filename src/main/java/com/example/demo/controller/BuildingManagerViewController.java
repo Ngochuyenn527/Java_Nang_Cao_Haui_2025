@@ -31,7 +31,7 @@ public class BuildingManagerViewController {
     @FXML
     private TextField txtname, txtaddress, txtrank, txtareaFrom, txtareaTo, txtsellingPrice, txtnumberLivingFloor, txtnumberBasement;
     @FXML
-    private Button btnSearch, btnAdd, btnEdit, btnDelete, btnfet;
+    private Button btnSearch, btnAdd, btnEdit, btnDelete, btnfet, btnAccMng;
     @FXML
     private TableView<BuildingSearchResponse> buildingList;
     @FXML
@@ -270,6 +270,27 @@ public class BuildingManagerViewController {
             e.printStackTrace();
         }
     }
+    
+ // Xử lý sự kiện nhấn nút "Quản lý tài khoản"
+    @FXML
+    public void handleAccMng() {
+        try {
+            // Tải FXML của cửa sổ quản lý tài khoản
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/UserManagerView.fxml"));
+            Parent root = loader.load();
+
+            // Tạo một Stage mới cho cửa sổ Quản lý tài khoản
+            Stage userManagerStage = new Stage();
+            userManagerStage.setTitle("Quản lý tài khoản");
+            userManagerStage.setScene(new Scene(root));
+
+            // Hiển thị cửa sổ
+            userManagerStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     
     private void showSuccess(String message) {
         Alert alert = new Alert(AlertType.INFORMATION);
