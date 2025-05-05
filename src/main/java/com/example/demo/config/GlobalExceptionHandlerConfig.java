@@ -1,4 +1,4 @@
-package com.example.demo.exception;
+package com.example.demo.config;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;

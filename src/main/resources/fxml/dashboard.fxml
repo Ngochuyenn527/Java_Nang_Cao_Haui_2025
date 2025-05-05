@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane hgap="10.0" prefHeight="750.0" style="-fx-padding: 10 10 10 10;" vgap="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.controller.DashboardController">
+
+    <!-- Ô 1: Tổng số dự án -->
+    <VBox alignment="CENTER" spacing="5" style="-fx-border-color: lightgray; -fx-background-color: white; -fx-padding: 10;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <Label fx:id="totalProjectsText" style="-fx-font-size: 14;" text="Tổng số dự án" />
+        <Label fx:id="totalProjectsLabel" style="-fx-font-size: 40; -fx-font-weight: bold;" text="0" />
+        <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+        </GridPane.margin>
+    </VBox>
+
+    <!-- Ô 2: Tổng số quận -->
+    <VBox alignment="CENTER" spacing="5" style="-fx-border-color: lightgray; -fx-background-color: white; -fx-padding: 10;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <Label fx:id="totalDistrictsText" style="-fx-font-size: 14;" text="Tổng số quận tiêu biểu" />
+        <Label fx:id="totalDistrictsLabel" style="-fx-font-size: 40; -fx-font-weight: bold;" text="0" />
+        <GridPane.margin>
+            <Insets bottom="5" left="5" right="5" top="5" />
+        </GridPane.margin>
+    </VBox>
+
+    <!-- Ô 3: Giá trung bình -->
+    <VBox alignment="CENTER" prefWidth="250.0" spacing="5" style="-fx-border-color: lightgray; -fx-background-color: white; -fx-padding: 10;" GridPane.columnIndex="2" GridPane.rowIndex="0">
+        <Label fx:id="avgPriceText" style="-fx-font-size: 14;" text="Giá trung bình (tỷ VNĐ)" />
+        <Label fx:id="avgPriceLabel" style="-fx-font-size: 40; -fx-font-weight: bold;" text="0" />
+        <GridPane.margin>
+            <Insets bottom="5" left="5" right="5" top="5" />
+        </GridPane.margin>
+    </VBox>
+
+    <!-- Ô 4: Giá trung bình trên m² -->
+    <VBox alignment="CENTER" spacing="5" style="-fx-border-color: lightgray; -fx-background-color: white; -fx-padding: 10;" GridPane.columnIndex="3" GridPane.rowIndex="0">
+        <Label fx:id="avgPricePerM2Text" style="-fx-font-size: 14;" text="Giá trung bình / m2 (nghìn VNĐ)" />
+        <Label fx:id="avgPricePerM2Label" style="-fx-font-size: 40; -fx-font-weight: bold;" text="0" />
+        <GridPane.margin>
+            <Insets bottom="5" left="5" right="5" top="5" />
+        </GridPane.margin>
+    </VBox>
+
+    <!-- Biểu đồ tròn -->
+    <PieChart fx:id="pieChart" style="-fx-border-color: lightgray; -fx-background-color: white; -fx-padding: 10;" title="Số lượng dự án theo quận" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+        <GridPane.margin>
+            <Insets bottom="5" left="5" right="5" top="5" />
+        </GridPane.margin>
+    </PieChart>
+
+    <!-- Biểu đồ cột đôi: Số lượng dự án theo phí đỗ xe -->
+    <BarChart fx:id="parkingBarChart" prefHeight="500.0" prefWidth="600.0" style="-fx-border-color: lightgray; -fx-background-color: white; -fx-padding: 10;" title="Số lượng dự án theo phí đỗ xe" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1">
+        <xAxis>
+            <CategoryAxis label="Khoảng phí (VNĐ)" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="Số lượng dự án" />
+        </yAxis>
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </padding>
+        <GridPane.margin>
+            <Insets bottom="5" left="5" right="5" top="5" />
+        </GridPane.margin>
+    </BarChart>
+
+    <columnConstraints>
+        <ColumnConstraints maxWidth="300.0" minWidth="200.0" prefWidth="300.0" />
+        <ColumnConstraints maxWidth="300.0" minWidth="200.0" prefWidth="300.0" />
+        <ColumnConstraints maxWidth="300.0" minWidth="200.0" prefWidth="300.0" />
+        <ColumnConstraints maxWidth="300.0" minWidth="200.0" prefWidth="300.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="150.0" minHeight="50.0" prefHeight="100.0" /> <!-- Hàng cho 4 ô số liệu -->
+        <RowConstraints prefHeight="600.0" /> <!-- Hàng cho 2 biểu đồ -->
+    </rowConstraints>
+</GridPane>
