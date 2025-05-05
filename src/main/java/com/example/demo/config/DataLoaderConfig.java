@@ -29,7 +29,7 @@ public class DataLoaderConfig {
             try {
                 // Đọc dữ liệu JSON thành danh sách BuildingEntity
                 List<BuildingEntity> buildings = mapper.readValue(inputStream, new TypeReference<>() {});
-
+                buildingRepository.deleteAll();
                 // Lưu tất cả vào database
                 buildingRepository.saveAll(buildings);
 

@@ -11,11 +11,19 @@ import com.example.demo.repository.BuildingRepository;
 import com.example.demo.service.BuildingService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.PieChart.Data;
+import javafx.scene.chart.XYChart;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 @Service
 @Transactional
@@ -116,5 +124,70 @@ public class BuildingServiceImpl implements BuildingService {
             throw new RuntimeException("Có lỗi xảy ra khi xóa tòa nhà: " + e.getMessage());
         }
     }
+    
+    @Override
+    public long getDistinctProjectCount() {
+    	return buildingRepository.countDistinctProjectName();
+    }
+
+	@Override
+	public long getDistinctAddress() {
+		return buildingRepository.countDistinctAdress();
+	}
+
+	@Override
+	public double getDistinctAverage() {
+		return buildingRepository.countDistinctAverage();
+	}
+
+	@Override
+	public double getavgPricePerM2() {
+		return buildingRepository.avgPricePerM2();
+	}
+
+	@Override
+	public ObservableList<PieChart.Data> getPieChartDataForProjectsByDistrict() {
+	    ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+	    var projectCountByDistrict = buildingRepository.getProjectCountByDistrict();
+	    for (var entry : projectCountByDistrict.entrySet()) {
+	        String district = entry.getKey();
+	        Integer count = entry.getValue();
+	        pieChartData.add(new PieChart.Data(district, count));
+	    }
+
+	    return pieChartData;
+	}
+	
+	@Override
+	public List<XYChart.Series<String, Number>> getBarChartDataForProjectsByParkingFees() {
+	    // Tạo hai series: một cho xe máy, một cho ô tô
+	    XYChart.Series<String, Number> bikeSeries = new XYChart.Series<>();
+	    bikeSeries.setName("Phí đỗ xe máy");
+
+	    XYChart.Series<String, Number> carSeries = new XYChart.Series<>();
+	    carSeries.setName("Phí đỗ ô tô");
+
+	    // Lấy dữ liệu từ Repository
+	    var bikeParkingData = buildingRepository.getProjectCountByBikeParkingRange();
+	    var carParkingData = buildingRepository.getProjectCountByCarParkingRange();
+
+	    // Tạo tập hợp tất cả các khoảng giá (hợp của cả xe máy và ô tô)
+	    Set<String> allRanges = new TreeSet<>();
+	    allRanges.addAll(bikeParkingData.keySet());
+	    allRanges.addAll(carParkingData.keySet());
+
+	    // Thêm dữ liệu vào series
+	    for (String range : allRanges) {
+	        // Dữ liệu cho xe máy
+	        Integer bikeCount = bikeParkingData.getOrDefault(range, 0);
+	        bikeSeries.getData().add(new XYChart.Data<>(range, bikeCount));
+
+	        // Dữ liệu cho ô tô
+	        Integer carCount = carParkingData.getOrDefault(range, 0);
+	        carSeries.getData().add(new XYChart.Data<>(range, carCount));
+	    }
+
+	    return List.of(bikeSeries, carSeries);
+	}
 
 }
