@@ -37,10 +37,8 @@ public class UserEntity extends BaseEntity {
     @Column(name = "email", unique = true)
     private String email;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_role",
-            joinColumns = @JoinColumn(name = "user_id", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "role_id", nullable = false))
-    private List<RoleEntity> roles = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "roleid", nullable = false)
+    private RoleEntity role;
 
 }

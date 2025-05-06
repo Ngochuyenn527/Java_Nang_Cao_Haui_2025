@@ -21,7 +21,7 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
 
     @Override
     public List<UserEntity> findByRoleCode(String roleCode) {
-        String jpql = "SELECT u FROM UserEntity u JOIN u.roles r WHERE r.code = :roleCode AND u.status = 1";
+        String jpql = "SELECT u FROM UserEntity u WHERE u.role.code = :roleCode AND u.status = 1";
         TypedQuery<UserEntity> query = entityManager.createQuery(jpql, UserEntity.class);
         query.setParameter("roleCode", roleCode);
         return query.getResultList();
