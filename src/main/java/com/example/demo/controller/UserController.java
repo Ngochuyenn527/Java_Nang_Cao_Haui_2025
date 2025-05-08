@@ -24,8 +24,8 @@ public class UserController {
 
     @Operation(summary = "API get all users which have status = 1")
     @GetMapping
-    public ResponseEntity<List<UserDTO>> getAllUsers() {
-        return ResponseEntity.ok(userService.getAllUsers());
+    public ResponseEntity<List<UserDTO>> getAllUsersHasStatus1() {
+        return ResponseEntity.ok(userService.getAllUsersHasStatus1());
     }
 
 

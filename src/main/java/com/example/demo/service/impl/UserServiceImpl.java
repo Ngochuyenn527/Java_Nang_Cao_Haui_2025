@@ -42,8 +42,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDTO> getAllUsers() {
-        List<UserEntity> userEntities = userRepository.getAllUsers();
+    public List<UserDTO> getAllUsersHasStatus1() {
+        List<UserEntity> userEntities = userRepository.getAllUsersHasStatus1();
         List<UserDTO> results = new ArrayList<>();
         for (UserEntity userEntity : userEntities) {
             UserDTO userDTO = userConverter.convertToUserDto(userEntity);
@@ -67,7 +67,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDTO> getUsersByRoleCode(String roleCode) {
-        List<UserEntity> entities = userRepository.findByRoleCode(roleCode);
+        List<UserEntity> entities = userRepository.getByRoleCode(roleCode);
         return entities.stream().map(userConverter::convertToUserDto).toList();
     }
 

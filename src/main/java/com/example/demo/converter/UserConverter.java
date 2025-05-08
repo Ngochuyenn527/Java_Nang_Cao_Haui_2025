@@ -14,13 +14,11 @@ public class UserConverter {
     private ModelMapper modelMapper;
 
     public UserDTO convertToUserDto (UserEntity entity){
-        UserDTO result = modelMapper.map(entity, UserDTO.class);
-        return result;
+        return modelMapper.map(entity, UserDTO.class);
     }
 
     public UserEntity convertToUserEntity (UserDTO dto){
-        UserEntity result = modelMapper.map(dto, UserEntity.class);
-        return result;
+        return  modelMapper.map(dto, UserEntity.class);
     }
     
 }

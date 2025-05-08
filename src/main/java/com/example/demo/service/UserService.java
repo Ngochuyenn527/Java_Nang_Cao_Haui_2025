@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UserService {
 
-    List<UserDTO> getAllUsers();
+    List<UserDTO> getAllUsersHasStatus1();
 
     UserDTO getUserById(long id);
 

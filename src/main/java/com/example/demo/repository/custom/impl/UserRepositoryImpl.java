@@ -20,7 +20,7 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
     private EntityManager entityManager;
 
     @Override
-    public List<UserEntity> findByRoleCode(String roleCode) {
+    public List<UserEntity> getByRoleCode(String roleCode) {
         String jpql = "SELECT u FROM UserEntity u WHERE u.role.code = :roleCode AND u.status = 1";
         TypedQuery<UserEntity> query = entityManager.createQuery(jpql, UserEntity.class);
         query.setParameter("roleCode", roleCode);
@@ -28,7 +28,7 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
     }
 
     @Override
-    public List<UserEntity> getAllUsers() {
+    public List<UserEntity> getAllUsersHasStatus1() {
         String sql = "SELECT * FROM user u WHERE u.status = 1";
         Query query = entityManager.createNativeQuery(sql.toString(), UserEntity.class);
         return query.getResultList();

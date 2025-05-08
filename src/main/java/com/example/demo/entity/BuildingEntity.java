@@ -50,4 +50,12 @@ public class BuildingEntity extends BaseEntity  {
 
     @Column(name = "car_parking_monthly")
     private Long carParkingMonthly;
+
+    // Mối quan hệ với SectorEntity (1 building thuộc 1 sector)
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "sector_id")
+//    private SectorEntity sector;
+
 }
+
+
