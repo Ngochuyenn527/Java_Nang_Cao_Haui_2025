@@ -59,32 +59,39 @@ public class SectorServiceImpl implements SectorService {
     @Override
     @Transactional
     public SectorDTO addSector(SectorDTO sectorDTO) {
-        SectorEntity sectorEntity = sectorConverter.convertToSectorEntity(sectorDTO);
-        SectorEntity savedSector = sectorRepository.save(sectorEntity);
-        return sectorConverter.convertToSectorDto(savedSector);
+        try {
+            SectorEntity sectorEntity = sectorConverter.convertToSectorEntity(sectorDTO);
+            sectorRepository.save(sectorEntity);
+            return sectorDTO;
+        } catch (Exception e) {
+            throw new RuntimeException("Có lỗi xảy ra khi thêm phân khu: " + e.getMessage());
+        }
     }
 
     @Override
     @Transactional
     public SectorDTO updateSector(Long id, SectorDTO sectorDTO) {
-        // Kiểm tra xem phân khu có tồn tại không
-        SectorEntity existingSector = checkSectorById(id);
+        try {
+            SectorEntity existingSector = checkSectorById(id);
 
-        // Map DTO sang Entity và giữ lại thông tin cần thiết
-        SectorEntity sectorEntity = sectorConverter.convertToSectorEntity(sectorDTO);
-        sectorEntity.setId(id); // Đảm bảo Hibernate biết là cập nhật
+            SectorEntity updatedSector = sectorConverter.convertToSectorEntity(sectorDTO);
+            updatedSector.setId(id);
 
-        // Lưu phân khu đã cập nhật vào database
-        SectorEntity updatedSector = sectorRepository.save(sectorEntity);
-        return sectorConverter.convertToSectorDto(updatedSector);
+            sectorRepository.save(updatedSector);
+            return sectorDTO;
+        } catch (Exception e) {
+            throw new RuntimeException("Có lỗi xảy ra khi cập nhật phân khu: " + e.getMessage());
+        }
     }
 
     @Override
     @Transactional
     public void deleteSector(Long id) {
-        // Kiểm tra phân khu có tồn tại không
-        checkSectorById(id);
-        // Xóa phân khu khỏi database
-        sectorRepository.deleteById(id);
+        try {
+            SectorEntity existingSector = checkSectorById(id);
+            sectorRepository.delete(existingSector);
+        } catch (Exception e) {
+            throw new RuntimeException("Có lỗi xảy ra khi xóa phân khu: " + e.getMessage());
+        }
     }
 }

@@ -10,7 +10,7 @@ public interface UserService {
 
     List<UserDTO> getAllUsersHasStatus1();
 
-    UserDTO getUserById(long id);
+    UserDTO getUserById(Long id);
 
     UserDTO getUserByUserNameAndStatus(String name, int status);
 
@@ -20,9 +20,9 @@ public interface UserService {
 
     UserDTO updateUser(Long id, UserDTO userDTO);
 
-    void updatePassword(long id, PasswordDTO userDTO) throws MyExceptionConfig;
+    void updatePassword(Long id, PasswordDTO userDTO) throws MyExceptionConfig;
 
-    UserDTO resetPassword(long id);
+    UserDTO resetPassword(Long id);
 
     void deleteUser(Long id);
 }

@@ -8,7 +8,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,13 +32,13 @@ public class BuildingController {
     @Operation(summary = "API get building by id")
     @GetMapping("/{id}")
     public ResponseEntity<BuildingDTO> getBuildingById(@PathVariable Long id) {
-        return ResponseEntity.ok( buildingService.getBuildingById(id));
+        return ResponseEntity.ok(buildingService.getBuildingById(id));
     }
 
 
     @Operation(summary = "API add new building")
     @PostMapping
-    public ResponseEntity<BuildingDTO> addBuilding(@Valid @RequestBody BuildingDTO buildingDTO) {
+    public ResponseEntity<BuildingDTO> addBuilding(@RequestBody BuildingDTO buildingDTO) {
         return ResponseEntity.ok(buildingService.addBuilding(buildingDTO));
     }
 

@@ -8,7 +8,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -36,35 +35,34 @@ public class SectorEntity extends BaseEntity {
     @Column(name = "total_area")
     private Double totalArea;
 
-    @JsonProperty("maxFloors")  // Ánh xạ từ JSON với snake_case thành max_floors
+    @JsonProperty("maxFloors")
     @Column(name = "max_floors")
     private Integer maxFloors;
 
-    @JsonProperty("description")  // Ánh xạ từ JSON với snake_case thành description
+    @JsonProperty("description")
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
-    @JsonProperty("managerName")  // Ánh xạ từ JSON với snake_case thành manager_name
+    @JsonProperty("managerName")
     @Column(name = "manager_name")
     private String managerName;
 
-    @JsonProperty("status")  // Ánh xạ từ JSON với snake_case thành status
+    @JsonProperty("status")
     @Column(name = "status")
     private String status;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @JsonProperty("startDate")  // Ánh xạ từ JSON với snake_case thành start_date
+    @JsonProperty("startDate")
     @Column(name = "start_date")
     private Date startDate;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
-    @JsonProperty("expectedCompletionDate")  // Ánh xạ từ JSON với snake_case thành expected_completion_date
+    @JsonProperty("expectedCompletionDate")
     @Column(name = "expected_completion_date")
     private Date expectedCompletionDate;
 
-
     // Mối quan hệ với BuildingEntity (1 sector có nhiều building)
-//    @OneToMany(mappedBy = "sector", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private List<BuildingEntity> buildings;
+    @OneToMany(mappedBy = "sector", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<BuildingEntity> buildings;
 
 }

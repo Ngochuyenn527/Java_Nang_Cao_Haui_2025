@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,6 +10,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@JsonIgnoreProperties(ignoreUnknown = true)
+
 public class BuildingEntity extends BaseEntity  {
 
     @Column(name = "code")
@@ -52,9 +55,9 @@ public class BuildingEntity extends BaseEntity  {
     private Long carParkingMonthly;
 
     // Mối quan hệ với SectorEntity (1 building thuộc 1 sector)
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "sector_id")
-//    private SectorEntity sector;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sector_id")
+    private SectorEntity sector;
 
 }
 

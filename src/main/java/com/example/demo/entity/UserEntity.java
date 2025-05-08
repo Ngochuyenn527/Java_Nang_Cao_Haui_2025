@@ -38,7 +38,7 @@ public class UserEntity extends BaseEntity {
     private String email;
 
     @ManyToOne
-    @JoinColumn(name = "roleid", nullable = false)
+    @JoinColumn(name = "role_id", nullable = false)
     private RoleEntity role;
 
 }

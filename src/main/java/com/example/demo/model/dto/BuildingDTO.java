@@ -1,16 +1,13 @@
 package com.example.demo.model.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.*;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-
-//hứng data được điền trong các field của chức năng thêm, sửa tòa nhà
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-//@JsonIgnoreProperties(ignoreUnknown = true)
-public class BuildingDTO  extends AbstractDTO {
+public class BuildingDTO extends AbstractDTO {
     private String code;
     private String name;
     private String address;
@@ -24,5 +21,6 @@ public class BuildingDTO  extends AbstractDTO {
     private Integer numberBasement;
     private Long bikeParkingMonthly;
     private Long carParkingMonthly;
-//    private Long sector_id;
+
+    private SectorDTO sector;
 }

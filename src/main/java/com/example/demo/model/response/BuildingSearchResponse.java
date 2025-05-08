@@ -1,10 +1,12 @@
 package com.example.demo.model.response;
 
-
 import com.example.demo.model.dto.AbstractDTO;
-import lombok.*;
+import com.example.demo.model.dto.SectorDTO;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-//hứng data kết quả tòa nhà tìm kiếm được
+//hứng data kết quả tòa nhà tìm kiếm được giống BuildingDTO
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,4 +24,7 @@ public class BuildingSearchResponse extends AbstractDTO {
     private Integer numberBasement;
     private Long bikeParkingMonthly;
     private Long carParkingMonthly;
+
+    private SectorDTO sector;
+
 }

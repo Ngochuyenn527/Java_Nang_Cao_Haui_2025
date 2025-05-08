@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface BuildingService {
 
-    //tìm theo các tiêu chí trong BuildingSearchRequest được nhập vào để tìm kiếm
     List<BuildingSearchResponse> searchBuildings(BuildingSearchRequest buildingSearchRequest);
 
     BuildingDTO getBuildingById(Long id);

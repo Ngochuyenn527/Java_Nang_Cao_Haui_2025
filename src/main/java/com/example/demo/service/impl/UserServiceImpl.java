@@ -3,8 +3,6 @@ package com.example.demo.service.impl;
 import com.example.demo.config.MyExceptionConfig;
 import com.example.demo.constant.SystemConstant;
 import com.example.demo.converter.UserConverter;
-import com.example.demo.entity.BuildingEntity;
-import com.example.demo.entity.RoleEntity;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.model.dto.PasswordDTO;
 import com.example.demo.model.dto.UserDTO;
@@ -15,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,9 +25,6 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private RoleRepository roleRepository;
-
-    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Autowired
@@ -38,7 +34,7 @@ public class UserServiceImpl implements UserService {
     public UserEntity checkUserById(Long id) {
         UserEntity existingUser = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User không tồn tại với ID: " + id));
-       return existingUser;
+        return existingUser;
     }
 
     @Override
@@ -54,7 +50,11 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public UserDTO getUserById(long id) {
+    public UserDTO getUserById(Long id) {
+        if (id == null) {
+            throw new IllegalArgumentException("User ID must not be null!");
+        }
+        // Chuyển đổi Entity -> DTO
         return userConverter.convertToUserDto(userRepository.findById(id).get());
     }
 
@@ -73,51 +73,40 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    @Transactional
     public UserDTO addUser(UserDTO userDTO) {
-        RoleEntity role = roleRepository.findOneByCode(userDTO.getRoleCode());
-        if (role == null) {
-            throw new RuntimeException("Không tìm thấy role với code: " + userDTO.getRoleCode());
+        try {
+            UserEntity entity = userConverter.convertToUserEntity(userDTO);
+            entity.setStatus(1);
+            entity.setPassword(passwordEncoder.encode(SystemConstant.PASSWORD_DEFAULT));
+            userRepository.save(entity);
+            return userConverter.convertToUserDto(entity);
+        } catch (Exception e) {
+            throw new RuntimeException("Có lỗi xảy ra khi thêm user: " + e.getMessage());
         }
-
-        // Map lại entity từ DTO
-        UserEntity userEntity = userConverter.convertToUserEntity(userDTO);
-
-        userEntity.setRole(role);
-        userEntity.setStatus(1);
-        userEntity.setPassword(passwordEncoder.encode(SystemConstant.PASSWORD_DEFAULT));
-
-        return userConverter.convertToUserDto(userRepository.save(userEntity));
     }
 
-
     @Override
-    @Transactional
     public UserDTO updateUser(Long id, UserDTO userDTO) {
-        UserEntity existingUser = checkUserById(id);
+        try {
+            UserEntity existingUser = checkUserById(id);
+            UserEntity updatedUser = userConverter.convertToUserEntity(userDTO);
 
-        RoleEntity role = roleRepository.findOneByCode(userDTO.getRoleCode());
-        if (role == null) {
-            throw new RuntimeException("Không tìm thấy role với code: " + userDTO.getRoleCode());
+            updatedUser.setId(id);
+            updatedUser.setUserName(existingUser.getUserName());
+            updatedUser.setStatus(existingUser.getStatus());
+            updatedUser.setPassword(existingUser.getPassword());
+
+            userRepository.save(updatedUser);
+            return userConverter.convertToUserDto(updatedUser);
+        } catch (Exception e) {
+            throw new RuntimeException("Có lỗi xảy ra khi cập nhật user: " + e.getMessage());
         }
-
-        // Map lại entity từ DTO
-        UserEntity userEntity = userConverter.convertToUserEntity(userDTO);
-
-        // Giữ lại thông tin cũ cần thiết
-        userEntity.setId(id); // BẮT BUỘC: để Hibernate biết là update
-        userEntity.setUserName(existingUser.getUserName()); // Giữ nguyên vì UNIQUE
-        userEntity.setStatus(existingUser.getStatus());  // Giữ nguyên trạng thái
-        userEntity.setPassword(existingUser.getPassword()); // Giữ nguyên password
-        userEntity.setRole(role);
-
-        return userConverter.convertToUserDto(userRepository.save(userEntity));
     }
 
 
     @Override
     @Transactional
-    public void updatePassword(long id, PasswordDTO passwordDTO) throws MyExceptionConfig {
+    public void updatePassword(Long id, PasswordDTO passwordDTO) throws MyExceptionConfig {
         UserEntity existingUser = checkUserById(id);
 
         if (passwordEncoder.matches(passwordDTO.getOldPassword(), existingUser.getPassword())
@@ -132,23 +121,25 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
-    public UserDTO resetPassword(long id) {
-        UserEntity userEntity = userRepository.findById(id).get();
-        userEntity.setPassword(passwordEncoder.encode(SystemConstant.PASSWORD_DEFAULT));
-        return userConverter.convertToUserDto(userRepository.save(userEntity));
+    public UserDTO resetPassword(Long id) {
+        try {
+            UserEntity entity = checkUserById(id);
+            entity.setPassword(passwordEncoder.encode(SystemConstant.PASSWORD_DEFAULT));
+            userRepository.save(entity);
+            return userConverter.convertToUserDto(entity);
+        } catch (Exception e) {
+            throw new RuntimeException("Có lỗi xảy ra khi reset mật khẩu: " + e.getMessage());
+        }
     }
-
 
     @Override
-    @Transactional
     public void deleteUser(Long id) {
-        if (!userRepository.existsById(id)) {
-            throw new RuntimeException("Không tìm thấy user với ID: " + id);
+        try {
+            UserEntity entity = checkUserById(id);
+            entity.setStatus(0);
+            userRepository.save(entity);
+        } catch (Exception e) {
+            throw new RuntimeException("Có lỗi xảy ra khi xóa user: " + e.getMessage());
         }
-        UserEntity userEntity = userRepository.findById(id).get();
-        userEntity.setStatus(0);
-        userRepository.save(userEntity);
     }
-
 }
