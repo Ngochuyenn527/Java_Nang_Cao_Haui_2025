@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="1500.0" styleClass="login-bg" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.views.ManagerViewController">
+   <top>
+      <AnchorPane prefHeight="81.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="31.0" layoutY="27.0" styleClass="label-header" text="Trang quản trị" />
+            <Button layoutX="1401.0" layoutY="28.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Logout" />
+            <Button fx:id="btnChanPwd" layoutX="1291.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleChangePassword" prefHeight="25.0" prefWidth="92.0" text="Đổi mật khẩu" />
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="968.0" prefWidth="180.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="25.0" layoutY="59.0" prefHeight="200.0" prefWidth="100.0" styleClass="inner-bg" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+               <children>
+                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="53.0" prefWidth="110.0">
+                     <children>
+                        <Button fx:id="btnSectorMng" layoutX="63.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleSectorMng" text="Quản lý phân khu" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="117.0" prefHeight="53.0" prefWidth="110.0">
+                     <children>
+                        <Button fx:id="btnBuildMng" layoutX="63.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBuildingMng" text="Quản lý tòa nhà" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="53.0" prefWidth="110.0">
+                     <children>
+                        <Button fx:id="btnApartMng" layoutX="63.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleApartMng" text="Quản lý căn hộ" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="53.0" prefWidth="110.0">
+                     <children>
+                        <Button fx:id="btnAccMng" layoutX="71.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleAccMng" text="Quản lý tài khoản" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                     </children>
+                  </AnchorPane>
+               </children></VBox>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+   <StackPane fx:id="stackPaneMain" BorderPane.alignment="CENTER">
+      <BorderPane fx:id="paneBuildingManager" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <BorderPane prefHeight="302.0" prefWidth="1303.0" BorderPane.alignment="CENTER">
+               <top>
+                  <AnchorPane prefHeight="228.0" prefWidth="1318.0" BorderPane.alignment="CENTER">
+                        <children>
+                        <TextField fx:id="txtname" layoutX="45.0" layoutY="26.0" prefHeight="25.0" prefWidth="213.0" promptText="Tên tòa nhà" />
+                        <TextField fx:id="txtward" layoutX="375.0" layoutY="26.0" prefHeight="25.0" prefWidth="211.0" promptText="Phường" />
+                        <TextField fx:id="txtdistrict" layoutX="704.0" layoutY="26.0" prefHeight="26.0" prefWidth="208.0" promptText="Quận" />
+                        <TextField fx:id="txtrank" layoutX="1016.0" layoutY="26.0" prefHeight="26.0" prefWidth="196.0" promptText="Phân loại" />
+                        <TextField fx:id="txtareaFrom" layoutX="46.0" layoutY="80.0" prefHeight="25.0" prefWidth="212.0" promptText="Diện tích từ" />
+                        <TextField fx:id="txtareaTo" layoutX="375.0" layoutY="80.0" prefHeight="26.0" prefWidth="210.0" promptText="Diện tích tới" />
+                        <TextField fx:id="txtnumberLivingFloor" layoutX="704.0" layoutY="80.0" prefHeight="25.0" prefWidth="208.0" promptText="Số phòng" />
+                        <TextField fx:id="txtnumberBasement" layoutX="1016.0" layoutY="80.0" prefHeight="26.0" prefWidth="197.0" promptText="Số tầng hầm" />
+                        <TextField fx:id="txtsellingPrice" layoutX="46.0" layoutY="132.0" prefHeight="25.0" prefWidth="211.0" promptText="Giá bán" />
+                        <Button fx:id="btnsearch" layoutX="22.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleSearch" text="Tìm kiếm" />
+                        <Button fx:id="btnfet" layoutX="987.0" layoutY="181.0" minHeight="20.0" mnemonicParsing="false" onAction="#fetchDataFromApi" prefHeight="26.0" prefWidth="73.0" text="Làm mới" />
+                        <Button fx:id="btnEdit" layoutX="1089.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="25.0" prefWidth="48.0" text="Sửa" />
+                        <Button fx:id="btnDelete" layoutX="1165.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleDeleteBuilding" prefHeight="25.0" prefWidth="50.0" text="Xóa" />
+                        <Button fx:id="btnAdd" layoutX="1249.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleAddBuilding" prefHeight="25.0" prefWidth="50.0" text="Thêm" />
+                        </children>
+                  </AnchorPane>
+               </top>
+                  <center>
+                  <AnchorPane prefHeight="529.0" prefWidth="1320.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <TableView fx:id="buildingList" layoutX="16.8" layoutY="-256.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1303.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn fx:id="name" prefWidth="100.0" text="Tên tòa nhà" />
+                              <TableColumn fx:id="address" prefWidth="150.0" text="Địa chỉ" />
+                              <TableColumn fx:id="developerName" prefWidth="100.0" text="Nhà đầu tư" />
+                              <TableColumn fx:id="rank" prefWidth="75.0" text="Phân loại" />
+                              <TableColumn fx:id="totalArea" prefWidth="100.0" text="Tổng diện tích" />
+                              <TableColumn fx:id="minSellingPrice" prefWidth="100.0" text="Giá bán tối thiểu" />
+                              <TableColumn fx:id="maxSellingPrice" prefWidth="100.0" text="Giá bán tối đa" />
+                              <TableColumn fx:id="numberEle" prefWidth="100.0" text="Số thang máy" />
+                              <TableColumn fx:id="numberLivingFloor" prefWidth="100.0" text="Số phòng" />
+                              <TableColumn fx:id="numberBasement" prefWidth="100.0" text="Số tầng hầm" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+                  </center>
+            </BorderPane>
+         </center>
+      </BorderPane>
+      <BorderPane fx:id="paneApartManager" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" managed="false" visible="false">
+         <center>
+            <BorderPane prefHeight="302.0" prefWidth="1303.0" BorderPane.alignment="CENTER">
+               <top>
+                  <AnchorPane prefHeight="228.0" prefWidth="1318.0" BorderPane.alignment="CENTER">
+                        <children>
+                        <Button fx:id="btnEditApart" layoutX="1003.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleEditApart" prefHeight="25.0" prefWidth="48.0" text="Sửa" />
+                        <Button fx:id="btnDeleteApart" layoutX="1086.0" layoutY="182.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="Xóa" />
+                        <Button fx:id="btnAddApart" layoutX="1173.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleAddApart" prefHeight="26.0" prefWidth="126.0" text="Thêm căn hộ" />
+                           <TextField fx:id="txtSearchByFloor" layoutX="422.0" layoutY="29.0" prefHeight="42.0" prefWidth="706.0" />
+                           <ComboBox fx:id="cbbSearchByStatus" layoutX="422.0" layoutY="93.0" prefHeight="43.0" prefWidth="306.0" />
+                           <Label layoutX="56.0" layoutY="30.0" text="Tìm kiếm theo tầng">
+                              <font>
+                                 <Font size="28.0" />
+                              </font>
+                           </Label>
+                           <Button fx:id="btnSearchbyFloor" layoutX="1186.0" layoutY="28.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="71.0" text="Tìm kiếm" />
+                           <Label layoutX="56.0" layoutY="95.0" text="Tìm kiếm theo trạng thái">
+                              <font>
+                                 <Font size="28.0" />
+                              </font>
+                           </Label>
+                           <Button fx:id="btnSearchByStatus" layoutX="1186.0" layoutY="99.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="71.0" text="Tìm kiếm" />
+                        </children>
+                  </AnchorPane>
+               </top>
+                  <center>
+                  <AnchorPane prefHeight="529.0" prefWidth="1320.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <TableView fx:id="buildingList" layoutX="16.8" layoutY="-256.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1303.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn fx:id="name" prefWidth="100.0" text="Tên tòa nhà" />
+                              <TableColumn fx:id="address" prefWidth="150.0" text="Địa chỉ" />
+                              <TableColumn fx:id="developerName" prefWidth="100.0" text="Nhà đầu tư" />
+                              <TableColumn fx:id="rank" prefWidth="75.0" text="Phân loại" />
+                              <TableColumn fx:id="totalArea" prefWidth="100.0" text="Tổng diện tích" />
+                              <TableColumn fx:id="minSellingPrice" prefWidth="100.0" text="Giá bán tối thiểu" />
+                              <TableColumn fx:id="maxSellingPrice" prefWidth="100.0" text="Giá bán tối đa" />
+                              <TableColumn fx:id="numberEle" prefWidth="100.0" text="Số thang máy" />
+                              <TableColumn fx:id="numberLivingFloor" prefWidth="100.0" text="Số phòng" />
+                              <TableColumn fx:id="numberBasement" prefWidth="100.0" text="Số tầng hầm" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+                  </center>
+            </BorderPane>
+         </center>
+      </BorderPane>
+      <BorderPane fx:id="paneSectorManager" managed="false" prefHeight="200.0" prefWidth="200.0" visible="false" BorderPane.alignment="CENTER">
+         <center>
+            <BorderPane prefHeight="302.0" prefWidth="1303.0" BorderPane.alignment="CENTER">
+               <top>
+                  <AnchorPane prefHeight="228.0" prefWidth="1318.0" BorderPane.alignment="CENTER">
+                        <children>
+                        <Button fx:id="btnEdit" layoutX="1089.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="25.0" prefWidth="48.0" text="Sửa" />
+                        <Button fx:id="btnDelete" layoutX="1165.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleDeleteBuilding" prefHeight="25.0" prefWidth="50.0" text="Xóa" />
+                        <Button fx:id="btnAdd" layoutX="1249.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleAddBuilding" prefHeight="25.0" prefWidth="50.0" text="Thêm" />
+                           <TextField layoutX="422.0" layoutY="29.0" prefHeight="42.0" prefWidth="706.0" />
+                           <ComboBox layoutX="422.0" layoutY="93.0" prefHeight="43.0" prefWidth="306.0" />
+                           <Label layoutX="85.0" layoutY="30.0" text="Tìm kiếm theo vị trí">
+                              <font>
+                                 <Font size="28.0" />
+                              </font>
+                           </Label>
+                           <Button layoutX="1186.0" layoutY="28.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="71.0" text="Button" />
+                           <Label layoutX="85.0" layoutY="95.0" text="Tìm kiếm theo trạng thái">
+                              <font>
+                                 <Font size="28.0" />
+                              </font>
+                           </Label>
+                           <Button layoutX="1186.0" layoutY="99.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="71.0" text="Button" />
+                        </children>
+                  </AnchorPane>
+               </top>
+                  <center>
+                  <AnchorPane prefHeight="529.0" prefWidth="1320.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <TableView fx:id="buildingList" layoutX="16.8" layoutY="-256.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1303.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn fx:id="name" prefWidth="100.0" text="Tên tòa nhà" />
+                              <TableColumn fx:id="address" prefWidth="150.0" text="Địa chỉ" />
+                              <TableColumn fx:id="developerName" prefWidth="100.0" text="Nhà đầu tư" />
+                              <TableColumn fx:id="rank" prefWidth="75.0" text="Phân loại" />
+                              <TableColumn fx:id="totalArea" prefWidth="100.0" text="Tổng diện tích" />
+                              <TableColumn fx:id="minSellingPrice" prefWidth="100.0" text="Giá bán tối thiểu" />
+                              <TableColumn fx:id="maxSellingPrice" prefWidth="100.0" text="Giá bán tối đa" />
+                              <TableColumn fx:id="numberEle" prefWidth="100.0" text="Số thang máy" />
+                              <TableColumn fx:id="numberLivingFloor" prefWidth="100.0" text="Số phòng" />
+                              <TableColumn fx:id="numberBasement" prefWidth="100.0" text="Số tầng hầm" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+                  </center>
+            </BorderPane>
+         </center>
+      </BorderPane>
+      <BorderPane fx:id="paneUserManager" managed="false" prefHeight="200.0" prefWidth="200.0" visible="false">
+         <top>
+            <AnchorPane prefHeight="91.0" prefWidth="826.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button layoutX="37.0" layoutY="33.0" mnemonicParsing="false" text="Thêm tài khoản" />
+                  <Button layoutX="168.0" layoutY="33.0" mnemonicParsing="false" text="Sửa" />
+                  <Button layoutX="237.0" layoutY="33.0" mnemonicParsing="false" text="Xóa" />
+                  <Button layoutX="749.0" layoutY="33.0" mnemonicParsing="false" text="Tìm kiếm" />
+                  <TextField layoutX="470.0" layoutY="33.0" prefHeight="26.0" prefWidth="266.0" promptText="Tìm kiếm theo tên" />
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn prefWidth="200.0" text="Id" />
+                <TableColumn prefWidth="200.0" text="Tên đăng nhập" />
+                  <TableColumn prefWidth="225.6" text="Tên đầy đủ" />
+                  <TableColumn prefWidth="200.0" text="Vai trò" />
+              </columns>
+            </TableView>
+         </center>
+      </BorderPane>
+   </StackPane>
+   </center>
+</BorderPane>

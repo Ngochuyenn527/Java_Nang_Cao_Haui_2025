@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.views;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -16,46 +16,18 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class BuildingEditViewController {
+public class BuildingAddViewController {
 
     @FXML private TextField txtCode, txtName, txtWard, txtDistrict, txtDeveloperName, txtRank;
     @FXML private TextField txtTotalArea, txtMinPrice, txtMaxPrice;
     @FXML private TextField txtNumberEle, txtNumberLivingFloor, txtNumberBasement;
     @FXML private TextField txtBikeParkingMonthly, txtCarParkingMonthly;
     
-    @FXML private Button btnEdit;
+    @FXML private Button btnAdd;
 
-    private Long buildingId; // Biến để lưu ID của tòa nhà
-
-    public void setData(BuildingDTO dto, Long buildingId) {
-        this.buildingId = buildingId; // Lưu ID khi truyền đến
-        txtCode.setText(dto.getCode());
-        txtName.setText(dto.getName());
-        txtDeveloperName.setText(dto.getDeveloperName());
-        txtRank.setText(dto.getRank());
-        txtTotalArea.setText(String.valueOf(dto.getTotalArea()));
-        txtMinPrice.setText(String.valueOf(dto.getMinSellingPrice()));
-        txtMaxPrice.setText(String.valueOf(dto.getMaxSellingPrice()));
-        txtNumberEle.setText(String.valueOf(dto.getNumberEle()));
-        txtNumberLivingFloor.setText(String.valueOf(dto.getNumberLivingFloor()));
-        txtNumberBasement.setText(String.valueOf(dto.getNumberBasement()));
-        txtBikeParkingMonthly.setText(String.valueOf(dto.getBikeParkingMonthly()));
-        txtCarParkingMonthly.setText(String.valueOf(dto.getCarParkingMonthly()));
-
-        // Cắt address
-        String[] parts = dto.getAddress().split(",");
-        if (parts.length >= 3) {
-            txtWard.setText(parts[0].trim());
-            txtDistrict.setText(parts[1].trim());
-        } else {
-            txtWard.setText("");
-            txtDistrict.setText("");
-        }
-    }
-
-    // Xử lý sự kiện nhấn nút sửa
+    // Xử lý sự kiện nhấn nút thêm tòa nhà
     @FXML
-    public void handleUpdateBuilding() {
+    public void handleAddBuilding() {
         BuildingDTO buildingDTO = new BuildingDTO();
 
         try {
@@ -81,7 +53,7 @@ public class BuildingEditViewController {
             alert.setHeaderText("Dữ liệu nhập vào không hợp lệ");
             alert.setContentText("Vui lòng kiểm tra lại các trường số (diện tích, giá, tầng,...)");
             alert.showAndWait();
-            return; // Dừng xử lý nếu dữ liệu không hợp lệ
+            return;
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Lỗi không xác định");
@@ -91,9 +63,9 @@ public class BuildingEditViewController {
             return;
         }
 
-        // Gửi yêu cầu PUT cập nhật tòa nhà
+        // Gửi yêu cầu POST để thêm tòa nhà
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8081/api/building/" + buildingId;
+        String url = "http://localhost:8081/api/building";
 
         String username = "admin";
         String password = "123456";
@@ -102,27 +74,28 @@ public class BuildingEditViewController {
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Basic " + encodedAuth);
+
         HttpEntity<BuildingDTO> entity = new HttpEntity<>(buildingDTO, headers);
 
         try {
-            ResponseEntity<BuildingDTO> response = restTemplate.exchange(url, HttpMethod.PUT, entity, BuildingDTO.class);
+            ResponseEntity<BuildingDTO> response = restTemplate.exchange(url, HttpMethod.POST, entity, BuildingDTO.class);
 
             if (response.getStatusCode() == HttpStatus.OK) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Cập nhật thành công");
-                alert.setHeaderText("Tòa nhà đã được cập nhật thành công!");
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Thêm thành công");
+                alert.setHeaderText("Tòa nhà đã được thêm mới thành công!");
                 alert.showAndWait();
             } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Cập nhật thất bại");
-                alert.setHeaderText("Có lỗi khi cập nhật tòa nhà.");
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Thêm thất bại");
+                alert.setHeaderText("Có lỗi khi thêm tòa nhà.");
                 alert.setContentText("Mã lỗi: " + response.getStatusCode());
                 alert.showAndWait();
             }
         } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Cập nhật thất bại");
-            alert.setHeaderText("Có lỗi khi cập nhật tòa nhà.");
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Thêm thất bại");
+            alert.setHeaderText("Có lỗi khi thêm tòa nhà.");
             alert.setContentText("Lỗi: " + e.getMessage());
             alert.showAndWait();
         }

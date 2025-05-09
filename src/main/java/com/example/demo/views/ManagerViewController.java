@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.views;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,17 +16,22 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+import org.springframework.boot.autoconfigure.amqp.RabbitProperties.Stream;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 import com.example.demo.model.dto.BuildingDTO;
 import com.example.demo.model.response.BuildingSearchResponse;
 
 import java.net.URLEncoder;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
 
-public class BuildingManagerViewController {
+public class ManagerViewController {
 
     @FXML
     private TextField txtname, txtaddress, txtrank, txtareaFrom, txtareaTo, txtsellingPrice, txtnumberLivingFloor, txtnumberBasement;
@@ -42,13 +47,15 @@ public class BuildingManagerViewController {
     private TableColumn<BuildingSearchResponse, Long> minSellingPrice, maxSellingPrice;
     @FXML
     private TableColumn<BuildingSearchResponse, Integer> numberEle, numberLivingFloor, numberBasement;
+    @FXML
+    private BorderPane paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager;
 
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final RestTemplate restTemplate = new RestTemplate();
 
     public void initialize() {
         setUpTableColumns();
-        fetchDataFromApi(); // Fetch data on initialization
+//        fetchDataFromApi(); // Fetch data on initialization
     }
 
     private void setUpTableColumns() {
@@ -84,7 +91,7 @@ public class BuildingManagerViewController {
     }
 
     private HttpHeaders createAuthHeaders() {
-        String auth = "admin:123456";
+        String auth = "nguyenvana:123456";
         String encodedAuth = Base64.getEncoder().encodeToString(auth.getBytes());
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Basic " + encodedAuth);
@@ -271,26 +278,49 @@ public class BuildingManagerViewController {
         }
     }
     
- // Xử lý sự kiện nhấn nút "Quản lý tài khoản"
     @FXML
     public void handleAccMng() {
-        try {
-            // Tải FXML của cửa sổ quản lý tài khoản
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/UserManagerView.fxml"));
-            Parent root = loader.load();
-
-            // Tạo một Stage mới cho cửa sổ Quản lý tài khoản
-            Stage userManagerStage = new Stage();
-            userManagerStage.setTitle("Quản lý tài khoản");
-            userManagerStage.setScene(new Scene(root));
-
-            // Hiển thị cửa sổ
-            userManagerStage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
+    	showOnly(paneUserManager);
+    }
+    
+    @FXML
+    public void handleSectorMng() {
+    	showOnly(paneSectorManager);
+    }
+    
+    @FXML
+    public void handleBuildingMng() {
+    	showOnly(paneBuildingManager);
+    }
+    
+    @FXML
+    public void handleApartMng() {
+    	showOnly(paneApartManager);
+    }
+    
+    private void showOnly(Pane visiblePane) {
+        List<Pane> panes = Arrays.asList(paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager);
+        for (Pane pane : panes) {
+            boolean isVisible = pane == visiblePane;
+            pane.setVisible(isVisible);
+            pane.setManaged(isVisible);
         }
     }
 
+    @FXML
+    public void handleChangePassword() {
+        
+    }
+    
+    @FXML
+    public void handleEditApart() {
+        
+    }
+    
+    @FXML
+    public void handleAddApart() {
+        
+    }
     
     private void showSuccess(String message) {
         Alert alert = new Alert(AlertType.INFORMATION);
