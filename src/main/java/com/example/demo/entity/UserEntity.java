@@ -17,19 +17,19 @@ import java.util.List;
 @Builder
 public class UserEntity extends BaseEntity {
 
-    @Column(name = "username", nullable = false, unique = true)
+    @Column(name = "username", unique = true)
     private String userName;
 
-    @Column(name = "fullname", nullable = false)
+    @Column(name = "fullname")
     private String fullName;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password")
     private String password;
 
-    @Column(name = "phone", nullable = false)
+    @Column(name = "phone")
     private String phone;
 
-    @Column(name = "status", nullable = false)
+    @Column(name = "status")
     private Integer status;
 
     @Column(name = "email", unique = true)
