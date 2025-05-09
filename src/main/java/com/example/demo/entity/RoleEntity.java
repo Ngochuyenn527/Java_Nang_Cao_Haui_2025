@@ -18,8 +18,6 @@ import java.util.List;
 @Builder
 public class RoleEntity extends BaseEntity {
 
-    private static final long serialVersionUID = -6525302831793188081L;
-
     @Column(name = "name")
     private String name;
 
