@@ -45,6 +45,13 @@ public class BuildingServiceImpl implements BuildingService {
         return existingBuilding;
     }
 
+    // ✅ Kiểm tra Sector theo ID có tồn tại không (sử dụng cho add, update Building khi thêm sector_id), nếu không có thì ném ngoại lệ
+    public SectorEntity checkSectorById(Long id) {
+        SectorEntity existingSector = sectorRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Không tồn tại phân khu với ID: " + id));
+        return existingSector;
+    }
+
 
     @Override
     public List<BuildingSearchResponse> searchBuildings(BuildingSearchRequest buildingSearchRequest) {
@@ -74,7 +81,7 @@ public class BuildingServiceImpl implements BuildingService {
      Yêu cầu:
     Khi thêm Building, nếu có sector_id thì kiểm tra:
 
-        + sector_id đó phải tồn tại.
+        + sector_id đó đã phải tồn tại.
 
         + SectorEntity.location phải chứa (contains) địa chỉ (BuildingDTO.address) (so sánh không phân biệt hoa thường).
 
@@ -83,15 +90,15 @@ public class BuildingServiceImpl implements BuildingService {
     @Override
     public BuildingDTO addBuilding(@Valid BuildingDTO buildingDTO) {
         try {
-            // ✅ Nếu có sector, kiểm tra hợp lệ
+            // Nếu có sector, kiểm tra hợp lệ
             if (buildingDTO.getSector() != null && buildingDTO.getSector().getId() != null) {
-                Long sectorId = buildingDTO.getSector().getId();
-                SectorEntity sector = sectorRepository.findById(sectorId)
-                        .orElseThrow(() -> new RuntimeException("Không tồn tại sector với ID: " + sectorId));
+
+                //check sector_id đó đã phải tồn tại.
+                SectorEntity existingSector = checkSectorById(buildingDTO.getSector().getId());
 
                 // ✅ So sánh location của sector phải chứa address của building (không phân biệt hoa thường)
                 String buildingAddress = buildingDTO.getAddress() != null ? buildingDTO.getAddress().toLowerCase() : "";
-                String sectorLocation = sector.getLocation() != null ? sector.getLocation().toLowerCase() : "";
+                String sectorLocation = existingSector.getLocation() != null ? existingSector.getLocation().toLowerCase() : "";
 
                 if (!buildingAddress.contains(sectorLocation)) {
                     throw new RuntimeException("Địa chỉ tòa nhà không phù hợp với khu vực phân khu. Vui lòng kiểm tra lại sector_id.");
@@ -119,13 +126,13 @@ public class BuildingServiceImpl implements BuildingService {
 
             // ✅ Kiểm tra sector nếu có
             if (buildingDTO.getSector() != null && buildingDTO.getSector().getId() != null) {
-                Long sectorId = buildingDTO.getSector().getId();
-                SectorEntity sector = sectorRepository.findById(sectorId)
-                        .orElseThrow(() -> new RuntimeException("Không tồn tại sector với ID: " + sectorId));
+
+                //check sector_id đó đã phải tồn tại.
+                SectorEntity existingSector = checkSectorById(buildingDTO.getSector().getId());
 
                 // ✅ So sánh location và address (không phân biệt hoa thường)
                 String buildingAddress = buildingDTO.getAddress() != null ? buildingDTO.getAddress().toLowerCase() : "";
-                String sectorLocation = sector.getLocation() != null ? sector.getLocation().toLowerCase() : "";
+                String sectorLocation = existingSector.getLocation() != null ? existingSector.getLocation().toLowerCase() : "";
 
                 if (!buildingAddress.contains(sectorLocation)) {
                     throw new RuntimeException("Địa chỉ tòa nhà không phù hợp với khu vực phân khu. Vui lòng kiểm tra lại sector_id.");
@@ -149,13 +156,10 @@ public class BuildingServiceImpl implements BuildingService {
     @Override
     public void deleteBuilding(Long id) {
         try {
-            BuildingEntity existingBuilding = checkBuildingById(id);
-
-            // ✅ Xóa tòa nhà khỏi cơ sở dữ liệu
-            buildingRepository.delete(existingBuilding);
+            checkBuildingById(id);// Kiểm tra tồn tại
+            buildingRepository.deleteById(id); // Xóa
 
         } catch (RuntimeException e) {
-            // ✅ Xử lý ngoại lệ nếu không tìm thấy tòa nhà hoặc có lỗi trong quá trình xóa
             throw new RuntimeException("Có lỗi xảy ra khi xóa tòa nhà: " + e.getMessage());
         }
     }

@@ -52,5 +52,7 @@ public class ApartmentDTO extends AbstractDTO {
     @JsonProperty("ceiling_height")
     private Double ceilingHeight;
 
+    private BuildingDTO building;
+
 }
 

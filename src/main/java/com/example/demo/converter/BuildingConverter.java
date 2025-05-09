@@ -1,10 +1,7 @@
 package com.example.demo.converter;
 
 import com.example.demo.entity.BuildingEntity;
-import com.example.demo.entity.SectorEntity;
 import com.example.demo.model.dto.BuildingDTO;
-import com.example.demo.model.dto.SectorDTO;
-import com.example.demo.repository.SectorRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,16 +14,14 @@ public class BuildingConverter {
     private ModelMapper modelMapper;
 
     @Autowired
-    private SectorRepository sectorRepository;
-
-    @Autowired
     private SectorConverter sectorConverter;
 
     //chuyển đổi BuildingEntity (be) thành BuildingDTO (fe) dùng modelMapper
     public BuildingDTO convertToBuildingDTO(BuildingEntity entity) {
         BuildingDTO dto = modelMapper.map(entity, BuildingDTO.class);
 
-        if (entity.getSector() != null) {
+        //gán giá trị cho SectorDTO sector khi sector_id được thêm trong Building
+        if (dto.getSector() != null && dto.getSector().getId() != null) {
             dto.setSector(sectorConverter.convertToSectorDto(entity.getSector()));
         }
         return dto;
@@ -36,8 +31,9 @@ public class BuildingConverter {
     public BuildingEntity convertToBuildingEntity(BuildingDTO dto) {
         BuildingEntity entity = modelMapper.map(dto, BuildingEntity.class);
 
+        //gán giá trị cho SectorDTO sector khi sector_id được thêm trong Building
         if (dto.getSector() != null && dto.getSector().getId() != null) {
-             entity.setSector(sectorConverter.convertToSectorEntity(dto.getSector()));
+            entity.setSector(sectorConverter.convertToSectorEntity(dto.getSector()));
         }
         return entity;
     }

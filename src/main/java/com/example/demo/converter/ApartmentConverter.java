@@ -12,12 +12,27 @@ public class ApartmentConverter {
     @Autowired
     private ModelMapper modelMapper;
 
+    @Autowired
+    private BuildingConverter buildingConverter;
+
     public ApartmentDTO convertToApartmentDto(ApartmentEntity entity) {
-        return modelMapper.map(entity, ApartmentDTO.class);
+        ApartmentDTO dto = modelMapper.map(entity, ApartmentDTO.class);
+
+        //gán giá trị cho BuildingDTO building khi building_id đưuọc thêm trong Apartment
+        if (dto.getBuilding() != null && dto.getBuilding().getId() != null) {
+            dto.setBuilding(buildingConverter.convertToBuildingDTO(entity.getBuilding()));
+        }
+        return dto;
     }
 
     public ApartmentEntity convertToApartmentEntity(ApartmentDTO dto) {
-        return modelMapper.map(dto, ApartmentEntity.class);
+        ApartmentEntity entity = modelMapper.map(dto, ApartmentEntity.class);
+
+        //gán giá trị cho BuildingDTO building khi building_id đưuọc thêm trong Apartment
+        if (dto.getBuilding() != null && dto.getBuilding().getId() != null) {
+            entity.setBuilding(buildingConverter.convertToBuildingEntity(dto.getBuilding()));
+        }
+        return entity;
     }
 }
 

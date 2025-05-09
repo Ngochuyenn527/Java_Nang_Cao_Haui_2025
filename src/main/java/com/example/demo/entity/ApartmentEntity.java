@@ -1,9 +1,7 @@
 package com.example.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -70,6 +68,11 @@ public class ApartmentEntity extends BaseEntity {
     @JsonProperty("ceiling_height")
     @Column(name = "ceiling_height")
     private Double ceilingHeight;
+
+    // Mối quan hệ với BuildingEntity (1 apt thuộc 1 building)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "building_id")
+    private BuildingEntity building;
 
 }
 

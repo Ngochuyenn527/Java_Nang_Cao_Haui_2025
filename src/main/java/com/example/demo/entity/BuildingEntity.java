@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "building")
 @Data
@@ -58,6 +60,10 @@ public class BuildingEntity extends BaseEntity  {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sector_id")
     private SectorEntity sector;
+
+    // Mối quan hệ với Apartment (1 building có nhiều apt)
+    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<ApartmentEntity> apartments;
 
 }
 
