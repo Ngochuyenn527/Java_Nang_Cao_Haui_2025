@@ -19,8 +19,8 @@ public class UserDTO extends AbstractDTO {
     private String email;
     private String phone;
     private Integer status;
+
     private String roleCode;
 
-    private List<RoleDTO> roles = new ArrayList<>();
 }
 

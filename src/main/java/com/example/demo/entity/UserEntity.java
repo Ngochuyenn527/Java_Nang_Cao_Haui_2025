@@ -17,8 +17,6 @@ import java.util.List;
 @Builder
 public class UserEntity extends BaseEntity {
 
-    private static final long serialVersionUID = -4988455421375043688L;
-
     @Column(name = "username", nullable = false, unique = true)
     private String userName;
 
@@ -37,10 +35,8 @@ public class UserEntity extends BaseEntity {
     @Column(name = "email", unique = true)
     private String email;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_role",
-            joinColumns = @JoinColumn(name = "user_id", nullable = false),
-            inverseJoinColumns = @JoinColumn(name = "role_id", nullable = false))
-    private List<RoleEntity> roles = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "role_id", nullable = false)
+    private RoleEntity role;
 
 }

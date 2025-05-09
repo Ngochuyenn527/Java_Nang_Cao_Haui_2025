@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
@@ -23,8 +24,8 @@ public class UserController {
 
     @Operation(summary = "API get all users which have status = 1")
     @GetMapping
-    public ResponseEntity<List<UserDTO>> getAllUsers() {
-        return ResponseEntity.ok(userService.getAllUsers());
+    public ResponseEntity<List<UserDTO>> getAllUsersHasStatus1() {
+        return ResponseEntity.ok(userService.getAllUsersHasStatus1());
     }
 
 
@@ -73,6 +74,12 @@ public class UserController {
         } catch (MyExceptionConfig e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Change password failed: " + e.getMessage());
         }
+    }
+
+
+    @PutMapping("/password/{id}/reset")
+    public ResponseEntity<UserDTO> resetPassword(@PathVariable("id") long id) {
+        return ResponseEntity.ok(userService.resetPassword(id));
     }
 
 

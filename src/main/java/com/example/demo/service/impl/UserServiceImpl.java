@@ -3,13 +3,11 @@ package com.example.demo.service.impl;
 import com.example.demo.config.MyExceptionConfig;
 import com.example.demo.constant.SystemConstant;
 import com.example.demo.converter.UserConverter;
-import com.example.demo.entity.RoleEntity;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.model.dto.PasswordDTO;
 import com.example.demo.model.dto.UserDTO;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
-import com.example.demo.repository.custom.UserRepositoryCustom;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,17 +16,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
-
-    @Autowired
-    private RoleRepository roleRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -36,14 +30,19 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserConverter userConverter;
 
+    // ✅ Kiểm tra user theo ID có tồn tại không, nếu không có thì ném ngoại lệ
+    public UserEntity checkUserById(Long id) {
+        UserEntity existingUser = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User không tồn tại với ID: " + id));
+        return existingUser;
+    }
 
     @Override
-    public List<UserDTO> getAllUsers() {
-        List<UserEntity> userEntities = userRepository.getAllUsers();
+    public List<UserDTO> getAllUsersHasStatus1() {
+        List<UserEntity> userEntities = userRepository.getAllUsersHasStatus1();
         List<UserDTO> results = new ArrayList<>();
         for (UserEntity userEntity : userEntities) {
             UserDTO userDTO = userConverter.convertToUserDto(userEntity);
-            userDTO.setRoleCode(userEntity.getRoles().get(0).getCode());
             results.add(userDTO);
         }
         return results;
@@ -51,14 +50,12 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public UserDTO getUserById(long id) {
-        UserEntity entity = userRepository.findById(id).get();
-        List<RoleEntity> roles = entity.getRoles();
-        UserDTO dto = userConverter.convertToUserDto(entity);
-        roles.forEach(item -> {
-            dto.setRoleCode(item.getCode());
-        });
-        return dto;
+    public UserDTO getUserById(Long id) {
+        if (id == null) {
+            throw new IllegalArgumentException("User ID must not be null!");
+        }
+        // Chuyển đổi Entity -> DTO
+        return userConverter.convertToUserDto(userRepository.findById(id).get());
     }
 
 
@@ -70,55 +67,49 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDTO> getUsersByRoleCode(String roleCode) {
-        List<UserEntity> entities = userRepository.findByRoleCode(roleCode);
+        List<UserEntity> entities = userRepository.getByRoleCode(roleCode);
         return entities.stream().map(userConverter::convertToUserDto).toList();
     }
 
 
     @Override
-    @Transactional
-    public UserDTO addUser(UserDTO newUser) {
-        RoleEntity role = roleRepository.findOneByCode(newUser.getRoleCode()); //get role
-        UserEntity userEntity = userConverter.convertToUserEntity(newUser);
-        userEntity.setRoles(Stream.of(role).collect(Collectors.toList())); //add role vao list role cua user đó
-        userEntity.setStatus(1);
-        // ✅ Mã hóa mật khẩu mặc định trước khi lưu (mặc định pass = 123456)
-        userEntity.setPassword(passwordEncoder.encode(SystemConstant.PASSWORD_DEFAULT));
-        return userConverter.convertToUserDto(userRepository.save(userEntity));
+    public UserDTO addUser(UserDTO userDTO) {
+        try {
+            UserEntity entity = userConverter.convertToUserEntity(userDTO);
+            entity.setStatus(1);
+            entity.setPassword(passwordEncoder.encode(SystemConstant.PASSWORD_DEFAULT));
+            userRepository.save(entity);
+            return userConverter.convertToUserDto(entity);
+        } catch (Exception e) {
+            throw new RuntimeException("Có lỗi xảy ra khi thêm user: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public UserDTO updateUser(Long id, UserDTO userDTO) {
+        try {
+            UserEntity existingUser = checkUserById(id);
+            UserEntity updatedUser = userConverter.convertToUserEntity(userDTO);
+
+            updatedUser.setId(id);
+            updatedUser.setUserName(existingUser.getUserName());
+            updatedUser.setStatus(existingUser.getStatus());
+            updatedUser.setPassword(existingUser.getPassword());
+
+            userRepository.save(updatedUser);
+            return userConverter.convertToUserDto(updatedUser);
+        } catch (Exception e) {
+            throw new RuntimeException("Có lỗi xảy ra khi cập nhật user: " + e.getMessage());
+        }
     }
 
 
     @Override
     @Transactional
-    public UserDTO updateUser(Long id, UserDTO updateUser) {
-        UserEntity oldUser = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+    public void updatePassword(Long id, PasswordDTO passwordDTO) throws MyExceptionConfig {
+        UserEntity existingUser = checkUserById(id);
 
-        RoleEntity role = roleRepository.findOneByCode(updateUser.getRoleCode());
-
-        // Map lại entity từ DTO
-        UserEntity userEntity = userConverter.convertToUserEntity(updateUser);
-
-        // Giữ lại thông tin cũ cần thiết
-        userEntity.setId(id); // BẮT BUỘC: để Hibernate biết là update
-        userEntity.setUserName(oldUser.getUserName()); // Giữ nguyên vì UNIQUE
-        userEntity.setStatus(oldUser.getStatus());  // Giữ nguyên trạng thái
-        userEntity.setPassword(oldUser.getPassword()); // Giữ nguyên password
-
-        // Gán role mới
-        userEntity.setRoles(Stream.of(role).toList()); //Trường roles thường không được map đúng qua ModelMapper khi là @ManyToMany quan hệ phức tạp nên cần phải set lại thủ công
-
-        return userConverter.convertToUserDto(userRepository.save(userEntity));
-    }
-
-
-    @Override
-    @Transactional
-    public void updatePassword(long id, PasswordDTO passwordDTO) throws MyExceptionConfig {
-        UserEntity user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
-
-        if (passwordEncoder.matches(passwordDTO.getOldPassword(), user.getPassword())
+        if (passwordEncoder.matches(passwordDTO.getOldPassword(), existingUser.getPassword())
                 && passwordDTO.getNewPassword().equals(passwordDTO.getConfirmPassword())) {
 
             String encodedPassword = passwordEncoder.encode(passwordDTO.getNewPassword());
@@ -130,11 +121,25 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
-    public void deleteUser(Long id) {
-        UserEntity userEntity = userRepository.findById(id).get();
-        userEntity.setStatus(0);
-        userRepository.save(userEntity);
+    public UserDTO resetPassword(Long id) {
+        try {
+            UserEntity entity = checkUserById(id);
+            entity.setPassword(passwordEncoder.encode(SystemConstant.PASSWORD_DEFAULT));
+            userRepository.save(entity);
+            return userConverter.convertToUserDto(entity);
+        } catch (Exception e) {
+            throw new RuntimeException("Có lỗi xảy ra khi reset mật khẩu: " + e.getMessage());
+        }
+    }
 
+    @Override
+    public void deleteUser(Long id) {
+        try {
+            UserEntity entity = checkUserById(id);
+            entity.setStatus(0);
+            userRepository.save(entity);
+        } catch (Exception e) {
+            throw new RuntimeException("Có lỗi xảy ra khi xóa user: " + e.getMessage());
+        }
     }
 }

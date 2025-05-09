@@ -18,17 +18,15 @@ import java.util.List;
 @Builder
 public class RoleEntity extends BaseEntity {
 
-    private static final long serialVersionUID = -6525302831793188081L;
-
     @Column(name = "name")
     private String name;
 
     @Column(name = "code")
     private String code;
 
-    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
-    private List<UserEntity> user = new ArrayList<>();
-
-
+    //sử dụng cascade  → Khi thêm, sửa, xóa RoleEntity, Hibernate sẽ tự động thao tác với UserEntity.
+    //orphanRemoval = true →  Nếu một UserEntity bị xóa khỏi danh sách userEntities, nó sẽ bị xóa khỏi database
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<UserEntity> userEntities = new ArrayList<UserEntity>();
 }
 

@@ -15,10 +15,5 @@ import java.util.Date;
 @AllArgsConstructor
 public class AbstractDTO<T> implements Serializable {
     private Long id;
-    private Date createdDate;
-    private String createdBy;
-    private Date modifiedDate;
-    private String modifiedBy;
-
 }
 

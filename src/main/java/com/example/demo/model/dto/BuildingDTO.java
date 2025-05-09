@@ -1,12 +1,16 @@
 package com.example.demo.model.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-//hứng data được điền trong các field của chức năng thêm, sửa tòa nhà
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BuildingDTO  extends AbstractDTO {
+public class BuildingDTO extends AbstractDTO {
+
+    private SectorDTO sector;
+
     private String code;
     private String name;
     private String address;

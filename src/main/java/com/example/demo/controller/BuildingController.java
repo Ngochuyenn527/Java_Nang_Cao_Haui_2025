@@ -7,8 +7,8 @@ import com.example.demo.service.BuildingService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,9 +21,16 @@ public class BuildingController {
     @Autowired
     private BuildingService buildingService;
 
+    @Operation(summary = "API get all buildings")
+    @GetMapping
+    public ResponseEntity<List<BuildingDTO>> getAllBuildings() {
+        List<BuildingDTO> buildings = buildingService.getAllBuildings();
+        return new ResponseEntity<>(buildings, HttpStatus.OK);
+    }
+
 
     @Operation(summary = "API search building")
-    @GetMapping
+    @GetMapping("/search")
     public List<BuildingSearchResponse> searchBuildings(@ModelAttribute BuildingSearchRequest buildingSearchRequest) {
         List<BuildingSearchResponse> res = buildingService.searchBuildings(buildingSearchRequest);
         return res;
@@ -33,13 +40,13 @@ public class BuildingController {
     @Operation(summary = "API get building by id")
     @GetMapping("/{id}")
     public ResponseEntity<BuildingDTO> getBuildingById(@PathVariable Long id) {
-        return ResponseEntity.ok( buildingService.getBuildingById(id));
+        return ResponseEntity.ok(buildingService.getBuildingById(id));
     }
 
 
     @Operation(summary = "API add new building")
     @PostMapping
-    public ResponseEntity<BuildingDTO> addBuilding(@Valid @RequestBody BuildingDTO buildingDTO) {
+    public ResponseEntity<BuildingDTO> addBuilding(@RequestBody BuildingDTO buildingDTO) {
         return ResponseEntity.ok(buildingService.addBuilding(buildingDTO));
     }
 
