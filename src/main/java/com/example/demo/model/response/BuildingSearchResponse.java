@@ -11,6 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BuildingSearchResponse extends AbstractDTO {
+
+    private SectorDTO sector;
+
     private String code;
     private String name;
     private String address;
@@ -24,7 +27,5 @@ public class BuildingSearchResponse extends AbstractDTO {
     private Integer numberBasement;
     private Long bikeParkingMonthly;
     private Long carParkingMonthly;
-
-    private SectorDTO sector;
 
 }

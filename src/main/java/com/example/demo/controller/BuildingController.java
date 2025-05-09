@@ -22,7 +22,7 @@ public class BuildingController {
     private BuildingService buildingService;
 
     @Operation(summary = "API get all buildings")
-    @GetMapping("/buildings")
+    @GetMapping
     public ResponseEntity<List<BuildingDTO>> getAllBuildings() {
         List<BuildingDTO> buildings = buildingService.getAllBuildings();
         return new ResponseEntity<>(buildings, HttpStatus.OK);
@@ -30,7 +30,7 @@ public class BuildingController {
 
 
     @Operation(summary = "API search building")
-    @GetMapping
+    @GetMapping("/search")
     public List<BuildingSearchResponse> searchBuildings(@ModelAttribute BuildingSearchRequest buildingSearchRequest) {
         List<BuildingSearchResponse> res = buildingService.searchBuildings(buildingSearchRequest);
         return res;

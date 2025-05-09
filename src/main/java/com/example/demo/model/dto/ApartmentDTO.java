@@ -9,6 +9,8 @@ import lombok.*;
 @Builder
 public class ApartmentDTO extends AbstractDTO {
 
+    private BuildingDTO building;
+
     @JsonProperty("code")
     private String code;
 
@@ -51,8 +53,6 @@ public class ApartmentDTO extends AbstractDTO {
 
     @JsonProperty("ceiling_height")
     private Double ceilingHeight;
-
-    private BuildingDTO building;
 
 }
 
