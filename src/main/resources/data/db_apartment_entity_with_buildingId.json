@@ -1,0 +1,59 @@
+[
+  {
+    "code": "Imperia Sky Garden-APT1",
+    "name": "Căn hộ 1 - Imperia Sky Garden",
+    "floor": 27,
+    "area": 95.3,
+    "number_of_bedrooms": 2,
+    "number_of_bathrooms": 2,
+    "price": 6822595528,
+    "status": "Available",
+    "facing_direction": "Tây Nam",
+    "description": "Căn hộ 2PN, tầng 27, nội thất sang trọng, vị trí đẹp.",
+    "view": "View sông",
+    "electricity_price_per_kwh": 2500,
+    "water_price_per_m3": 15000,
+    "ceiling_height": 2.7,
+    "building": {
+      "id": 1
+    }
+  },
+  {
+    "code": "Imperia Sky Garden-APT2",
+    "name": "Căn hộ 2 - Imperia Sky Garden",
+    "floor": 12,
+    "area": 73.0,
+    "number_of_bedrooms": 1,
+    "number_of_bathrooms": 1,
+    "price": 5609911663,
+    "status": "Available",
+    "facing_direction": "Đông",
+    "description": "Căn hộ 1PN, tầng 12, nội thất sang trọng, vị trí đẹp.",
+    "view": "View nội khu",
+    "electricity_price_per_kwh": 2500,
+    "water_price_per_m3": 15000,
+    "ceiling_height": 2.7,
+    "building": {
+      "id": 1
+    }
+  },
+  {
+    "code": "Imperia Sky Garden-APT3",
+    "name": "Căn hộ 3 - Imperia Sky Garden",
+    "floor": 17,
+    "area": 89.6,
+    "number_of_bedrooms": 2,
+    "number_of_bathrooms": 1,
+    "price": 5412721716,
+    "status": "Sold",
+    "facing_direction": "Nam",
+    "description": "Căn hộ 2PN, tầng 17, nội thất sang trọng, vị trí đẹp.",
+    "view": "View thành phố",
+    "electricity_price_per_kwh": 2500,
+    "water_price_per_m3": 15000,
+    "ceiling_height": 2.7,
+    "building": {
+      "id": 1
+    }
+  }
+  ]

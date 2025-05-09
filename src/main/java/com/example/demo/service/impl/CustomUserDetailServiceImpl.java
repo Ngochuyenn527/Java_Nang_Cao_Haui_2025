@@ -44,10 +44,10 @@ public class CustomUserDetailServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException("Username not found");
         }
 
-        //Gán roles thành quyền (authorities) kiểu ROLE_ADMIN, ROLE_USER,...
+        // Gán role thành quyền (authority) duy nhất
         List<GrantedAuthority> authorities = new ArrayList<>();
-        for (RoleDTO role : userDTO.getRoles()) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getCode()));
+        if (userDTO.getRoleCode() != null) {
+            authorities.add(new SimpleGrantedAuthority("ROLE_" + userDTO.getRoleCode()));
         }
 
         //Chuyển UserDTO → MyUserDetail
