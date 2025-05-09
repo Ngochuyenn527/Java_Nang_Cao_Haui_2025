@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface BuildingService {
 
+    List<BuildingDTO> getAllBuildings();
+
     List<BuildingSearchResponse> searchBuildings(BuildingSearchRequest buildingSearchRequest);
 
     BuildingDTO getBuildingById(Long id);

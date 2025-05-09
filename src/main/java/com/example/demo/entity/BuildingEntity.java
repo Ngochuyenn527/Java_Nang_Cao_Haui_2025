@@ -1,7 +1,10 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "building")
@@ -9,6 +12,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@JsonIgnoreProperties(ignoreUnknown = true)
+
 public class BuildingEntity extends BaseEntity  {
 
     @Column(name = "code")
@@ -50,4 +55,16 @@ public class BuildingEntity extends BaseEntity  {
 
     @Column(name = "car_parking_monthly")
     private Long carParkingMonthly;
+
+    // Mối quan hệ với SectorEntity (1 building thuộc 1 sector)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sector_id")
+    private SectorEntity sector;
+
+    // Mối quan hệ với Apartment (1 building có nhiều apt)
+    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<ApartmentEntity> apartments;
+
 }
+
+

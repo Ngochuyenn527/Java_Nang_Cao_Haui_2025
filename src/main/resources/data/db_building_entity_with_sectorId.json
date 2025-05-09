@@ -12,7 +12,10 @@
     "number_living_floor": 27,
     "number_basement": 2,
     "bike_parking_monthly": 45000,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 3
+    }
   },
   {
     "code": "Imperia Smart City",
@@ -27,22 +30,10 @@
     "number_living_floor": 39,
     "number_basement": 1,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1200000
-  },
-  {
-    "code": "Chung cư Lumiere Boulevard",
-    "name": "LUMIÈRE Boulevard",
-    "address": "P. Long Bình, TP. Thủ Đức, TP. Hồ Chí Minh",
-    "developer_name": "Masterise Homes",
-    "rank": "",
-    "total_area": 3.37,
-    "min_selling_price": 3008987658,
-    "max_selling_price": 23463464745,
-    "number_ele": 7,
-    "number_living_floor": 39,
-    "number_basement": 2,
-    "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "MHEG",
@@ -57,22 +48,10 @@
     "number_living_floor": 39,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
-  },
-  {
-    "code": "OCP",
-    "name": "Masteri Waterfront",
-    "address": "X. Đa Tốn, H. Gia Lâm, TP. Hà Nội",
-    "developer_name": "Masterise Group",
-    "rank": "Cao cấp",
-    "total_area": 3.75,
-    "min_selling_price": 1801736701,
-    "max_selling_price": 9364861839,
-    "number_ele": 5,
-    "number_living_floor": 38,
-    "number_basement": 1,
-    "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "MWH",
@@ -87,7 +66,10 @@
     "number_living_floor": 39,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Vinhomes Royal City",
@@ -102,7 +84,10 @@
     "number_living_floor": 35,
     "number_basement": 3,
     "bike_parking_monthly": 45000,
-    "car_parking_monthly": 1250000
+    "car_parking_monthly": 1250000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "VHTC",
@@ -117,37 +102,10 @@
     "number_living_floor": 35,
     "number_basement": 2,
     "bike_parking_monthly": 45000,
-    "car_parking_monthly": 1250000
-  },
-  {
-    "code": "LUMIÈRE Wellspring",
-    "name": "LUMIÈRE SpringBay",
-    "address": "X. Nghĩa Trụ, H. Văn Giang, T. Hưng Yên",
-    "developer_name": "Masterise Homes",
-    "rank": "",
-    "total_area": 3.23,
-    "min_selling_price": 0,
-    "max_selling_price": 0,
-    "number_ele": 4,
-    "number_living_floor": 27,
-    "number_basement": 2,
-    "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
-  },
-  {
-    "code": "VHOP",
-    "name": "Vinhomes Ocean Park",
-    "address": "TT. Trâu Quỳ, H. Gia Lâm, TP. Hà Nội",
-    "developer_name": "Tập đoàn Vingroup - Masterise Group - Mitsuibishi",
-    "rank": "Cao cấp,Trung cấp",
-    "total_area": 423.6,
-    "min_selling_price": 1538007118,
-    "max_selling_price": 139469287262,
-    "number_ele": 4,
-    "number_living_floor": 37,
-    "number_basement": 1,
-    "bike_parking_monthly": 45000,
-    "car_parking_monthly": 1250000
+    "car_parking_monthly": 1250000,
+    "sector": {
+      "id": 3
+    }
   },
   {
     "code": "VHSC",
@@ -162,7 +120,10 @@
     "number_living_floor": 39,
     "number_basement": 1,
     "bike_parking_monthly": 45000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "16B Nguyễn Thái Học",
@@ -177,7 +138,10 @@
     "number_living_floor": 27,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "199 Cowa Tower",
@@ -192,7 +156,10 @@
     "number_living_floor": 23,
     "number_basement": 2,
     "bike_parking_monthly": 80,
-    "car_parking_monthly": 1
+    "car_parking_monthly": 1,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "24 Nguyễn Khuyến",
@@ -207,7 +174,10 @@
     "number_living_floor": 23,
     "number_basement": 1,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "60 Hoàng Quốc Việt",
@@ -222,7 +192,10 @@
     "number_living_floor": 25,
     "number_basement": 1,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "90 Nguyễn Tuân",
@@ -237,7 +210,10 @@
     "number_living_floor": 29,
     "number_basement": 3,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "A1 CT2 Linh Đàm",
@@ -252,7 +228,10 @@
     "number_living_floor": 21,
     "number_basement": 1,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "A10 Nam Trung Yên",
@@ -267,7 +246,10 @@
     "number_living_floor": 37,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "A14 Nam Trung Yên",
@@ -282,7 +264,10 @@
     "number_living_floor": 21,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "AQH Riverside",
@@ -297,7 +282,10 @@
     "number_living_floor": 23,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 900000
+    "car_parking_monthly": 900000,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "AZ Lâm Viên Complex",
@@ -312,7 +300,10 @@
     "number_living_floor": 29,
     "number_basement": 2,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Amber Riverside",
@@ -327,7 +318,10 @@
     "number_living_floor": 23,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 3
+    }
   },
   {
     "code": "An Bình Plaza",
@@ -342,7 +336,10 @@
     "number_living_floor": 31,
     "number_basement": 3,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "An Bình Tower",
@@ -357,7 +354,10 @@
     "number_living_floor": 24,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "An Lạc Phùng Khoang",
@@ -372,7 +372,10 @@
     "number_living_floor": 17,
     "number_basement": 1,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1300000
+    "car_parking_monthly": 1300000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Anland Premium",
@@ -387,7 +390,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Athena Complex Pháp Vân",
@@ -402,7 +408,10 @@
     "number_living_floor": 27,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "BMM Xa La",
@@ -417,22 +426,10 @@
     "number_living_floor": 30,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1100000
-  },
-  {
-    "code": "Bamboo Garden",
-    "name": "Bamboo Garden",
-    "address": "X. Sài Sơn, H. Quốc Oai, TP. Hà Nội",
-    "developer_name": "Công ty CP Đầu tư CEO",
-    "rank": "Bình dân",
-    "total_area": 1.05,
-    "min_selling_price": 1179144686,
-    "max_selling_price": 1778410890,
-    "number_ele": 4,
-    "number_living_floor": 9,
-    "number_basement": 0,
-    "bike_parking_monthly": 60000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1100000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Bea Sky Tower",
@@ -447,7 +444,10 @@
     "number_living_floor": 26,
     "number_basement": 1,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Berriver Jardin",
@@ -462,7 +462,10 @@
     "number_living_floor": 20,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Berriver Long Biên",
@@ -477,7 +480,10 @@
     "number_living_floor": 20,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Bohemia Residence",
@@ -492,7 +498,10 @@
     "number_living_floor": 33,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Booyoung vina",
@@ -507,7 +516,10 @@
     "number_living_floor": 30,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Boss Tower",
@@ -522,7 +534,10 @@
     "number_living_floor": 52,
     "number_basement": 5,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Bình Minh Garden",
@@ -537,7 +552,10 @@
     "number_living_floor": 25,
     "number_basement": 3,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Bình Vượng Tower",
@@ -552,7 +570,10 @@
     "number_living_floor": 30,
     "number_basement": 3,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Bắc Hà Tower",
@@ -567,7 +588,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1300000
+    "car_parking_monthly": 1300000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "C1 C2 Xuân Đỉnh",
@@ -582,7 +606,10 @@
     "number_living_floor": 17,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "C13 C14 Bộ Quốc Phòng",
@@ -597,7 +624,10 @@
     "number_living_floor": 21,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "C14 Bắc Hà",
@@ -612,7 +642,10 @@
     "number_living_floor": 30,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "CT1 Trung Văn",
@@ -627,7 +660,10 @@
     "number_living_floor": 23,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "CT12 Văn Phú",
@@ -642,7 +678,10 @@
     "number_living_floor": 29,
     "number_basement": 3,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "CT13 Ciputra",
@@ -657,7 +696,10 @@
     "number_living_floor": 17,
     "number_basement": 1,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 12
+    }
   },
   {
     "code": "CT2 Trung Văn",
@@ -672,7 +714,10 @@
     "number_living_floor": 17,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "CT3 Lê Đức Thọ",
@@ -687,7 +732,10 @@
     "number_living_floor": 21,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "CT3 Tây Nam Linh Đàm",
@@ -702,7 +750,10 @@
     "number_living_floor": 21,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "CT4 Vimeco",
@@ -717,7 +768,10 @@
     "number_living_floor": 39,
     "number_basement": 4,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "CT5 CT6 Lê Đức Thọ",
@@ -732,7 +786,10 @@
     "number_living_floor": 24,
     "number_basement": 2,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Canal Park",
@@ -747,22 +804,10 @@
     "number_living_floor": 11,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
-  },
-  {
-    "code": "Capital Garden",
-    "name": "Capital Garden",
-    "address": "P. Phương Mai, Q. Đống Đa, TP. Hà Nội",
-    "developer_name": "Công ty TNHH Khách Sạn Kinh Đô",
-    "rank": "Trung cấp",
-    "total_area": 0.51,
-    "min_selling_price": 4301779633,
-    "max_selling_price": 6645812990,
-    "number_ele": 8,
-    "number_living_floor": 21,
-    "number_basement": 3,
-    "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1400000
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Central Field",
@@ -777,7 +822,10 @@
     "number_living_floor": 29,
     "number_basement": 3,
     "bike_parking_monthly": 70000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Chelsea Residences",
@@ -792,22 +840,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1500000
-  },
-  {
-    "code": "Chung cư 101 Láng Hạ",
-    "name": "Chung cư 101 Láng Hạ",
-    "address": "P. Láng Hạ, Q. Đống Đa, TP. Hà Nội",
-    "developer_name": "Công ty CP Xây dựng Số 5",
-    "rank": "",
-    "total_area": 0.18,
-    "min_selling_price": 7033479899,
-    "max_selling_price": 8729622236,
-    "number_ele": 4,
-    "number_living_floor": 28,
-    "number_basement": 2,
-    "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Chung cư 25 Lạc Trung",
@@ -822,7 +858,10 @@
     "number_living_floor": 19,
     "number_basement": 0,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 3
+    }
   },
   {
     "code": "Chung cư 536A Minh Khai",
@@ -837,7 +876,10 @@
     "number_living_floor": 21,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1100000
+    "car_parking_monthly": 1100000,
+    "sector": {
+      "id": 3
+    }
   },
   {
     "code": "Chung cư 57 Vũ Trọng Phụng",
@@ -852,7 +894,10 @@
     "number_living_floor": 15,
     "number_basement": 0,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1100000
+    "car_parking_monthly": 1100000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Chung cư 789 Mỹ Đình",
@@ -867,7 +912,10 @@
     "number_living_floor": 21,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Chung cư 789 Xuân Đỉnh",
@@ -882,7 +930,10 @@
     "number_living_floor": 26,
     "number_basement": 1,
     "bike_parking_monthly": 70000,
-    "car_parking_monthly": 1400000
+    "car_parking_monthly": 1400000,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "Chung cư @Home",
@@ -897,7 +948,10 @@
     "number_living_floor": 21,
     "number_basement": 1,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Chung cư An Lạc",
@@ -912,7 +966,10 @@
     "number_living_floor": 21,
     "number_basement": 1,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Chung cư Ban cơ yếu Chính Phủ",
@@ -927,7 +984,10 @@
     "number_living_floor": 25,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Chung cư Bộ Tư Lệnh Tăng Thiết Giáp",
@@ -942,7 +1002,10 @@
     "number_living_floor": 23,
     "number_basement": 2,
     "bike_parking_monthly": 90,
-    "car_parking_monthly": 1
+    "car_parking_monthly": 1,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Chung cư Hanhud 234 Hoàng Quốc Việt",
@@ -957,7 +1020,10 @@
     "number_living_floor": 17,
     "number_basement": 1,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "Chung cư Hoàng Dương",
@@ -972,7 +1038,10 @@
     "number_living_floor": 22,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Chung cư Học Viện Quốc Phòng",
@@ -987,7 +1056,10 @@
     "number_living_floor": 30,
     "number_basement": 1,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 12
+    }
   },
   {
     "code": "Chung cư Nam Xa La",
@@ -1002,7 +1074,10 @@
     "number_living_floor": 33,
     "number_basement": 2,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Chung cư Nghĩa Đô",
@@ -1017,7 +1092,10 @@
     "number_living_floor": 25,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1100000
+    "car_parking_monthly": 1100000,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "Chung cư Ngô Thì Nhậm",
@@ -1032,7 +1110,10 @@
     "number_living_floor": 26,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Chung cư Sông  Đà 7",
@@ -1047,7 +1128,10 @@
     "number_living_floor": 27,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Chung cư Thông Tấn Xã",
@@ -1062,7 +1146,10 @@
     "number_living_floor": 22,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 800000
+    "car_parking_monthly": 800000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Chung cư Trung Yên 1",
@@ -1077,22 +1164,10 @@
     "number_living_floor": 19,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
-  },
-  {
-    "code": "Chung cư Tân Tây Đô",
-    "name": "Chung cư Tân Tây Đô",
-    "address": "X. Tân Lập, H. Đan Phượng, TP. Hà Nội",
-    "developer_name": "Công ty cổ phần đầu tư Hải Phát",
-    "rank": "Bình dân",
-    "total_area": 4.03,
-    "min_selling_price": 1728512824,
-    "max_selling_price": 3066157181,
-    "number_ele": 3,
-    "number_living_floor": 25,
-    "number_basement": 1,
-    "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1400000
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Chung cư Tây Nam Đại Học Thương Mại",
@@ -1107,7 +1182,10 @@
     "number_living_floor": 17,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Chung cư Vinaconex 1",
@@ -1122,7 +1200,10 @@
     "number_living_floor": 27,
     "number_basement": 2,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Chung cư Vinaconex 7",
@@ -1137,37 +1218,10 @@
     "number_living_floor": 27,
     "number_basement": 2,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1300000
-  },
-  {
-    "code": "Chung cư Viện 103",
-    "name": "Chung cư Viện 103",
-    "address": "X. Tân Triều, H. Thanh Trì, TP. Hà Nội",
-    "developer_name": "Công ty Cổ phần Sông Đà 7",
-    "rank": "Trung cấp",
-    "total_area": 17.1,
-    "min_selling_price": 2645811820,
-    "max_selling_price": 4107744273,
-    "number_ele": 6,
-    "number_living_floor": 25,
-    "number_basement": 1,
-    "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
-  },
-  {
-    "code": "Chung cư Viện Bỏng Lê Hữu Trác",
-    "name": "Chung cư Viện Bỏng Lê Hữu Trác",
-    "address": "X. Tân Triều, H. Thanh Trì, TP. Hà Nội",
-    "developer_name": "Công ty cổ phần đầu tư Đô thị và Khu công nghiệp Sông Đà 7",
-    "rank": "Trung cấp",
-    "total_area": 10.63,
-    "min_selling_price": 2338862201,
-    "max_selling_price": 3700661854,
-    "number_ele": 3,
-    "number_living_floor": 25,
-    "number_basement": 1,
-    "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1300000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Chung cư Đoàn Ngoại Giao",
@@ -1182,7 +1236,10 @@
     "number_living_floor": 35,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1100000
+    "car_parking_monthly": 1100000,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "Chợ Mơ Plaza",
@@ -1197,7 +1254,10 @@
     "number_living_floor": 15,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 3
+    }
   },
   {
     "code": "Comatce Tower",
@@ -1212,7 +1272,10 @@
     "number_living_floor": 21,
     "number_basement": 2,
     "bike_parking_monthly": 100,
-    "car_parking_monthly": 1
+    "car_parking_monthly": 1,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Cầu Giấy Center point",
@@ -1227,7 +1290,10 @@
     "number_living_floor": 32,
     "number_basement": 3,
     "bike_parking_monthly": 120,
-    "car_parking_monthly": 1
+    "car_parking_monthly": 1,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Diamond Flower Tower",
@@ -1242,7 +1308,10 @@
     "number_living_floor": 36,
     "number_basement": 3,
     "bike_parking_monthly": 150000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Diamond Park Plaza",
@@ -1257,7 +1326,10 @@
     "number_living_floor": 19,
     "number_basement": 4,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 13
+    }
   },
   {
     "code": "Discovery Complex",
@@ -1272,7 +1344,10 @@
     "number_living_floor": 54,
     "number_basement": 5,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 2000000
+    "car_parking_monthly": 2000000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Dolphin Plaza",
@@ -1287,7 +1362,10 @@
     "number_living_floor": 28,
     "number_basement": 2,
     "bike_parking_monthly": 45000,
-    "car_parking_monthly": 950000
+    "car_parking_monthly": 950000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Dream Town",
@@ -1302,7 +1380,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Dreamland Bonanza",
@@ -1317,7 +1398,10 @@
     "number_living_floor": 32,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "D’.Capitale",
@@ -1332,7 +1416,10 @@
     "number_living_floor": 45,
     "number_basement": 3,
     "bike_parking_monthly": 60000,
-    "car_parking_monthly": 1400000
+    "car_parking_monthly": 1400000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Eco City Việt Hưng",
@@ -1347,37 +1434,10 @@
     "number_living_floor": 17,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
-  },
-  {
-    "code": "Eco Dream City",
-    "name": "Eco Dream City",
-    "address": "X. Tân Triều, H. Thanh Trì, TP. Hà Nội",
-    "developer_name": "Công ty TNHH MTV Eco Dream",
-    "rank": "Trung cấp",
-    "total_area": 0.53,
-    "min_selling_price": 2144337591,
-    "max_selling_price": 4853257158,
-    "number_ele": 8,
-    "number_living_floor": 27,
-    "number_basement": 3,
-    "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
-  },
-  {
-    "code": "Eco Green City",
-    "name": "Eco Green City",
-    "address": "X. Tân Triều, H. Thanh Trì, TP. Hà Nội",
-    "developer_name": "Công Ty TNHH Bất Động Sản Và Xây Dựng Việt Hưng",
-    "rank": "Trung cấp",
-    "total_area": 2.02,
-    "min_selling_price": 2861251331,
-    "max_selling_price": 5892499988,
-    "number_ele": 6,
-    "number_living_floor": 35,
-    "number_basement": 1,
-    "bike_parking_monthly": 60000,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Eco Lake View",
@@ -1392,7 +1452,10 @@
     "number_living_floor": 32,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1
+    "car_parking_monthly": 1,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Ecohome 1",
@@ -1407,7 +1470,10 @@
     "number_living_floor": 12,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1400000
+    "car_parking_monthly": 1400000,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "Ecohome 2",
@@ -1422,7 +1488,10 @@
     "number_living_floor": 16,
     "number_basement": 1,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "Ecohome 3",
@@ -1437,7 +1506,10 @@
     "number_living_floor": 31,
     "number_basement": 2,
     "bike_parking_monthly": 60000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "Ecohome Phúc Lợi",
@@ -1452,7 +1524,10 @@
     "number_living_floor": 24,
     "number_basement": 3,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Ecolife Capitol",
@@ -1467,7 +1542,10 @@
     "number_living_floor": 34,
     "number_basement": 3,
     "bike_parking_monthly": 66000,
-    "car_parking_monthly": 1320000
+    "car_parking_monthly": 1320000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Ecolife Tây Hồ",
@@ -1482,7 +1560,10 @@
     "number_living_floor": 32,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 12
+    }
   },
   {
     "code": "Ellipse Tower",
@@ -1497,7 +1578,10 @@
     "number_living_floor": 33,
     "number_basement": 3,
     "bike_parking_monthly": 66000,
-    "car_parking_monthly": 1320000
+    "car_parking_monthly": 1320000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Emerald Center Park",
@@ -1512,7 +1596,10 @@
     "number_living_floor": 30,
     "number_basement": 3,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Epic Home",
@@ -1527,7 +1614,10 @@
     "number_living_floor": 30,
     "number_basement": 3,
     "bike_parking_monthly": 70000,
-    "car_parking_monthly": 800000
+    "car_parking_monthly": 800000,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "Eurowindow Multi Complex",
@@ -1542,22 +1632,10 @@
     "number_living_floor": 28,
     "number_basement": 3,
     "bike_parking_monthly": 100,
-    "car_parking_monthly": 1
-  },
-  {
-    "code": "Eurowindow River Park",
-    "name": "Eurowindow River Park",
-    "address": "X. Đông Hội, H. Đông Anh, TP. Hà Nội",
-    "developer_name": "Công ty TNHH Thăng Long",
-    "rank": "Trung cấp,Bình dân",
-    "total_area": 4.2,
-    "min_selling_price": 1806316693,
-    "max_selling_price": 30594900389,
-    "number_ele": 6,
-    "number_living_floor": 39,
-    "number_basement": 1,
-    "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 1,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "FLC Complex",
@@ -1572,7 +1650,10 @@
     "number_living_floor": 37,
     "number_basement": 2,
     "bike_parking_monthly": 70000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "FLC Garden city",
@@ -1587,7 +1668,10 @@
     "number_living_floor": 33,
     "number_basement": 0,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "FLC Green Apartment",
@@ -1602,7 +1686,10 @@
     "number_living_floor": 30,
     "number_basement": 1,
     "bike_parking_monthly": 45000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "FLC Landmark Tower",
@@ -1617,7 +1704,10 @@
     "number_living_floor": 30,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1600000
+    "car_parking_monthly": 1600000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "FLC Star Tower",
@@ -1632,7 +1722,10 @@
     "number_living_floor": 37,
     "number_basement": 4,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "FLC Twin Tower",
@@ -1647,7 +1740,10 @@
     "number_living_floor": 50,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Fafilm - VNT Tower",
@@ -1662,7 +1758,10 @@
     "number_living_floor": 27,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Five Star Garden",
@@ -1677,7 +1776,10 @@
     "number_living_floor": 30,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Five Star West Lake",
@@ -1692,7 +1794,10 @@
     "number_living_floor": 14,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 12
+    }
   },
   {
     "code": "Florence Tower",
@@ -1707,7 +1812,10 @@
     "number_living_floor": 25,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1300000
+    "car_parking_monthly": 1300000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Geleximco Southern Star",
@@ -1722,37 +1830,10 @@
     "number_living_floor": 25,
     "number_basement": 3,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
-  },
-  {
-    "code": "Gemek Premium",
-    "name": "Gemek Premium",
-    "address": "X. An Khánh, H. Hoài Đức, TP. Hà Nội",
-    "developer_name": "Công ty Cổ phần Xuất nhập khẩu Tổng hợp Hà Nội – Geleximco",
-    "rank": "Trung cấp",
-    "total_area": 0.69,
-    "min_selling_price": 2826304423,
-    "max_selling_price": 4244777511,
-    "number_ele": 6,
-    "number_living_floor": 34,
-    "number_basement": 1,
-    "bike_parking_monthly": 50000,
-    "car_parking_monthly": 500000
-  },
-  {
-    "code": "Gemek Tower",
-    "name": "Gemek Tower",
-    "address": "X. An Khánh, H. Hoài Đức, TP. Hà Nội",
-    "developer_name": "Công ty Cổ phần XNK Tổng hợp Hà Nội (GELEXIMCO) và Công ty Cổ phần BĐS Mê Kông (MekongLand)",
-    "rank": "Trung cấp",
-    "total_area": 0.83,
-    "min_selling_price": 2074321621,
-    "max_selling_price": 4219109220,
-    "number_ele": 6,
-    "number_living_floor": 34,
-    "number_basement": 2,
-    "bike_parking_monthly": 50000,
-    "car_parking_monthly": 500000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Gold Season",
@@ -1767,7 +1848,10 @@
     "number_living_floor": 35,
     "number_basement": 3,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Gold Tower",
@@ -1782,7 +1866,10 @@
     "number_living_floor": 33,
     "number_basement": 2,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1800000
+    "car_parking_monthly": 1800000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Golden Central Tower",
@@ -1797,7 +1884,10 @@
     "number_living_floor": 35,
     "number_basement": 2,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1400000
+    "car_parking_monthly": 1400000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Golden Field",
@@ -1812,7 +1902,10 @@
     "number_living_floor": 30,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Golden Land",
@@ -1827,7 +1920,10 @@
     "number_living_floor": 27,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Golden Millennium",
@@ -1842,7 +1938,10 @@
     "number_living_floor": 36,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Golden Palace",
@@ -1857,7 +1956,10 @@
     "number_living_floor": 30,
     "number_basement": 4,
     "bike_parking_monthly": 110000,
-    "car_parking_monthly": 1320000
+    "car_parking_monthly": 1320000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Golden Park Tower",
@@ -1872,7 +1974,10 @@
     "number_living_floor": 45,
     "number_basement": 4,
     "bike_parking_monthly": 120,
-    "car_parking_monthly": 1
+    "car_parking_monthly": 1,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Golden West Residence",
@@ -1887,7 +1992,10 @@
     "number_living_floor": 27,
     "number_basement": 3,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Goldmark City",
@@ -1902,7 +2010,10 @@
     "number_living_floor": 40,
     "number_basement": 2,
     "bike_parking_monthly": 60000,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "Goldsilk Complex",
@@ -1917,7 +2028,10 @@
     "number_living_floor": 32,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Gradeur Palace",
@@ -1932,7 +2046,10 @@
     "number_living_floor": 22,
     "number_basement": 4,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 13
+    }
   },
   {
     "code": "Green House Việt Hưng",
@@ -1947,7 +2064,10 @@
     "number_living_floor": 17,
     "number_basement": 4,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Green Life Tower",
@@ -1962,7 +2082,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Green Park Tower",
@@ -1977,7 +2100,10 @@
     "number_living_floor": 28,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Green Pearl",
@@ -1992,7 +2118,10 @@
     "number_living_floor": 21,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1100000
+    "car_parking_monthly": 1100000,
+    "sector": {
+      "id": 3
+    }
   },
   {
     "code": "Green Stars",
@@ -2007,7 +2136,10 @@
     "number_living_floor": 27,
     "number_basement": 2,
     "bike_parking_monthly": 75000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "HC Golden City",
@@ -2022,7 +2154,10 @@
     "number_living_floor": 25,
     "number_basement": 3,
     "bike_parking_monthly": 50000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "HDI Tower",
@@ -2037,7 +2172,10 @@
     "number_living_floor": 19,
     "number_basement": 3,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 3
+    }
   },
   {
     "code": "HH Linh Đàm",
@@ -2052,7 +2190,10 @@
     "number_living_floor": 41,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "HH2 Bắc Hà",
@@ -2067,7 +2208,10 @@
     "number_living_floor": 25,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "HPC Landmark 105",
@@ -2082,7 +2226,10 @@
     "number_living_floor": 50,
     "number_basement": 0,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "The Sun Garden",
@@ -2097,7 +2244,10 @@
     "number_living_floor": 35,
     "number_basement": 1,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "HTT Tower",
@@ -2112,7 +2262,10 @@
     "number_living_floor": 22,
     "number_basement": 2,
     "bike_parking_monthly": 77000,
-    "car_parking_monthly": 1100000
+    "car_parking_monthly": 1100000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "HUD3 Nguyễn Đức Cảnh",
@@ -2127,7 +2280,10 @@
     "number_living_floor": 21,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "HUD3 Tower",
@@ -2142,22 +2298,10 @@
     "number_living_floor": 30,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
-  },
-  {
-    "code": "Hanhomes Blue Star",
-    "name": "Hanhomes Blue Star",
-    "address": "TT. Trâu Quỳ, H. Gia Lâm, TP. Hà Nội",
-    "developer_name": "Công ty Cổ phần Đầu tư phát triển nhà Hà Nội số 5",
-    "rank": "Trung cấp",
-    "total_area": 0.82,
-    "min_selling_price": 1979490992,
-    "max_selling_price": 2939572481,
-    "number_ele": 7,
-    "number_living_floor": 25,
-    "number_basement": 2,
-    "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Happy Star Tower",
@@ -2172,7 +2316,10 @@
     "number_living_floor": 15,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Hapulico Complex",
@@ -2187,7 +2334,10 @@
     "number_living_floor": 24,
     "number_basement": 2,
     "bike_parking_monthly": 60000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Harmony Square",
@@ -2202,7 +2352,10 @@
     "number_living_floor": 32,
     "number_basement": 4,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Hateco Apollo Xuân Phương",
@@ -2217,7 +2370,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Hateco Hoàng Mai",
@@ -2232,7 +2388,10 @@
     "number_living_floor": 28,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Hei Tower",
@@ -2247,7 +2406,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Him Lam Thạch Bàn 2",
@@ -2262,7 +2424,10 @@
     "number_living_floor": 19,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Hinode City",
@@ -2277,7 +2442,10 @@
     "number_living_floor": 27,
     "number_basement": 3,
     "bike_parking_monthly": 60000,
-    "car_parking_monthly": 1350000
+    "car_parking_monthly": 1350000,
+    "sector": {
+      "id": 3
+    }
   },
   {
     "code": "Home City",
@@ -2292,22 +2460,10 @@
     "number_living_floor": 30,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
-  },
-  {
-    "code": "Hong Kong Tower",
-    "name": "Hong Kong Tower",
-    "address": "P. Láng Thượng, Q. Đống Đa, TP. Hà Nội",
-    "developer_name": "Công ty cổ phần đầu tư đô thị Kang Long",
-    "rank": "Cao cấp",
-    "total_area": 0.56,
-    "min_selling_price": 2564139025,
-    "max_selling_price": 8665200853,
-    "number_ele": 5,
-    "number_living_floor": 27,
-    "number_basement": 3,
-    "bike_parking_monthly": 77000,
-    "car_parking_monthly": 1100000
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Hope Residence",
@@ -2322,7 +2478,10 @@
     "number_living_floor": 21,
     "number_basement": 2,
     "bike_parking_monthly": 60000,
-    "car_parking_monthly": 1100000
+    "car_parking_monthly": 1100000,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Housinco Phùng Khoang",
@@ -2337,22 +2496,10 @@
     "number_living_floor": 21,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
-  },
-  {
-    "code": "Housinco Premium",
-    "name": "Housinco Premium",
-    "address": "X. Tân Triều, H. Thanh Trì, TP. Hà Nội",
-    "developer_name": "Công ty cổ phần tập đoàn Housinco",
-    "rank": "Trung cấp",
-    "total_area": 0.56,
-    "min_selling_price": 3002396094,
-    "max_selling_price": 8655754598,
-    "number_ele": 6,
-    "number_living_floor": 30,
-    "number_basement": 3,
-    "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Hoàng Thành Pearl",
@@ -2367,7 +2514,10 @@
     "number_living_floor": 30,
     "number_basement": 3,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Hoàng Thành Tower",
@@ -2382,7 +2532,10 @@
     "number_living_floor": 21,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 3
+    }
   },
   {
     "code": "Hoành Sơn Complex",
@@ -2397,7 +2550,10 @@
     "number_living_floor": 21,
     "number_basement": 1,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Hyundai HillState",
@@ -2412,7 +2568,10 @@
     "number_living_floor": 32,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Hà Nội Aqua Central",
@@ -2427,7 +2586,10 @@
     "number_living_floor": 21,
     "number_basement": 3,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 13
+    }
   },
   {
     "code": "Hà Nội Center Point",
@@ -2442,7 +2604,10 @@
     "number_living_floor": 32,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Hà Nội Homeland",
@@ -2457,7 +2622,10 @@
     "number_living_floor": 18,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Hà Nội Melody Residences",
@@ -2472,7 +2640,10 @@
     "number_living_floor": 29,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Hà Nội Paragon",
@@ -2487,7 +2658,10 @@
     "number_living_floor": 31,
     "number_basement": 3,
     "bike_parking_monthly": 50000,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Hà Tây Millennium",
@@ -2502,7 +2676,10 @@
     "number_living_floor": 44,
     "number_basement": 4,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Hà Đô Park Side",
@@ -2517,7 +2694,10 @@
     "number_living_floor": 17,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1400000
+    "car_parking_monthly": 1400000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Hà Đô Park View",
@@ -2532,7 +2712,10 @@
     "number_living_floor": 32,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 900000
+    "car_parking_monthly": 900000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Hòa Bình Green City",
@@ -2547,7 +2730,10 @@
     "number_living_floor": 27,
     "number_basement": 3,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 3
+    }
   },
   {
     "code": "Hòa Phát 70 NDC Tower",
@@ -2562,22 +2748,10 @@
     "number_living_floor": 21,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
-  },
-  {
-    "code": "Hòa Phát Giải Phóng Tower",
-    "name": "Hòa Phát Giải Phóng Tower",
-    "address": "P. Phương Mai, Q. Đống Đa, TP. Hà Nội",
-    "developer_name": "Công ty CP Xây dựng và Phát triển Đô thị Hòa Phát",
-    "rank": "Trung cấp",
-    "total_area": 0.14,
-    "min_selling_price": 4321962809,
-    "max_selling_price": 5794714215,
-    "number_ele": 3,
-    "number_living_floor": 24,
-    "number_basement": 3,
-    "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Hải Đăng City",
@@ -2592,7 +2766,10 @@
     "number_living_floor": 30,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Hồ Gươm Plaza",
@@ -2607,22 +2784,10 @@
     "number_living_floor": 29,
     "number_basement": 3,
     "bike_parking_monthly": 70000,
-    "car_parking_monthly": 1200000
-  },
-  {
-    "code": "Hồng Hà Eco City",
-    "name": "Hồng Hà Eco City",
-    "address": "X. Tứ Hiệp, H. Thanh Trì, TP. Hà Nội",
-    "developer_name": "Công ty CP Tứ Hiệp Hồng Hà Dầu Khí",
-    "rank": "Trung cấp",
-    "total_area": 16.74,
-    "min_selling_price": 1897096894,
-    "max_selling_price": 4809252861,
-    "number_ele": 2,
-    "number_living_floor": 27,
-    "number_basement": 2,
-    "bike_parking_monthly": 50000,
-    "car_parking_monthly": 800000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Hồng Hà Tower",
@@ -2637,7 +2802,10 @@
     "number_living_floor": 27,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "ICID Complex",
@@ -2652,22 +2820,10 @@
     "number_living_floor": 30,
     "number_basement": 3,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1400000
-  },
-  {
-    "code": "IEC Residences",
-    "name": "IEC Residences",
-    "address": "X. Tứ Hiệp, H. Thanh Trì, TP. Hà Nội",
-    "developer_name": "Công Ty CP Đầu tư Xây dựng và Cơ điện IEC",
-    "rank": "Bình dân",
-    "total_area": 0.21,
-    "min_selling_price": 1710123208,
-    "max_selling_price": 2778225592,
-    "number_ele": 3,
-    "number_living_floor": 27,
-    "number_basement": 2,
-    "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1400000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Imperia Garden",
@@ -2682,7 +2838,10 @@
     "number_living_floor": 35,
     "number_basement": 2,
     "bike_parking_monthly": 45000,
-    "car_parking_monthly": 1250000
+    "car_parking_monthly": 1250000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Imperial Plaza",
@@ -2697,7 +2856,10 @@
     "number_living_floor": 30,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Indochina Plaza",
@@ -2712,22 +2874,10 @@
     "number_living_floor": 36,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
-  },
-  {
-    "code": "Intracom Riverside",
-    "name": "Intracom Riverside",
-    "address": "X. Vĩnh Ngọc, H. Đông Anh, TP. Hà Nội",
-    "developer_name": "Công ty cổ phần đầu tư xây dựng hạ tầng và giao thông (Intracom)",
-    "rank": "Trung cấp",
-    "total_area": 8.7,
-    "min_selling_price": 1431137067,
-    "max_selling_price": 3252335312,
-    "number_ele": 7,
-    "number_living_floor": 39,
-    "number_basement": 1,
-    "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Intracom Trung Văn",
@@ -2742,7 +2892,10 @@
     "number_living_floor": 28,
     "number_basement": 0,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Iris Garden",
@@ -2757,7 +2910,10 @@
     "number_living_floor": 29,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "K35 Tân Mai",
@@ -2772,7 +2928,10 @@
     "number_living_floor": 30,
     "number_basement": 1,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Keangnam Hanoi Landmark Tower",
@@ -2787,7 +2946,10 @@
     "number_living_floor": 48,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Khu nhà ở 183 Hoàng Văn Thái",
@@ -2802,7 +2964,10 @@
     "number_living_floor": 20,
     "number_basement": 3,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Khu nhà ở Bộ Tư Lệnh Thủ Đô",
@@ -2817,7 +2982,10 @@
     "number_living_floor": 28,
     "number_basement": 0,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Khu nhà ở Thạch Bàn",
@@ -2832,22 +3000,10 @@
     "number_living_floor": 27,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
-  },
-  {
-    "code": "Khu Đô Thị Thanh Hà",
-    "name": "Khu Đô Thị Thanh Hà",
-    "address": "X. Cự Khê, H. Thanh Oai, TP. Hà Nội",
-    "developer_name": "Tập Đoàn Mường Thanh",
-    "rank": "Trung cấp,Bình dân",
-    "total_area": 420,
-    "min_selling_price": 1489774591,
-    "max_selling_price": 3146541914,
-    "number_ele": 3,
-    "number_living_floor": 19,
-    "number_basement": 1,
-    "bike_parking_monthly": 70000,
-    "car_parking_monthly": 800000
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Khu đô thị Thành Phố Giao Lưu",
@@ -2862,7 +3018,10 @@
     "number_living_floor": 17,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Khu đô thị Trung Hòa Nhân Chính",
@@ -2877,7 +3036,10 @@
     "number_living_floor": 34,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Khu đô thị Vĩnh Hoàng",
@@ -2892,7 +3054,10 @@
     "number_living_floor": 15,
     "number_basement": 1,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Khu đô thị Xa La",
@@ -2907,7 +3072,10 @@
     "number_living_floor": 34,
     "number_basement": 1,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Kim Văn Kim Lũ",
@@ -2922,7 +3090,10 @@
     "number_living_floor": 45,
     "number_basement": 1,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "King Palace",
@@ -2937,7 +3108,10 @@
     "number_living_floor": 36,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "La Casta Tower",
@@ -2952,22 +3126,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1400000
-  },
-  {
-    "code": "Le Capitole",
-    "name": "Le Capitole",
-    "address": "P. Trung Liệt, Q. Đống Đa, TP. Hà Nội",
-    "developer_name": "Công ty cổ phần Đầu tư và Phát triển Nhà Hà Nội số 52",
-    "rank": "Cao cấp",
-    "total_area": 0.22,
-    "min_selling_price": 2427888590,
-    "max_selling_price": 5860100128,
-    "number_ele": 5,
-    "number_living_floor": 21,
-    "number_basement": 3,
-    "bike_parking_monthly": 120000,
-    "car_parking_monthly": 2000000
+    "car_parking_monthly": 1400000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Le Grand Jardin",
@@ -2982,7 +3144,10 @@
     "number_living_floor": 15,
     "number_basement": 1,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Lilama Plaza",
@@ -2997,7 +3162,10 @@
     "number_living_floor": 27,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Lotus Lake View",
@@ -3012,7 +3180,10 @@
     "number_living_floor": 13,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Luxury Park Views",
@@ -3027,37 +3198,10 @@
     "number_living_floor": 28,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
-  },
-  {
-    "code": "Lộc Ninh Singashine",
-    "name": "Lộc Ninh Singashine",
-    "address": "TT. Chúc Sơn, H. Chương Mỹ, TP. Hà Nội",
-    "developer_name": "Công ty CP Lộc Linh",
-    "rank": "Bình dân",
-    "total_area": 0.59,
-    "min_selling_price": 1018138681,
-    "max_selling_price": 1951394508,
-    "number_ele": 4,
-    "number_living_floor": 19,
-    "number_basement": 1,
-    "bike_parking_monthly": 70000,
-    "car_parking_monthly": 1000000
-  },
-  {
-    "code": "M5 Nguyễn Chí Thanh",
-    "name": "M5 Nguyễn Chí Thanh",
-    "address": "P. Láng Hạ, Q. Đống Đa, TP. Hà Nội",
-    "developer_name": "Công ty Đầu tư Xây lắp và Phát triển Nhà",
-    "rank": "",
-    "total_area": 0.43,
-    "min_selling_price": 5897632510,
-    "max_selling_price": 7828563371,
-    "number_ele": 4,
-    "number_living_floor": 31,
-    "number_basement": 5,
-    "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "MD Complex Tower",
@@ -3072,7 +3216,10 @@
     "number_living_floor": 29,
     "number_basement": 3,
     "bike_parking_monthly": 77000,
-    "car_parking_monthly": 1100000
+    "car_parking_monthly": 1100000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "MHD Trung Văn",
@@ -3087,7 +3234,10 @@
     "number_living_floor": 39,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Mandarin Garden",
@@ -3102,37 +3252,10 @@
     "number_living_floor": 28,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
-  },
-  {
-    "code": "Masteri Centre Point",
-    "name": "Masteri Centre Point",
-    "address": "P. Long Bình, TP. Thủ Đức, TP. Hồ Chí Minh",
-    "developer_name": "Masterise Homes",
-    "rank": "Cao cấp",
-    "total_area": 7,
-    "min_selling_price": 3635718518,
-    "max_selling_price": 40165482690,
-    "number_ele": 5,
-    "number_living_floor": 22,
-    "number_basement": 2,
-    "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
-  },
-  {
-    "code": "Masteri Sky Avenue",
-    "name": "Masteri Grand Avenue",
-    "address": "X. Đông Hội, H. Đông Anh, TP. Hà Nội",
-    "developer_name": null,
-    "rank": "",
-    "total_area": 0,
-    "min_selling_price": 0,
-    "max_selling_price": 0,
-    "number_ele": 0,
-    "number_living_floor": 0,
-    "number_basement": 0,
-    "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Metropolitan",
@@ -3147,7 +3270,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1300000
+    "car_parking_monthly": 1300000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Mipec Riverside",
@@ -3162,7 +3288,10 @@
     "number_living_floor": 35,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Mipec Rubik 360",
@@ -3177,22 +3306,10 @@
     "number_living_floor": 35,
     "number_basement": 3,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
-  },
-  {
-    "code": "Mipec Tower",
-    "name": "Mipec Tower",
-    "address": "P. Ngã Tư Sở, Q. Đống Đa, TP. Hà Nội",
-    "developer_name": "Công ty cổ phần Hóa dầu Quân đội MIPEC",
-    "rank": "Trung cấp",
-    "total_area": 2.4,
-    "min_selling_price": 4867367508,
-    "max_selling_price": 11023632064,
-    "number_ele": 4,
-    "number_living_floor": 27,
-    "number_basement": 2,
-    "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Mulberry Lane",
@@ -3207,7 +3324,10 @@
     "number_living_floor": 35,
     "number_basement": 0,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Mỹ Sơn Tower",
@@ -3222,7 +3342,10 @@
     "number_living_floor": 22,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Mỹ Đình Pearl",
@@ -3237,7 +3360,10 @@
     "number_living_floor": 36,
     "number_basement": 2,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Mỹ Đình Plaza",
@@ -3252,7 +3378,10 @@
     "number_living_floor": 25,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Mỹ Đình Plaza 2",
@@ -3267,7 +3396,10 @@
     "number_living_floor": 28,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "N04B1 Dịch Vọng",
@@ -3282,7 +3414,10 @@
     "number_living_floor": 17,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "N05 Trần Duy Hưng",
@@ -3297,7 +3432,10 @@
     "number_living_floor": 29,
     "number_basement": 3,
     "bike_parking_monthly": 60,
-    "car_parking_monthly": 1
+    "car_parking_monthly": 1,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "N07 Dịch Vọng",
@@ -3312,7 +3450,10 @@
     "number_living_floor": 27,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "NO-08 Giang Biên",
@@ -3327,7 +3468,10 @@
     "number_living_floor": 15,
     "number_basement": 0,
     "bike_parking_monthly": 60000,
-    "car_parking_monthly": 1100000
+    "car_parking_monthly": 1100000,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "NT Home",
@@ -3342,7 +3486,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 60000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Nam Đô Complex",
@@ -3357,7 +3504,10 @@
     "number_living_floor": 28,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "New Horizon City",
@@ -3372,7 +3522,10 @@
     "number_living_floor": 30,
     "number_basement": 2,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "New Skyline",
@@ -3387,7 +3540,10 @@
     "number_living_floor": 36,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "New Space Giang Biên",
@@ -3402,7 +3558,10 @@
     "number_living_floor": 9,
     "number_basement": 0,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Newhouse Xa La",
@@ -3417,7 +3576,10 @@
     "number_living_floor": 21,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1100000
+    "car_parking_monthly": 1100000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Northern Diamond",
@@ -3432,7 +3594,10 @@
     "number_living_floor": 19,
     "number_basement": 2,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "OCT2 Viglacera Xuân Phương",
@@ -3447,7 +3612,10 @@
     "number_living_floor": 19,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "OCT5 Resco Cổ Nhuế",
@@ -3462,7 +3630,10 @@
     "number_living_floor": 28,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "One 18",
@@ -3477,7 +3648,10 @@
     "number_living_floor": 18,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Osaka Complex",
@@ -3492,7 +3666,10 @@
     "number_living_floor": 35,
     "number_basement": 3,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "PCC1 Complex",
@@ -3507,7 +3684,10 @@
     "number_living_floor": 15,
     "number_basement": 0,
     "bike_parking_monthly": 60000,
-    "car_parking_monthly": 800000
+    "car_parking_monthly": 800000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "PCC1 Thanh Xuân",
@@ -3522,7 +3702,10 @@
     "number_living_floor": 27,
     "number_basement": 3,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "PHC Complex",
@@ -3537,7 +3720,10 @@
     "number_living_floor": 17,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "PVV Vinapharm Tower",
@@ -3552,7 +3738,10 @@
     "number_living_floor": 23,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Packexim 2",
@@ -3567,7 +3756,10 @@
     "number_living_floor": 21,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 12
+    }
   },
   {
     "code": "Pandora Tower",
@@ -3582,7 +3774,10 @@
     "number_living_floor": 27,
     "number_basement": 3,
     "bike_parking_monthly": 70000,
-    "car_parking_monthly": 1100000
+    "car_parking_monthly": 1100000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Park Kiara",
@@ -3597,7 +3792,10 @@
     "number_living_floor": 31,
     "number_basement": 1,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Park View City Yên Hòa",
@@ -3612,7 +3810,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 150000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Park View Residence",
@@ -3627,7 +3828,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 120,
-    "car_parking_monthly": 1
+    "car_parking_monthly": 1,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Pent Studio",
@@ -3642,7 +3846,10 @@
     "number_living_floor": 20,
     "number_basement": 3,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 12
+    }
   },
   {
     "code": "Phú Gia Residence",
@@ -3657,7 +3864,10 @@
     "number_living_floor": 19,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Phú Thịnh Green Park",
@@ -3672,22 +3882,10 @@
     "number_living_floor": 37,
     "number_basement": 1,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
-  },
-  {
-    "code": "Phúc Thịnh Tower",
-    "name": "Phúc Thịnh Tower",
-    "address": "X. Tân Lập, H. Đan Phượng, TP. Hà Nội",
-    "developer_name": "Công ty CP Đầu Tư Hải Phát",
-    "rank": "Bình dân",
-    "total_area": 2.5,
-    "min_selling_price": 1491728742,
-    "max_selling_price": 2644733025,
-    "number_ele": 4,
-    "number_living_floor": 25,
-    "number_basement": 0,
-    "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Phương Đông Green Home",
@@ -3702,7 +3900,10 @@
     "number_living_floor": 15,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Phương Đông Green Park",
@@ -3717,7 +3918,10 @@
     "number_living_floor": 29,
     "number_basement": 3,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1300000
+    "car_parking_monthly": 1300000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Platinum Residences",
@@ -3732,7 +3936,10 @@
     "number_living_floor": 21,
     "number_basement": 3,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 13
+    }
   },
   {
     "code": "Premier Berriver",
@@ -3747,7 +3954,10 @@
     "number_living_floor": 25,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Rainbow Linh Đàm",
@@ -3762,7 +3972,10 @@
     "number_living_floor": 21,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Rainbow Văn Quán",
@@ -3777,7 +3990,10 @@
     "number_living_floor": 29,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Resco Cổ Nhuế",
@@ -3792,7 +4008,10 @@
     "number_living_floor": 12,
     "number_basement": 0,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "Rice City Linh Đàm",
@@ -3807,7 +4026,10 @@
     "number_living_floor": 21,
     "number_basement": 1,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Richland Southern",
@@ -3822,7 +4044,10 @@
     "number_living_floor": 19,
     "number_basement": 2,
     "bike_parking_monthly": 50000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Rivera Park",
@@ -3837,7 +4062,10 @@
     "number_living_floor": 22,
     "number_basement": 2,
     "bike_parking_monthly": 70000,
-    "car_parking_monthly": 1100000
+    "car_parking_monthly": 1100000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Riverside Garden",
@@ -3852,7 +4080,10 @@
     "number_living_floor": 30,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Riverside Tower",
@@ -3867,7 +4098,10 @@
     "number_living_floor": 23,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Roman Plaza",
@@ -3882,7 +4116,10 @@
     "number_living_floor": 25,
     "number_basement": 3,
     "bike_parking_monthly": 120,
-    "car_parking_monthly": 1
+    "car_parking_monthly": 1,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Ruby City CT2",
@@ -3897,7 +4134,10 @@
     "number_living_floor": 14,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Ruby City CT3",
@@ -3912,7 +4152,10 @@
     "number_living_floor": 22,
     "number_basement": 3,
     "bike_parking_monthly": 50000,
-    "car_parking_monthly": 300000
+    "car_parking_monthly": 300000,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Ruby Tower",
@@ -3927,7 +4170,10 @@
     "number_living_floor": 18,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "SDU Tower",
@@ -3942,7 +4188,10 @@
     "number_living_floor": 35,
     "number_basement": 1,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "SME Hoàng Gia",
@@ -3957,7 +4206,10 @@
     "number_living_floor": 37,
     "number_basement": 2,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Samsora Premier 105",
@@ -3972,7 +4224,10 @@
     "number_living_floor": 37,
     "number_basement": 3,
     "bike_parking_monthly": 70000,
-    "car_parking_monthly": 900000
+    "car_parking_monthly": 900000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Sapphire Palace",
@@ -3987,7 +4242,10 @@
     "number_living_floor": 21,
     "number_basement": 2,
     "bike_parking_monthly": 70000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Scitech Tower",
@@ -4002,7 +4260,10 @@
     "number_living_floor": 21,
     "number_basement": 2,
     "bike_parking_monthly": 100,
-    "car_parking_monthly": 1
+    "car_parking_monthly": 1,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "Seasons Avenue",
@@ -4017,7 +4278,10 @@
     "number_living_floor": 41,
     "number_basement": 0,
     "bike_parking_monthly": 45000,
-    "car_parking_monthly": 1250000
+    "car_parking_monthly": 1250000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Sky Central",
@@ -4032,22 +4296,10 @@
     "number_living_floor": 26,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
-  },
-  {
-    "code": "Sky City Tower",
-    "name": "Sky City Tower",
-    "address": "P. Láng Hạ, Q. Đống Đa, TP. Hà Nội",
-    "developer_name": "Công ty Trách nhiệm Hữu hạn HANOTEX",
-    "rank": "Cao cấp",
-    "total_area": 4.47,
-    "min_selling_price": 6089298607,
-    "max_selling_price": 10704552508,
-    "number_ele": 3,
-    "number_living_floor": 31,
-    "number_basement": 3,
-    "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Sky Park Residence",
@@ -4062,7 +4314,10 @@
     "number_living_floor": 37,
     "number_basement": 4,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1400000
+    "car_parking_monthly": 1400000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Skylight",
@@ -4077,7 +4332,10 @@
     "number_living_floor": 19,
     "number_basement": 2,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 3
+    }
   },
   {
     "code": "Smile Trung Yên Building",
@@ -4092,7 +4350,10 @@
     "number_living_floor": 35,
     "number_basement": 3,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "South Building",
@@ -4107,7 +4368,10 @@
     "number_living_floor": 16,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "South Tower",
@@ -4122,7 +4386,10 @@
     "number_living_floor": 23,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Spring Home",
@@ -4137,7 +4404,10 @@
     "number_living_floor": 13,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Star City Lê Văn Lương",
@@ -4152,7 +4422,10 @@
     "number_living_floor": 27,
     "number_basement": 3,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1300000
+    "car_parking_monthly": 1300000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Star Tower",
@@ -4167,7 +4440,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Starlake Tây Hồ Tây",
@@ -4182,7 +4458,10 @@
     "number_living_floor": 24,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "Startup Tower",
@@ -4197,7 +4476,10 @@
     "number_living_floor": 29,
     "number_basement": 2,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Stellar Garden",
@@ -4212,7 +4494,10 @@
     "number_living_floor": 28,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Summit Building",
@@ -4227,7 +4512,10 @@
     "number_living_floor": 35,
     "number_basement": 4,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1400000
+    "car_parking_monthly": 1400000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Sun Grand City Ancora Residence",
@@ -4242,7 +4530,10 @@
     "number_living_floor": 25,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 3
+    }
   },
   {
     "code": "Sun Grand City Thụy Khuê Residence",
@@ -4257,7 +4548,10 @@
     "number_living_floor": 23,
     "number_basement": 4,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 12
+    }
   },
   {
     "code": "Sun Square",
@@ -4272,22 +4566,10 @@
     "number_living_floor": 34,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1500000
-  },
-  {
-    "code": "Sunrise Tower",
-    "name": "Sunrise Tower",
-    "address": "P. Quang Trung, Q. Đống Đa, TP. Hà Nội",
-    "developer_name": "Công ty cổ phần đầu tư và phát triển Nhà Hà Nội số 5 (Handico 5)",
-    "rank": "",
-    "total_area": 0.33,
-    "min_selling_price": 3895833946,
-    "max_selling_price": 7744284059,
-    "number_ele": 6,
-    "number_living_floor": 19,
-    "number_basement": 1,
-    "bike_parking_monthly": 60000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Sunshine Center",
@@ -4302,7 +4584,10 @@
     "number_living_floor": 32,
     "number_basement": 4,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Sunshine Garden",
@@ -4317,7 +4602,10 @@
     "number_living_floor": 31,
     "number_basement": 2,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Sunshine Golden River",
@@ -4332,7 +4620,10 @@
     "number_living_floor": 35,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 12
+    }
   },
   {
     "code": "Sông Đà Hà Đông Tower",
@@ -4347,7 +4638,10 @@
     "number_living_floor": 33,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "T&T DC Complex",
@@ -4362,7 +4656,10 @@
     "number_living_floor": 26,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "T&T Riverview",
@@ -4377,7 +4674,10 @@
     "number_living_floor": 23,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "TSG Lotus Sài Đồng",
@@ -4392,52 +4692,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
-  },
-  {
-    "code": "Tecco Diamond",
-    "name": "Tecco Diamond",
-    "address": "X. Tứ Hiệp, H. Thanh Trì, TP. Hà Nội",
-    "developer_name": "Công ty Cổ phần Tổng công ty Tecco Hà Nội – Thuộc Tập đoàn Tecco Group",
-    "rank": "Trung cấp",
-    "total_area": 0.75,
-    "min_selling_price": 2486483127,
-    "max_selling_price": 4011367636,
-    "number_ele": 5,
-    "number_living_floor": 25,
-    "number_basement": 2,
-    "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
-  },
-  {
-    "code": "Tecco Garden",
-    "name": "Tecco Garden",
-    "address": "X. Tứ Hiệp, H. Thanh Trì, TP. Hà Nội",
-    "developer_name": "Công ty cổ phần Hoá dầu Quân đội (MIPEC)",
-    "rank": "Trung cấp,Bình dân",
-    "total_area": 1.15,
-    "min_selling_price": 3015780625,
-    "max_selling_price": 5142990057,
-    "number_ele": 4,
-    "number_living_floor": 25,
-    "number_basement": 1,
-    "bike_parking_monthly": 60000,
-    "car_parking_monthly": 900000
-  },
-  {
-    "code": "Tecco Skyville Tower",
-    "name": "Tecco Skyville Tower",
-    "address": "X. Tứ Hiệp, H. Thanh Trì, TP. Hà Nội",
-    "developer_name": "Tổng công ty Tecco Hà Nội (Tecco Group)",
-    "rank": "Trung cấp",
-    "total_area": 0.68,
-    "min_selling_price": 1696401903,
-    "max_selling_price": 3625268961,
-    "number_ele": 5,
-    "number_living_floor": 30,
-    "number_basement": 3,
-    "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Thanh Xuân Complex",
@@ -4452,7 +4710,10 @@
     "number_living_floor": 24,
     "number_basement": 3,
     "bike_parking_monthly": 60,
-    "car_parking_monthly": 900
+    "car_parking_monthly": 900,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "The Artemis Tower",
@@ -4467,7 +4728,10 @@
     "number_living_floor": 24,
     "number_basement": 3,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "The Garden Hill",
@@ -4482,22 +4746,10 @@
     "number_living_floor": 29,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
-  },
-  {
-    "code": "The Golden An Khánh",
-    "name": "The Golden An Khánh",
-    "address": "X. An Khánh, H. Hoài Đức, TP. Hà Nội",
-    "developer_name": "Công ty CP Sông Đà – Hoàng Long",
-    "rank": "Trung cấp,Bình dân",
-    "total_area": 2.39,
-    "min_selling_price": 1893592385,
-    "max_selling_price": 6050535876,
-    "number_ele": 4,
-    "number_living_floor": 32,
-    "number_basement": 1,
-    "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "The Golden Palm",
@@ -4512,7 +4764,10 @@
     "number_living_floor": 27,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "The K-Park",
@@ -4527,7 +4782,10 @@
     "number_living_floor": 27,
     "number_basement": 1,
     "bike_parking_monthly": 70000,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "The Legacy",
@@ -4542,7 +4800,10 @@
     "number_living_floor": 24,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "The Legend",
@@ -4557,7 +4818,10 @@
     "number_living_floor": 30,
     "number_basement": 2,
     "bike_parking_monthly": 110000,
-    "car_parking_monthly": 2000000
+    "car_parking_monthly": 2000000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "The Light",
@@ -4572,7 +4836,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "The Link Ciputra",
@@ -4587,7 +4854,10 @@
     "number_living_floor": 21,
     "number_basement": 1,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "The Matrix One",
@@ -4602,7 +4872,10 @@
     "number_living_floor": 44,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "The Nine",
@@ -4617,7 +4890,10 @@
     "number_living_floor": 30,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "The One Residence",
@@ -4632,7 +4908,10 @@
     "number_living_floor": 26,
     "number_basement": 1,
     "bike_parking_monthly": 50000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "The Park Home",
@@ -4647,7 +4926,10 @@
     "number_living_floor": 29,
     "number_basement": 3,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1600000
+    "car_parking_monthly": 1600000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "The Pride",
@@ -4662,7 +4944,10 @@
     "number_living_floor": 45,
     "number_basement": 1,
     "bike_parking_monthly": 200000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "The Sails Tower",
@@ -4677,7 +4962,10 @@
     "number_living_floor": 32,
     "number_basement": 1,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "The Sparks Hoàng Quốc Việt",
@@ -4692,7 +4980,10 @@
     "number_living_floor": 21,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "The Sparks Lê Văn Lương",
@@ -4707,7 +4998,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "The Sun",
@@ -4722,7 +5016,10 @@
     "number_living_floor": 36,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "The Terra An Hưng",
@@ -4737,7 +5034,10 @@
     "number_living_floor": 45,
     "number_basement": 2,
     "bike_parking_monthly": 60000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "The Two Residence",
@@ -4752,7 +5052,10 @@
     "number_living_floor": 30,
     "number_basement": 2,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "The Vesta",
@@ -4767,7 +5070,10 @@
     "number_living_floor": 18,
     "number_basement": 1,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "The Văn Phú Victoria",
@@ -4782,7 +5088,10 @@
     "number_living_floor": 39,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "The Zei",
@@ -4797,7 +5106,10 @@
     "number_living_floor": 42,
     "number_basement": 4,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "The Zen Residence",
@@ -4812,37 +5124,10 @@
     "number_living_floor": 35,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
-  },
-  {
-    "code": "Thăng Long Capital",
-    "name": "Thăng Long Capital",
-    "address": "X. An Khánh, H. Hoài Đức, TP. Hà Nội",
-    "developer_name": "Công ty CP Xây dựng & Thương mại Tây Hà",
-    "rank": "Trung cấp",
-    "total_area": 3.19,
-    "min_selling_price": 2327316137,
-    "max_selling_price": 3790692646,
-    "number_ele": 6,
-    "number_living_floor": 35,
-    "number_basement": 3,
-    "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1200000
-  },
-  {
-    "code": "Thăng Long Capital Premium",
-    "name": "Thăng Long Capital Premium",
-    "address": "X. An Khánh, H. Hoài Đức, TP. Hà Nội",
-    "developer_name": "Công ty CP đầu tư kinh doanh và Phát triển hạ tầng KCN Phúc Hà (Phúc Hà Group)",
-    "rank": "Trung cấp",
-    "total_area": 3.19,
-    "min_selling_price": 2374668636,
-    "max_selling_price": 3761935185,
-    "number_ele": 6,
-    "number_living_floor": 35,
-    "number_basement": 3,
-    "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Thăng Long City Đại Mỗ",
@@ -4857,7 +5142,10 @@
     "number_living_floor": 28,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Thăng Long Garden",
@@ -4872,7 +5160,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 3
+    }
   },
   {
     "code": "Thăng Long Number One",
@@ -4887,22 +5178,10 @@
     "number_living_floor": 40,
     "number_basement": 3,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
-  },
-  {
-    "code": "Thăng Long Victory",
-    "name": "Thăng Long Victory",
-    "address": "X. An Khánh, H. Hoài Đức, TP. Hà Nội",
-    "developer_name": "Công ty cổ phần Đầu tư KD & PT Hạ tầng khu Công nghiệp Phúc Hà",
-    "rank": "Bình dân",
-    "total_area": 3.19,
-    "min_selling_price": 2300761046,
-    "max_selling_price": 3504645093,
-    "number_ele": 6,
-    "number_living_floor": 25,
-    "number_basement": 1,
-    "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Thăng Long Yên Hòa",
@@ -4917,7 +5196,10 @@
     "number_living_floor": 28,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Thống Nhất Complex",
@@ -4932,7 +5214,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 120,
-    "car_parking_monthly": 1
+    "car_parking_monthly": 1,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Times Tower",
@@ -4947,7 +5232,10 @@
     "number_living_floor": 27,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Trinity Tower",
@@ -4962,7 +5250,10 @@
     "number_living_floor": 25,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Trung Yên Plaza",
@@ -4977,7 +5268,10 @@
     "number_living_floor": 28,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Tràng An Complex",
@@ -4992,7 +5286,10 @@
     "number_living_floor": 29,
     "number_basement": 2,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Trương Định Complex",
@@ -5007,7 +5304,10 @@
     "number_living_floor": 18,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 3
+    }
   },
   {
     "code": "Twin Towers",
@@ -5022,7 +5322,10 @@
     "number_living_floor": 21,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Tân Hồng Hà Complex",
@@ -5037,22 +5340,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1400000
-  },
-  {
-    "code": "Tân Việt Tower",
-    "name": "Tân Việt Tower",
-    "address": "X. Đức Thượng, H. Hoài Đức, TP. Hà Nội",
-    "developer_name": "Công ty CP Đầu tư và Xây dựng Tân Việt",
-    "rank": "Bình dân",
-    "total_area": 5.1,
-    "min_selling_price": 1356437225,
-    "max_selling_price": 2094263748,
-    "number_ele": 3,
-    "number_living_floor": 31,
-    "number_basement": 1,
-    "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1400000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Tây Hà Tower",
@@ -5067,22 +5358,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1100000
-  },
-  {
-    "code": "Tứ Hiệp Plaza",
-    "name": "Tứ Hiệp Plaza",
-    "address": "X. Tứ Hiệp, H. Thanh Trì, TP. Hà Nội",
-    "developer_name": "Công ty CP dịch vụ và thương mại tổng hợp Vinh Hạnh",
-    "rank": "Trung cấp",
-    "total_area": 1.57,
-    "min_selling_price": 2447915642,
-    "max_selling_price": 4315510370,
-    "number_ele": 5,
-    "number_living_floor": 30,
-    "number_basement": 2,
-    "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 1100000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Udic Complex",
@@ -5097,7 +5376,10 @@
     "number_living_floor": 29,
     "number_basement": 4,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Udic Riverside",
@@ -5112,7 +5394,10 @@
     "number_living_floor": 22,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 3
+    }
   },
   {
     "code": "Unimax Twin Tower",
@@ -5127,7 +5412,10 @@
     "number_living_floor": 39,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Usilk City",
@@ -5142,7 +5430,10 @@
     "number_living_floor": 30,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "VC2 Golden Heart",
@@ -5157,7 +5448,10 @@
     "number_living_floor": 45,
     "number_basement": 3,
     "bike_parking_monthly": 60000,
-    "car_parking_monthly": 500000
+    "car_parking_monthly": 500000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "VC2 Golden Silk",
@@ -5172,7 +5466,10 @@
     "number_living_floor": 36,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "VC7 Housing Complex",
@@ -5187,7 +5484,10 @@
     "number_living_floor": 27,
     "number_basement": 1,
     "bike_parking_monthly": 70000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "VOV Mễ Trì Plaza",
@@ -5202,7 +5502,10 @@
     "number_living_floor": 25,
     "number_basement": 1,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "VP3 Linh Đàm",
@@ -5217,7 +5520,10 @@
     "number_living_floor": 33,
     "number_basement": 0,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 900000
+    "car_parking_monthly": 900000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "VP5 Linh Đàm",
@@ -5232,7 +5538,10 @@
     "number_living_floor": 33,
     "number_basement": 1,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "VP6 Linh Đàm",
@@ -5247,7 +5556,10 @@
     "number_living_floor": 37,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Valencia Garden",
@@ -5262,7 +5574,10 @@
     "number_living_floor": 15,
     "number_basement": 1,
     "bike_parking_monthly": 60000,
-    "car_parking_monthly": 1250000
+    "car_parking_monthly": 1250000,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Videc Star Tower",
@@ -5277,7 +5592,10 @@
     "number_living_floor": 27,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 1
+    }
   },
   {
     "code": "Vinata Tower",
@@ -5292,7 +5610,10 @@
     "number_living_floor": 31,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Vincom Park Place",
@@ -5307,7 +5628,10 @@
     "number_living_floor": 25,
     "number_basement": 2,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 3
+    }
   },
   {
     "code": "Vinhomes Gardenia",
@@ -5322,7 +5646,10 @@
     "number_living_floor": 39,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1100000
+    "car_parking_monthly": 1100000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Vinhomes Green Bay",
@@ -5337,7 +5664,10 @@
     "number_living_floor": 40,
     "number_basement": 3,
     "bike_parking_monthly": 60000,
-    "car_parking_monthly": 1100000
+    "car_parking_monthly": 1100000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Vinhomes Metropolis",
@@ -5352,22 +5682,10 @@
     "number_living_floor": 45,
     "number_basement": 3,
     "bike_parking_monthly": 45000,
-    "car_parking_monthly": 2000000
-  },
-  {
-    "code": "Vinhomes Nguyễn Chí Thanh",
-    "name": "Vinhomes Nguyễn Chí Thanh",
-    "address": "P. Láng Thượng, Q. Đống Đa, TP. Hà Nội",
-    "developer_name": "Công ty Cổ Phần Bất Động Sản Viettronics",
-    "rank": "Cao cấp",
-    "total_area": 1.33,
-    "min_selling_price": 4620249471,
-    "max_selling_price": 14873179986,
-    "number_ele": 9,
-    "number_living_floor": 30,
-    "number_basement": 4,
-    "bike_parking_monthly": 45000,
-    "car_parking_monthly": 1250000
+    "car_parking_monthly": 2000000,
+    "sector": {
+      "id": 13
+    }
   },
   {
     "code": "Vinhomes Skylake",
@@ -5382,7 +5700,10 @@
     "number_living_floor": 41,
     "number_basement": 3,
     "bike_parking_monthly": 45000,
-    "car_parking_monthly": 1250000
+    "car_parking_monthly": 1250000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Vinhomes Symphony",
@@ -5397,7 +5718,10 @@
     "number_living_floor": 15,
     "number_basement": 1,
     "bike_parking_monthly": 45000,
-    "car_parking_monthly": 1250000
+    "car_parking_monthly": 1250000,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Vinhomes West Point",
@@ -5412,7 +5736,10 @@
     "number_living_floor": 39,
     "number_basement": 3,
     "bike_parking_monthly": 45000,
-    "car_parking_monthly": 1250000
+    "car_parking_monthly": 1250000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Viwaseen Tower",
@@ -5427,7 +5754,10 @@
     "number_living_floor": 19,
     "number_basement": 2,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1500000
+    "car_parking_monthly": 1500000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Viễn Đông Star",
@@ -5442,7 +5772,10 @@
     "number_living_floor": 28,
     "number_basement": 3,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1300000
+    "car_parking_monthly": 1300000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Việt Hưng Green Park",
@@ -5457,7 +5790,10 @@
     "number_living_floor": 18,
     "number_basement": 1,
     "bike_parking_monthly": 60000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 15
+    }
   },
   {
     "code": "Watermark Hồ Tây",
@@ -5472,7 +5808,10 @@
     "number_living_floor": 19,
     "number_basement": 2,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "West Lake Dominium",
@@ -5487,7 +5826,10 @@
     "number_living_floor": 25,
     "number_basement": 3,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "Westa Building",
@@ -5502,7 +5844,10 @@
     "number_living_floor": 25,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "X2 Đại Kim",
@@ -5517,7 +5862,10 @@
     "number_living_floor": 28,
     "number_basement": 3,
     "bike_parking_monthly": 90000,
-    "car_parking_monthly": 1000000
+    "car_parking_monthly": 1000000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Xuân Mai Complex",
@@ -5532,7 +5880,10 @@
     "number_living_floor": 26,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Xuân Mai Park State",
@@ -5547,7 +5898,10 @@
     "number_living_floor": 30,
     "number_basement": 2,
     "bike_parking_monthly": 60000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Xuân Mai Riverside",
@@ -5562,7 +5916,10 @@
     "number_living_floor": 33,
     "number_basement": 1,
     "bike_parking_monthly": 120000,
-    "car_parking_monthly": 900000
+    "car_parking_monthly": 900000,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Xuân Mai Sparks Tower",
@@ -5577,7 +5934,10 @@
     "number_living_floor": 26,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 5
+    }
   },
   {
     "code": "Xuân Phương Quốc Hội",
@@ -5592,7 +5952,10 @@
     "number_living_floor": 21,
     "number_basement": 1,
     "bike_parking_monthly": 80000,
-    "car_parking_monthly": 800000
+    "car_parking_monthly": 800000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Xuân Phương Residence",
@@ -5607,7 +5970,10 @@
     "number_living_floor": 17,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 2
+    }
   },
   {
     "code": "Yên Hòa Sunshine",
@@ -5622,7 +5988,10 @@
     "number_living_floor": 22,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Đông Đô Residence",
@@ -5637,7 +6006,10 @@
     "number_living_floor": 21,
     "number_basement": 0,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 8
+    }
   },
   {
     "code": "Đại Kim Building",
@@ -5652,7 +6024,10 @@
     "number_living_floor": 23,
     "number_basement": 1,
     "bike_parking_monthly": 100000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "Đồng Phát Park View Tower",
@@ -5667,7 +6042,10 @@
     "number_living_floor": 30,
     "number_basement": 2,
     "bike_parking_monthly": 70000,
-    "car_parking_monthly": 1200000
+    "car_parking_monthly": 1200000,
+    "sector": {
+      "id": 9
+    }
   },
   {
     "code": "An Bình City",
@@ -5682,7 +6060,10 @@
     "number_living_floor": 35,
     "number_basement": 2,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 4
+    }
   },
   {
     "code": "Sunshine City",
@@ -5697,21 +6078,9 @@
     "number_living_floor": 40,
     "number_basement": 3,
     "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
-  },
-  {
-    "code": "Vinhomes Grand Park",
-    "name": "Vinhomes Grand Park",
-    "address": "P. Long Thạnh Mỹ, TP. Thủ Đức, TP. Hồ Chí Minh",
-    "developer_name": "Công ty Cổ phần Vinhomes",
-    "rank": "Hạng sang,Cao cấp,Trung cấp",
-    "total_area": 272,
-    "min_selling_price": 1136686410,
-    "max_selling_price": 26586108465,
-    "number_ele": 3,
-    "number_living_floor": 39,
-    "number_basement": 2,
-    "bike_parking_monthly": 0,
-    "car_parking_monthly": 0
+    "car_parking_monthly": 0,
+    "sector": {
+      "id": 4
+    }
   }
 ]

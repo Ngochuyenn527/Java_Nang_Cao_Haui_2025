@@ -7,8 +7,8 @@ import com.example.demo.service.BuildingService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,40 +16,47 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api/building")
-@Validated
 public class BuildingController {
 
     @Autowired
     private BuildingService buildingService;
 
-    @Operation(summary = "API search building")
+    @Operation(summary = "API get all buildings")
     @GetMapping
+    public ResponseEntity<List<BuildingDTO>> getAllBuildings() {
+        List<BuildingDTO> buildings = buildingService.getAllBuildings();
+        return new ResponseEntity<>(buildings, HttpStatus.OK);
+    }
+
+
+    @Operation(summary = "API search building")
+    @GetMapping("/search")
     public List<BuildingSearchResponse> searchBuildings(@ModelAttribute BuildingSearchRequest buildingSearchRequest) {
         List<BuildingSearchResponse> res = buildingService.searchBuildings(buildingSearchRequest);
         return res;
     }
 
+
     @Operation(summary = "API get building by id")
     @GetMapping("/{id}")
     public ResponseEntity<BuildingDTO> getBuildingById(@PathVariable Long id) {
-        BuildingDTO buildingDTO = buildingService.getBuildingById(id);
-        return ResponseEntity.ok(buildingDTO);
+        return ResponseEntity.ok(buildingService.getBuildingById(id));
     }
 
 
     @Operation(summary = "API add new building")
     @PostMapping
-    public ResponseEntity<BuildingDTO> addBuilding(@Valid @RequestBody BuildingDTO buildingDTO) {
-        BuildingDTO savedBuilding = buildingService.addBuilding(buildingDTO);
-        return ResponseEntity.ok(savedBuilding);
+    public ResponseEntity<BuildingDTO> addBuilding(@RequestBody BuildingDTO buildingDTO) {
+        return ResponseEntity.ok(buildingService.addBuilding(buildingDTO));
     }
+
 
     @Operation(summary = "API update building by id")
     @PutMapping("/{id}")
     public ResponseEntity<BuildingDTO> updateBuilding(@Valid @PathVariable Long id, @RequestBody BuildingDTO buildingDTO) {
-        BuildingDTO updatedBuilding = buildingService.updateBuilding(id, buildingDTO);
-        return ResponseEntity.ok(updatedBuilding);
+        return ResponseEntity.ok(buildingService.updateBuilding(id, buildingDTO));
     }
+
 
     @Operation(summary = "API delete building by id")
     @DeleteMapping("/{id}")

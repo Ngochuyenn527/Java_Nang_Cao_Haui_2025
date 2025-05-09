@@ -13,13 +13,28 @@ public class BuildingConverter {
     @Autowired
     private ModelMapper modelMapper;
 
+    @Autowired
+    private SectorConverter sectorConverter;
+
     //chuyển đổi BuildingEntity (be) thành BuildingDTO (fe) dùng modelMapper
-    public BuildingDTO toBuildingDTO(BuildingEntity buildingEntity) {
-      return modelMapper.map(buildingEntity, BuildingDTO.class);
+    public BuildingDTO convertToBuildingDTO(BuildingEntity entity) {
+        BuildingDTO dto = modelMapper.map(entity, BuildingDTO.class);
+
+        //gán giá trị cho SectorDTO sector khi sector_id được thêm trong Building
+        if (dto.getSector() != null && dto.getSector().getId() != null) {
+            dto.setSector(sectorConverter.convertToSectorDto(entity.getSector()));
+        }
+        return dto;
     }
 
     //chuyển đổi BuildingDTO (fe) thành BuildingEntity (be) dùng modelMapper
-    public BuildingEntity toBuildingEntity(BuildingDTO buildingDTO) {
-        return modelMapper.map(buildingDTO, BuildingEntity.class);
+    public BuildingEntity convertToBuildingEntity(BuildingDTO dto) {
+        BuildingEntity entity = modelMapper.map(dto, BuildingEntity.class);
+
+        //gán giá trị cho SectorDTO sector khi sector_id được thêm trong Building
+        if (dto.getSector() != null && dto.getSector().getId() != null) {
+            entity.setSector(sectorConverter.convertToSectorEntity(dto.getSector()));
+        }
+        return entity;
     }
 }
