@@ -1,0 +1,48 @@
+.signup-bg{
+	-fx-background-image: url(../Images/signup-bg.png);
+	-fx-background-size: cover;
+}
+
+.login-bg{
+	-fx-background-image: url(../Images/login-bg.png);
+	-fx-background-size: cover;
+}
+
+.inner-bg{
+	-fx-background-color: rgb(203, 245, 255, 0.5);
+	-fx-background-radius: 10;
+}
+
+.label-normal{
+	-fx-font-weight: bold;
+	-fx-font-size: 12;
+}
+
+.label-header{
+	-fx-text-fill: blue;
+	-fx-font-weight: bold;
+	-fx-font-size: 18;
+}
+
+.signup-btn{
+	
+}
+
+.login-btn{
+	 
+}
+
+.invisible-scroll .scroll-bar:vertical,
+.invisible-scroll .scroll-bar:horizontal {
+    -fx-opacity: 0;
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+}
+
+.invisible-scroll .corner {
+    -fx-background-color: transparent;
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+}

@@ -7,6 +7,7 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.4.4</version> <!-- Đây là phiên bản Spring Boot -->
 	</parent>
+
 	<groupId>com.example</groupId>
 	<artifactId>project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>

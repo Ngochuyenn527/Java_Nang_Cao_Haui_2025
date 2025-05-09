@@ -21,7 +21,10 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
     @PersistenceContext
     private EntityManager entityManager;
 
+<<<<<<< HEAD
+=======
     // map tên field Java với tên cột SQL tương ứng
+>>>>>>> origin/update-user
     private static String camelToSnake(String str) {
         return str.replaceAll("([a-z])([A-Z]+)", "$1_$2").toLowerCase();
     }
