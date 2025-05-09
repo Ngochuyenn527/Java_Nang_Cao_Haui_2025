@@ -5,30 +5,31 @@ import java.util.Scanner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class RunApplication {
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
+@SpringBootApplication
+public class RunApplication extends Application{
+
+	@Override
+    public void start(Stage primaryStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/ManagerView.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        primaryStage.setTitle("Trang Quản Trị");
+        primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);
+        primaryStage.show();
+    }
+	
     public static void main(String[] args) {
         // Khởi chạy Spring Boot backend
         SpringApplication.run(RunApplication.class, args);
-        System.out.println("Spring Boot backend đã chạy!");
 
-        // Mở giao diện JavaFX lần đầu
-        FXLauncher.launchUI();
-
-        // Giao diện console để mở lại FX UI
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println("Nhập 1 để mở lại giao diện, 0 để thoát:");
-            int choice = scanner.nextInt();
-            if (choice == 1) {
-                FXLauncher.launchUI();
-                System.out.println("Giao diện đã mở lại!");
-            } else {
-                break;
-            }
-        }
-        scanner.close();
-        System.exit(0);
+        // Mở giao diện JavaFX
+        launch(args);
     }
 }
