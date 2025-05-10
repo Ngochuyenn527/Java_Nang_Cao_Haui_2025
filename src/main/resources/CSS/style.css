@@ -1,0 +1,92 @@
+.signup-bg{
+	-fx-background-image: url(../Images/signup-bg.png);
+	-fx-background-size: cover;
+}
+
+.login-bg{
+	-fx-background-image: url(../Images/login-bg.png);
+	-fx-background-size: cover;
+}
+
+.inner-bg{
+	-fx-background-color: rgb(203, 245, 255, 0.5);
+	-fx-background-radius: 10;
+}
+
+.label-normal{
+	-fx-font-weight: bold;
+	-fx-font-size: 12;
+}
+
+.label-header{
+	-fx-text-fill: blue;
+	-fx-font-weight: bold;
+	-fx-font-size: 30;
+}
+
+.search-button {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../Images/search-icon.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 50px 40px;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+
+    -fx-pref-width: 50px;
+    -fx-pref-height: 40px;
+
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+}
+
+.search-button:hover {
+    -fx-scale-x: 1.5;
+    -fx-scale-y: 1.5;
+}
+
+.search-label {
+    -fx-text-fill: white; /* hoặc dùng #FFFFFF */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 2, 0.5, 1, 1);
+    -fx-padding: 5 0 5 0; /* trên và dưới */
+}
+
+.logout-button {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../Images/logout-icon.png"); 
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 45px 40px;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+
+    -fx-pref-width: 45px;
+    -fx-pref-height: 40px;
+
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+}
+
+.logout-button:hover {
+    -fx-scale-x: 1.5;
+    -fx-scale-y: 1.5;
+}
+
+.button-add {
+    padding-left: 20px; /* Đảm bảo có khoảng cách giữa dấu cộng và text */
+    position: relative;
+    font-size: 16px;
+}
+
+.button-add::before {
+    content: '\002B'; /* Mã Unicode cho dấu cộng */
+    position: absolute;
+    left: 10px; /* Khoảng cách từ bên trái */
+    top: 50%;
+    transform: translateY(-50%); /* Canh giữa dấu cộng */
+    font-size: 20px;
+}
