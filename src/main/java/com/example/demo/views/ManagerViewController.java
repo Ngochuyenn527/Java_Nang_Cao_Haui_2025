@@ -30,6 +30,9 @@ import javafx.stage.Stage;
 
 import org.springframework.boot.autoconfigure.amqp.RabbitProperties.Stream;
 import org.springframework.http.*;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpServerErrorException;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import com.example.demo.model.dto.BuildingDTO;
 import com.example.demo.model.dto.SectorDTO;
@@ -50,16 +53,6 @@ public class ManagerViewController{
     @FXML
     private Button btnSearch, btnAdd, btnEdit, btnDelete, btnfet, btnAccMng, btnSuaPK, btnThemPK, btnHuyPK, btnSuaBuilding, btnThemBuilding, btnHuyBuilding, btnHuyCH, btnThemCH, btnSuaCH, btnHuyAcc, btnThemAcc, btnSuaAcc;
 
-//    @FXML
-//    private TableView<BuildingSearchResponse> buildingList;
-//    @FXML
-//    private TableColumn<BuildingSearchResponse, String> name, address, rank, developerName;
-//    @FXML
-//    private TableColumn<BuildingSearchResponse, Double> totalArea;
-//    @FXML
-//    private TableColumn<BuildingSearchResponse, Long> minSellingPrice, maxSellingPrice;
-//    @FXML
-//    private TableColumn<BuildingSearchResponse, Integer> numberEle, numberLivingFloor, numberBasement;
     @FXML
     private BorderPane paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager;
     
@@ -81,7 +74,6 @@ public class ManagerViewController{
 
     public void initialize() {
         setUpTableColumns();
-//        fetchDataFromApi(); // Fetch data on initialization
     }
     
     private void setUpTableColumns() {
@@ -303,21 +295,26 @@ public class ManagerViewController{
     @FXML
     public void handleAccMng() {
     	showOnly(paneUserManager);
+    	hideEditPanes();
     }
     
     @FXML
     public void handleSectorMng() {
     	showOnly(paneSectorManager);
+    	hideEditPanes();
     }
     
     @FXML
     public void handleBuildingMng() {
     	showOnly(paneBuildingManager);
+    	fetchDataFromApi();
+    	hideEditPanes();
     }
     
     @FXML
     public void handleApartMng() {
     	showOnly(paneApartManager);
+    	hideEditPanes();
     }
     
     private void showOnly(Pane visiblePane) {
@@ -520,24 +517,20 @@ public class ManagerViewController{
         BuildingDTO buildingDTO = new BuildingDTO();
 
         try {
-            // Lấy dữ liệu từ các trường nhập liệu và gán vào đối tượng buildingDTO
             buildingDTO.setCode(txtMaToaNha.getText());
             buildingDTO.setName(txtTenToaNha.getText());
             buildingDTO.setAddress(txtDiaChiToaNha.getText());
             buildingDTO.setDeveloperName(txtTenChuDauTuToaNha.getText());
-            
-            // Kiểm tra và chuyển đổi các giá trị số
+            buildingDTO.setRank(txtHangToaNha.getText());
+            buildingDTO.setTotalArea(parseDouble(txtTongDienTichToaNha.getText()));
             buildingDTO.setMinSellingPrice(parseLong(txtGiaBanThapNhat.getText()));
             buildingDTO.setMaxSellingPrice(parseLong(txtGiaBanCaoNhat.getText()));
             buildingDTO.setNumberEle(parseInteger(txtSoThangMay.getText()));
             buildingDTO.setNumberLivingFloor(parseInteger(txtSoTangO.getText()));
             buildingDTO.setNumberBasement(parseInteger(txtSoTangHam.getText()));
-            buildingDTO.setRank(txtHangToaNha.getText());
-            buildingDTO.setTotalArea(parseDouble(txtTongDienTichToaNha.getText()));
             buildingDTO.setBikeParkingMonthly(parseLong(txtPhiXeMay.getText()));
             buildingDTO.setCarParkingMonthly(parseLong(txtPhiOTo.getText()));
 
-            // Thiết lập thông tin SectorDTO
             Long sectorId = parseLong(txtMaPhanKhu.getText());
             SectorDTO sectorDTO = new SectorDTO();
             sectorDTO.setId(sectorId);
@@ -548,23 +541,54 @@ public class ManagerViewController{
             return;
         }
 
-        // Gửi yêu cầu PUT cập nhật tòa nhà
-        RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8081/api/building/" + selectedBuildingId;
-
-        HttpHeaders headers = createAuthHeaders();
-        HttpEntity<BuildingDTO> entity = new HttpEntity<>(buildingDTO, headers);
-
         try {
-            ResponseEntity<BuildingDTO> response = restTemplate.exchange(url, HttpMethod.PUT, entity, BuildingDTO.class);
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
+            String jsonPayload = mapper.writeValueAsString(buildingDTO);
+
+            RestTemplate restTemplate = new RestTemplate();
+            String url = "http://localhost:8081/api/building/" + selectedBuildingId;
+
+            HttpHeaders headers = createAuthHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+
+            HttpEntity<String> entity = new HttpEntity<>(jsonPayload, headers);
+
+            ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.PUT, entity, String.class);
 
             if (response.getStatusCode() == HttpStatus.OK) {
                 showAlert(Alert.AlertType.INFORMATION, "Cập nhật thành công", "Tòa nhà đã được cập nhật thành công!", null);
+                loadBuildingList();
+
+                // ✅ Quay lại giao diện quản lý tòa nhà
+                paneBuildingManager.setVisible(true);
+                paneBuildingManager.setManaged(true);
+                PaneEditBuilding.setVisible(false);
+                PaneEditBuilding.setManaged(false);
+                
+                clearAllTextFieldsIn(PaneEditBuilding);
             } else {
-                showAlert(Alert.AlertType.ERROR, "Cập nhật thất bại", "Có lỗi khi cập nhật tòa nhà.", "Mã lỗi: " + response.getStatusCode());
+                handleApiError(response);
             }
-        } catch (Exception e) {
-            showAlert(Alert.AlertType.ERROR, "Cập nhật thất bại", "Có lỗi khi cập nhật tòa nhà.", "Lỗi: " + e.getMessage());
+
+        } catch (HttpClientErrorException | HttpServerErrorException httpEx) {
+            String errorBody = httpEx.getResponseBodyAsString();
+            System.err.println("Lỗi HTTP: " + httpEx.getStatusCode());
+            System.err.println("Nội dung lỗi: " + errorBody);
+
+            showAlert(Alert.AlertType.ERROR, "Cập nhật thất bại",
+                      "Lỗi từ phía máy chủ: " + httpEx.getStatusCode(),
+                      errorBody);
+        } catch (RestClientException ex) {
+            System.err.println("Lỗi RestClientException: " + ex.getMessage());
+            showAlert(Alert.AlertType.ERROR, "Cập nhật thất bại",
+                      "Lỗi không xác định khi kết nối tới API.",
+                      ex.getMessage());
+        } catch (Exception ex) {
+            System.err.println("Lỗi không xác định: " + ex.getMessage());
+            showAlert(Alert.AlertType.ERROR, "Cập nhật thất bại",
+                      "Đã xảy ra lỗi không xác định.",
+                      ex.getMessage());
         }
     }
 
@@ -734,23 +758,33 @@ public class ManagerViewController{
             return;
         }
 
-        // Gọi API
-        RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8081/api/building";
-
-        HttpHeaders headers = createAuthHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
-        HttpEntity<BuildingDTO> request = new HttpEntity<>(buildingDTO, headers);
-
         try {
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
+            String jsonPayload = mapper.writeValueAsString(buildingDTO);
+
+            RestTemplate restTemplate = new RestTemplate();
+            String url = "http://localhost:8081/api/building";
+            HttpHeaders headers = createAuthHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+
+            HttpEntity<String> request = new HttpEntity<>(jsonPayload, headers);
+
             ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, request, String.class);
 
             if (response.getStatusCode() == HttpStatus.OK) {
                 showAlert(Alert.AlertType.INFORMATION, "Thành công", "Đã thêm tòa nhà mới!", null);
-                loadBuildingList(); // Tải lại danh sách
+                loadBuildingList();
+
+                // ✅ Quay lại giao diện quản lý tòa nhà
+                paneBuildingManager.setVisible(true);
+                paneBuildingManager.setManaged(true);
+                PaneEditBuilding.setVisible(false);
+                PaneEditBuilding.setManaged(false);
+                
+                clearAllTextFieldsIn(PaneEditBuilding);
             } else {
-                handleApiError(response); // Dùng hàm bạn đã viết
+                handleApiError(response);
             }
 
         } catch (Exception e) {
@@ -759,7 +793,6 @@ public class ManagerViewController{
         }
     }
 
-    
     public void clearTextFieldsInPane(Pane pane) {
         for (Node node : pane.getChildrenUnmodifiable()) {
             if (node instanceof TextField) {
@@ -769,6 +802,34 @@ public class ManagerViewController{
                 clearTextFieldsInPane((Pane) node);
             }
         }
+    }
+
+    private void clearAllTextFieldsIn(Pane rootPane) {
+        for (Node node : rootPane.getChildrenUnmodifiable()) {
+            if (node instanceof TextField) {
+                ((TextField) node).clear();
+            } else if (node instanceof Pane) {
+                clearAllTextFieldsIn((Pane) node); // Đệ quy cho các Pane lồng nhau
+            }
+        }
+    }
+    
+    private void hideEditPanes() {
+        // Ẩn tất cả các pane chỉnh sửa
+        PaneEditSector.setVisible(false);
+        PaneEditSector.setManaged(false);
+
+        PaneEditBuilding.setVisible(false);
+        PaneEditBuilding.setManaged(false);
+
+        PaneChangePwd.setVisible(false);
+        PaneChangePwd.setManaged(false);
+
+        PaneEditApart.setVisible(false);
+        PaneEditApart.setManaged(false);
+
+        PaneEditUser.setVisible(false);
+        PaneEditUser.setManaged(false);
     }
 
     

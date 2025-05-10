@@ -30,6 +30,6 @@ public class RunApplication extends Application{
         SpringApplication.run(RunApplication.class, args);
 
         // Mở giao diện JavaFX
-        launch(args);
+//        launch(args);
     }
 }
