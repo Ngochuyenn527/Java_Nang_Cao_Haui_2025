@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -8,6 +9,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -53,7 +58,7 @@
    </left>
    <center>
    <StackPane fx:id="stackPaneMain" BorderPane.alignment="CENTER">
-      <BorderPane fx:id="paneBuildingManager" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <BorderPane fx:id="paneBuildingManager" managed="false" prefHeight="200.0" prefWidth="200.0" visible="false" BorderPane.alignment="CENTER">
          <center>
             <BorderPane prefHeight="302.0" prefWidth="1303.0" BorderPane.alignment="CENTER">
                <top>
@@ -79,18 +84,22 @@
                   <center>
                   <AnchorPane prefHeight="529.0" prefWidth="1320.0" BorderPane.alignment="CENTER">
                      <children>
-                        <TableView fx:id="buildingList" layoutX="16.8" layoutY="-256.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1303.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="buildingList" editable="false" layoutX="16.8" layoutY="-256.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1303.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
-                              <TableColumn fx:id="name" prefWidth="100.0" text="Tên tòa nhà" />
-                              <TableColumn fx:id="address" prefWidth="150.0" text="Địa chỉ" />
-                              <TableColumn fx:id="developerName" prefWidth="100.0" text="Nhà đầu tư" />
-                              <TableColumn fx:id="rank" prefWidth="75.0" text="Phân loại" />
-                              <TableColumn fx:id="totalArea" prefWidth="100.0" text="Tổng diện tích" />
-                              <TableColumn fx:id="minSellingPrice" prefWidth="100.0" text="Giá bán tối thiểu" />
-                              <TableColumn fx:id="maxSellingPrice" prefWidth="100.0" text="Giá bán tối đa" />
-                              <TableColumn fx:id="numberEle" prefWidth="100.0" text="Số thang máy" />
-                              <TableColumn fx:id="numberLivingFloor" prefWidth="100.0" text="Số phòng" />
-                              <TableColumn fx:id="numberBasement" prefWidth="100.0" text="Số tầng hầm" />
+                                 <TableColumn fx:id="sectorId" editable="false" prefWidth="73.60003662109375" text="ID phân khu" />
+                                 <TableColumn fx:id="code" editable="false" prefWidth="93.60005187988281" text="Mã tòa nhà" />
+                              <TableColumn fx:id="name" editable="false" prefWidth="103.20001220703125" text="Tên tòa nhà" />
+                              <TableColumn fx:id="address" editable="false" prefWidth="151.199951171875" text="Địa chỉ" />
+                              <TableColumn fx:id="developerName" editable="false" prefWidth="91.99993896484375" text="Nhà đầu tư" />
+                              <TableColumn fx:id="rank" editable="false" prefWidth="64.800048828125" text="Phân loại" />
+                              <TableColumn fx:id="totalArea" editable="false" prefWidth="88.800048828125" text="Tổng diện tích" />
+                              <TableColumn fx:id="minSellingPrice" editable="false" prefWidth="102.39996337890625" text="Giá bán tối thiểu" />
+                              <TableColumn fx:id="maxSellingPrice" editable="false" prefWidth="84.79998779296875" text="Giá bán tối đa" />
+                                 <TableColumn fx:id="bikeParkingMonthly" editable="false" prefWidth="127.199951171875" text="Giá đỗ xe đạp/tháng" />
+                                 <TableColumn fx:id="carParkingMonthly" editable="false" prefWidth="109.5999755859375" text="Giá đỗ ô tô/tháng" />
+                              <TableColumn fx:id="numberEle" editable="false" prefWidth="88.7999267578125" text="Số thang máy" />
+                              <TableColumn fx:id="numberLivingFloor" editable="false" prefWidth="82.39990234375" text="Số phòng" />
+                              <TableColumn fx:id="numberBasement" editable="false" prefWidth="87.2000732421875" text="Số tầng hầm" />
                            </columns>
                         </TableView>
                      </children>
@@ -99,7 +108,7 @@
             </BorderPane>
          </center>
       </BorderPane>
-      <BorderPane fx:id="paneApartManager" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" managed="false" visible="false">
+      <BorderPane fx:id="paneApartManager" managed="false" prefHeight="200.0" prefWidth="200.0" visible="false" BorderPane.alignment="CENTER">
          <center>
             <BorderPane prefHeight="302.0" prefWidth="1303.0" BorderPane.alignment="CENTER">
                <top>
@@ -128,18 +137,18 @@
                   <center>
                   <AnchorPane prefHeight="529.0" prefWidth="1320.0" BorderPane.alignment="CENTER">
                      <children>
-                        <TableView fx:id="buildingList" layoutX="16.8" layoutY="-256.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1303.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="ApartList" layoutX="16.8" layoutY="-256.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1303.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
-                              <TableColumn fx:id="name" prefWidth="100.0" text="Tên tòa nhà" />
-                              <TableColumn fx:id="address" prefWidth="150.0" text="Địa chỉ" />
-                              <TableColumn fx:id="developerName" prefWidth="100.0" text="Nhà đầu tư" />
-                              <TableColumn fx:id="rank" prefWidth="75.0" text="Phân loại" />
-                              <TableColumn fx:id="totalArea" prefWidth="100.0" text="Tổng diện tích" />
-                              <TableColumn fx:id="minSellingPrice" prefWidth="100.0" text="Giá bán tối thiểu" />
-                              <TableColumn fx:id="maxSellingPrice" prefWidth="100.0" text="Giá bán tối đa" />
-                              <TableColumn fx:id="numberEle" prefWidth="100.0" text="Số thang máy" />
-                              <TableColumn fx:id="numberLivingFloor" prefWidth="100.0" text="Số phòng" />
-                              <TableColumn fx:id="numberBasement" prefWidth="100.0" text="Số tầng hầm" />
+                              <TableColumn fx:id="ap_name" prefWidth="100.0" text="Tên tòa nhà" />
+                              <TableColumn fx:id="ap_address" prefWidth="150.0" text="Địa chỉ" />
+                              <TableColumn fx:id="ap_developerName" prefWidth="100.0" text="Nhà đầu tư" />
+                              <TableColumn fx:id="ap_rank" prefWidth="75.0" text="Phân loại" />
+                              <TableColumn fx:id="ap_totalArea" prefWidth="100.0" text="Tổng diện tích" />
+                              <TableColumn fx:id="ap_minSellingPrice" prefWidth="100.0" text="Giá bán tối thiểu" />
+                              <TableColumn fx:id="ap_maxSellingPrice" prefWidth="100.0" text="Giá bán tối đa" />
+                              <TableColumn fx:id="ap_numberEle" prefWidth="100.0" text="Số thang máy" />
+                              <TableColumn fx:id="ap_numberLivingFloor" prefWidth="100.0" text="Số phòng" />
+                              <TableColumn fx:id="ap_numberBasement" prefWidth="100.0" text="Số tầng hầm" />
                            </columns>
                         </TableView>
                      </children>
@@ -148,47 +157,47 @@
             </BorderPane>
          </center>
       </BorderPane>
-      <BorderPane fx:id="paneSectorManager" managed="false" prefHeight="200.0" prefWidth="200.0" visible="false" BorderPane.alignment="CENTER">
+      <BorderPane fx:id="paneSectorManager" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
             <BorderPane prefHeight="302.0" prefWidth="1303.0" BorderPane.alignment="CENTER">
                <top>
                   <AnchorPane prefHeight="228.0" prefWidth="1318.0" BorderPane.alignment="CENTER">
                         <children>
-                        <Button fx:id="btnEdit" layoutX="1089.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="25.0" prefWidth="48.0" text="Sửa" />
-                        <Button fx:id="btnDelete" layoutX="1165.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleDeleteBuilding" prefHeight="25.0" prefWidth="50.0" text="Xóa" />
-                        <Button fx:id="btnAdd" layoutX="1249.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleAddBuilding" prefHeight="25.0" prefWidth="50.0" text="Thêm" />
-                           <TextField layoutX="422.0" layoutY="29.0" prefHeight="42.0" prefWidth="706.0" />
-                           <ComboBox layoutX="422.0" layoutY="93.0" prefHeight="43.0" prefWidth="306.0" />
+                        <Button fx:id="btnEditPK" layoutX="1039.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleEditSector" prefHeight="25.0" prefWidth="48.0" text="Sửa" />
+                        <Button fx:id="btnDeletePK" layoutX="1111.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleDeleteSector" prefHeight="25.0" prefWidth="50.0" text="Xóa" />
+                        <Button fx:id="btnAddPK" layoutX="1188.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleAddSector" prefHeight="26.0" prefWidth="111.0" text="Thêm phân khu" />
+                           <TextField fx:id="txtPosPk" layoutX="422.0" layoutY="29.0" prefHeight="42.0" prefWidth="706.0" />
+                           <ComboBox fx:id="cbbSearchStatusPK" layoutX="422.0" layoutY="93.0" prefHeight="43.0" prefWidth="306.0" />
                            <Label layoutX="85.0" layoutY="30.0" text="Tìm kiếm theo vị trí">
                               <font>
                                  <Font size="28.0" />
                               </font>
                            </Label>
-                           <Button layoutX="1186.0" layoutY="28.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="71.0" text="Button" />
+                           <Button fx:id="btnSearchByPos" layoutX="1186.0" layoutY="28.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="71.0" text="Tìm kiếm" />
                            <Label layoutX="85.0" layoutY="95.0" text="Tìm kiếm theo trạng thái">
                               <font>
                                  <Font size="28.0" />
                               </font>
                            </Label>
-                           <Button layoutX="1186.0" layoutY="99.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="71.0" text="Button" />
+                           <Button fx:id="brnSearchByStatusPK" layoutX="1186.0" layoutY="99.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="71.0" text="Tìm kiếm" />
                         </children>
                   </AnchorPane>
                </top>
                   <center>
                   <AnchorPane prefHeight="529.0" prefWidth="1320.0" BorderPane.alignment="CENTER">
                      <children>
-                        <TableView fx:id="buildingList" layoutX="16.8" layoutY="-256.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1303.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="SectorList" layoutX="16.8" layoutY="-256.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1303.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
-                              <TableColumn fx:id="name" prefWidth="100.0" text="Tên tòa nhà" />
-                              <TableColumn fx:id="address" prefWidth="150.0" text="Địa chỉ" />
-                              <TableColumn fx:id="developerName" prefWidth="100.0" text="Nhà đầu tư" />
-                              <TableColumn fx:id="rank" prefWidth="75.0" text="Phân loại" />
-                              <TableColumn fx:id="totalArea" prefWidth="100.0" text="Tổng diện tích" />
-                              <TableColumn fx:id="minSellingPrice" prefWidth="100.0" text="Giá bán tối thiểu" />
-                              <TableColumn fx:id="maxSellingPrice" prefWidth="100.0" text="Giá bán tối đa" />
-                              <TableColumn fx:id="numberEle" prefWidth="100.0" text="Số thang máy" />
-                              <TableColumn fx:id="numberLivingFloor" prefWidth="100.0" text="Số phòng" />
-                              <TableColumn fx:id="numberBasement" prefWidth="100.0" text="Số tầng hầm" />
+                              <TableColumn fx:id="MaPK" prefWidth="100.0" text="Mã phân khu" />
+                              <TableColumn fx:id="TenPK" prefWidth="150.0" text="Tên phân khu" />
+                              <TableColumn fx:id="ViTriPK" prefWidth="100.0" text="Vị trí" />
+                              <TableColumn fx:id="TongDTPK" prefWidth="100.79998779296875" text="Tổng diện tích" />
+                              <TableColumn fx:id="SoTangPK" prefWidth="75.20001220703125" text="Số tầng " />
+                              <TableColumn fx:id="MoTaPK" prefWidth="100.0" text="Mô tả" />
+                              <TableColumn fx:id="QuanLyPK" prefWidth="100.0" text="Quản lý" />
+                              <TableColumn fx:id="TrangThaiPK" prefWidth="100.0" text="Trạng thái" />
+                              <TableColumn fx:id="StartDatePK" prefWidth="100.0" text="Ngày khởi công" />
+                              <TableColumn fx:id="EndDatePk" prefWidth="100.0" text="Ngày kết thúc" />
                            </columns>
                         </TableView>
                      </children>
@@ -199,27 +208,335 @@
       </BorderPane>
       <BorderPane fx:id="paneUserManager" managed="false" prefHeight="200.0" prefWidth="200.0" visible="false">
          <top>
-            <AnchorPane prefHeight="91.0" prefWidth="826.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="262.0" prefWidth="1310.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button layoutX="37.0" layoutY="33.0" mnemonicParsing="false" text="Thêm tài khoản" />
-                  <Button layoutX="168.0" layoutY="33.0" mnemonicParsing="false" text="Sửa" />
-                  <Button layoutX="237.0" layoutY="33.0" mnemonicParsing="false" text="Xóa" />
-                  <Button layoutX="749.0" layoutY="33.0" mnemonicParsing="false" text="Tìm kiếm" />
-                  <TextField layoutX="470.0" layoutY="33.0" prefHeight="26.0" prefWidth="266.0" promptText="Tìm kiếm theo tên" />
+                  <Button fx:id="btnThemUser" layoutX="1190.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleThemUser" text="Thêm tài khoản" />
+                  <Button fx:id="btnSuaUser" layoutX="1126.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleSuaUser" text="Sửa" />
+                  <Button layoutX="1059.0" layoutY="214.0" mnemonicParsing="false" text="Xóa" />
+                  <Button layoutX="1158.0" layoutY="32.0" mnemonicParsing="false" text="Tìm kiếm" />
+                  <TextField layoutX="446.0" layoutY="32.0" prefHeight="26.0" prefWidth="558.0" />
+                     <Label layoutX="79.0" layoutY="37.0" text="Tìm kiếm theo role">
+                        <font>
+                           <Font size="20.0" />
+                        </font>
+                     </Label>
+                     <Label layoutX="79.0" layoutY="105.0" text="TÌm kiếm theo Tên người dùng">
+                        <font>
+                           <Font size="20.0" />
+                        </font>
+                     </Label>
+                     <TextField layoutX="446.0" layoutY="107.0" prefHeight="26.0" prefWidth="558.0" />
+                     <Button layoutX="1158.0" layoutY="107.0" mnemonicParsing="false" text="Tìm kiếm" />
                </children>
             </AnchorPane>
          </top>
          <center>
-            <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" BorderPane.alignment="CENTER">
+            <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="610.0" prefWidth="1320.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn prefWidth="200.0" text="Id" />
-                <TableColumn prefWidth="200.0" text="Tên đăng nhập" />
-                  <TableColumn prefWidth="225.6" text="Tên đầy đủ" />
-                  <TableColumn prefWidth="200.0" text="Vai trò" />
+                <TableColumn fx:id="nameUser" prefWidth="216.80001831054688" text="Tên người dùng" />
+                <TableColumn fx:id="fullNameUser" prefWidth="319.1999206542969" text="Họ tên" />
+                  <TableColumn fx:id="SdtUser" prefWidth="216.800048828125" text="Số điện thoại" />
+                  <TableColumn fx:id="EmailUser" prefWidth="346.40008544921875" text="Email" />
+                     <TableColumn fx:id="RoleUser" prefWidth="224.0" text="Vai trò" />
               </columns>
             </TableView>
          </center>
       </BorderPane>
+        <GridPane fx:id="PaneEditSector" hgap="15" managed="false" vgap="10" visible="false">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <!-- Cột trái -->
+            <Label text="Mã phân khu" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+            <TextField fx:id="txtMaPhanKhu" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
+
+            <Label text="Tên phân khu" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <TextField fx:id="txtTenPhanKhu" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+
+            <Label text="Vị trí" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <TextField fx:id="txtViTri" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+
+            <Label text="Tổng diện tích" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <TextField fx:id="txtTongDienTich" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+
+            <Label text="Mô tả" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <TextField fx:id="txtMoTa" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+
+            <!-- Cột phải -->
+            <Label text="Tên quản lý" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+            <TextField fx:id="txtTenQuanLy" prefHeight="45.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
+
+            <Label text="Số tầng cao nhất" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <TextField fx:id="txtSoTangCaoNhat" prefHeight="45.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+
+            <Label text="Ngày khởi công" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <TextField fx:id="txtNgayKhoiCong" prefHeight="45.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+
+            <Label text="Ngày hoàn thành dự kiến" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <TextField fx:id="txtNgayHoanThanh" prefHeight="45.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+
+            <Label text="Trạng thái" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <ComboBox fx:id="comboTrangThai" prefHeight="46.0" prefWidth="184.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+
+            <!-- Nút chức năng -->
+            <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5">
+                <children>
+                    <Button fx:id="btnSuaPK" style="-fx-background-color: #B2FFFF;" text="Sửa phân khu" />
+                  <Button fx:id="btnThemPK" layoutX="512.0" layoutY="42.0" style="-fx-background-color: #B2FFFF;" text="Thêm phân khu" />
+                    <Button fx:id="btnHuyPK" onAction="#handleBackSector" style="-fx-background-color: #FF6961;" text="Hủy thao tác" />
+                </children>
+            </HBox>
+
+            <!-- Cho phép các cột có thể co giãn -->
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" />
+                <ColumnConstraints hgrow="ALWAYS" />
+                <ColumnConstraints halignment="RIGHT" />
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+            
+            <rowConstraints>
+			    <RowConstraints vgrow="ALWAYS" />
+			    <RowConstraints vgrow="ALWAYS" />
+			    <RowConstraints vgrow="ALWAYS" />
+			    <RowConstraints vgrow="ALWAYS" />
+			    <RowConstraints maxHeight="123.80001220703127" minHeight="31.000024414062523" prefHeight="64.60000000000002" vgrow="ALWAYS" />
+               <RowConstraints maxHeight="123.19997558593752" minHeight="30.399987792968773" prefHeight="89.60000000000002" />
+			</rowConstraints>
+
+        </GridPane>
+        <GridPane fx:id="PaneEditBuilding" hgap="15" managed="false" vgap="10" visible="false">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <!-- Cột trái -->
+            <Label text="ID phân khu" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+            <TextField fx:id="txtMaPhanKhu" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
+
+            <Label text="Mã tòa nhà" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <TextField fx:id="txtMaToaNha" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+
+            <Label text="Tên tòa nhà" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <TextField fx:id="txtTenToaNha" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+
+            <Label text="Địa chỉ" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <TextField fx:id="txtDiaChiToaNha" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+
+            <Label text="Tên chủ đàu tư" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <TextField fx:id="txtTenChuDauTuToaNha" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+
+            <!-- Cột phải -->
+            <Label text="Giá bán thấp nhất" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+            <TextField fx:id="txtGiaBanThapNhat" prefHeight="45.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
+
+            <Label text="Giá bán cao nhất" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <TextField fx:id="txtGiaBanCaoNhat" prefHeight="45.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+
+            <Label text="Số lượng thang máy" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <TextField fx:id="txtSoThangMay" prefHeight="45.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+
+            <Label text="Số tầng ở " GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <TextField fx:id="txtSoTangO" prefHeight="45.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+
+            <Label text="Số tầng hầm" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+
+            <!-- Nút chức năng -->
+            <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7">
+                <children>
+                    <Button fx:id="btnSuaBuilding" onAction="#handleUpdateBuilding" style="-fx-background-color: #B2FFFF;" text="Sửa tòa nhà" />
+                  <Button fx:id="btnThemBuilding" layoutX="512.0" layoutY="42.0" onAction="#handleAddBuilding_2" style="-fx-background-color: #B2FFFF;" text="Thêm tòa nhà" />
+                    <Button fx:id="btnHuyBuilding" onAction="#handleBackBuilding" style="-fx-background-color: #FF6961;" text="Hủy thao tác" />
+                </children>
+            </HBox>
+            <TextField fx:id="txtSoTangHam" prefHeight="50.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Label text="Hạng" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <Label text="Tổng diện tích" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <Label text="Phí gửi xe máy/tháng" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <Label text="Phí gửi ô tô/tháng" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <TextField fx:id="txtHangToaNha" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="txtTongDienTichToaNha" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="txtPhiXeMay" prefHeight="50.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <TextField fx:id="txtPhiOTo" prefHeight="50.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+
+            <!-- Cho phép các cột có thể co giãn -->
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" />
+                <ColumnConstraints hgrow="ALWAYS" />
+                <ColumnConstraints halignment="RIGHT" />
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+            
+            <rowConstraints>
+			    <RowConstraints vgrow="ALWAYS" />
+			    <RowConstraints vgrow="ALWAYS" />
+			    <RowConstraints vgrow="ALWAYS" />
+			    <RowConstraints vgrow="ALWAYS" />
+			    <RowConstraints vgrow="ALWAYS" />
+    			<RowConstraints vgrow="ALWAYS" />
+			    <RowConstraints maxHeight="123.80001220703127" minHeight="31.000024414062523" prefHeight="64.60000000000002" vgrow="ALWAYS" />
+               <RowConstraints maxHeight="123.19997558593752" minHeight="30.399987792968773" prefHeight="89.60000000000002" />
+			</rowConstraints>
+
+        </GridPane>
+		<GridPane fx:id="PaneEditApart" hgap="15" managed="false" vgap="10" visible="false">
+		    <padding>
+		        <Insets bottom="20" left="20" right="20" top="20" />
+		    </padding>
+		
+		    <!-- Cột trái -->
+		    <Label text="ID tòa nhà" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+		    <TextField fx:id="txtMaToaNha_CH" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
+		
+		    <Label text="Mã căn hộ" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+		    <TextField fx:id="txtMaCanHo" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+		
+		    <Label text="Tên căn hộ" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+		    <TextField fx:id="txtTenCanHo" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+		
+		    <Label text="Tầng" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+		    <TextField fx:id="TxtSoTangCH" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+		
+		    <Label text="Diện tích" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+		    <TextField fx:id="txtDienTichCH" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+		
+		    <!-- Cột phải -->
+		    <Label text="Giá" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+		    <TextField fx:id="txtGiaCH" prefHeight="45.0" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" />
+		
+		    <Label text="Trạng thái" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+		
+		    <Label text="Hướng chính" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+		    <TextField fx:id="txtHuongCH" prefHeight="45.0" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+		
+		    <Label text="Mô tả" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+		    <TextField fx:id="txtMoTaCH" prefHeight="45.0" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+		
+		    <Label text="View" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+		
+		    <!-- Nút chức năng -->
+		    <HBox alignment="CENTER" prefHeight="90.0" prefWidth="759.0" spacing="10" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7">
+		        <children>
+		            <Button fx:id="btnSuaCH" style="-fx-background-color: #B2FFFF;" text="Sửa căn hộ" />
+		            <Button fx:id="btnThemCH" style="-fx-background-color: #B2FFFF;" text="Thêm căn hộ" />
+		            <Button fx:id="btnHuyCH" onAction="#handleBackApart" style="-fx-background-color: #FF6961;" text="Hủy thao tác" />
+		        </children>
+		    </HBox>
+		    <TextField fx:id="txtViewCH" prefHeight="50.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+		    <Label text="Số phòng ngủ" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+		    <Label text="Số phòng tắm" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+		    <Label text="Tiền một số điện" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+		    <Label text="Tiền một khối nước" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+		    <TextField fx:id="txtSoPhongNgu" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+		    <TextField fx:id="txtSoPhongTam" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+		    <TextField fx:id="txtTienDienCH" prefHeight="50.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+		    <TextField fx:id="txtTienNuocCH" prefHeight="50.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+		    <ComboBox fx:id="cbbTrangThaiCH" prefHeight="26.0" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+		    <TextField fx:id="txtChieuCaoCH" prefHeight="50.0" prefWidth="263.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+		    <Label text="Chiều cao trần nhà" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+		
+		    <!-- Cho phép các cột có thể co giãn -->
+		    <columnConstraints>
+		        <ColumnConstraints halignment="RIGHT" />
+		        <ColumnConstraints hgrow="ALWAYS" />
+		        <ColumnConstraints halignment="RIGHT" />
+		        <ColumnConstraints halignment="RIGHT" />
+		        <ColumnConstraints hgrow="ALWAYS" />
+		    </columnConstraints>
+		    
+		    <rowConstraints>
+		        <RowConstraints vgrow="ALWAYS" />
+		        <RowConstraints vgrow="ALWAYS" />
+		        <RowConstraints vgrow="ALWAYS" />
+		        <RowConstraints vgrow="ALWAYS" />
+		        <RowConstraints vgrow="ALWAYS" />
+		        <RowConstraints vgrow="ALWAYS" />
+		        <RowConstraints maxHeight="123.80001220703127" minHeight="31.000024414062523" prefHeight="64.60000000000002" vgrow="ALWAYS" />
+		        <RowConstraints maxHeight="123.19997558593752" minHeight="30.399987792968773" prefHeight="89.60000000000002" />
+		    </rowConstraints>
+		</GridPane>
+		<GridPane fx:id="PaneChangePwd" hgap="15" managed="false" vgap="10" visible="false">
+		    <padding>
+		        <Insets bottom="20" left="20" right="20" top="20" />
+		    </padding>
+		
+		    <!-- Cột trái -->
+		    <Label text="Mật khẩu cũ" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+		    <TextField fx:id="txtMatKhauCu" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
+		
+		    <Label text="Mật khẩu mới" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+		    <TextField fx:id="txtMatKhauMoi" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+		
+		    <Label text="Nhập lại mật khẩu mới" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+		    <TextField fx:id="txtNhapLaiMKMoi" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+		
+		    <!-- Nút chức năng -->
+		    <HBox alignment="CENTER" prefHeight="90.0" prefWidth="759.0" spacing="10" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
+		        <children>
+		            <Button fx:id="btnChangePwd" style="-fx-background-color: #B2FFFF;" text="Đổi mật khẩu" />
+		            <Button fx:id="btnHuyChangePwd" onAction="#handleBackBuilding_2" style="-fx-background-color: #FF6961;" text="Hủy thao tác" />
+		        </children>
+		    </HBox>
+		
+		    <!-- Cho phép các cột có thể co giãn -->
+		    <columnConstraints>
+		        <ColumnConstraints halignment="RIGHT" maxWidth="383.20001220703125" minWidth="82.39996337890625" prefWidth="344.79998779296875" />
+		        <ColumnConstraints hgrow="ALWAYS" maxWidth="1166.6000366210938" minWidth="865.7999877929688" prefWidth="904.2000122070312" />
+		        <ColumnConstraints halignment="RIGHT" />
+		    </columnConstraints>
+		    
+		    <rowConstraints>
+		        <RowConstraints vgrow="ALWAYS" />
+		        <RowConstraints vgrow="ALWAYS" />
+		        <RowConstraints maxHeight="194.80001220703127" minHeight="0.0" prefHeight="66.79998168945315" vgrow="ALWAYS" />
+		        <RowConstraints maxHeight="290.0" minHeight="30.399987792968773" prefHeight="223.20001831054685" />
+		    </rowConstraints>
+		</GridPane>
+        <GridPane fx:id="PaneEditUser" hgap="15" managed="false" vgap="10" visible="false">
+		    <padding>
+		        <Insets bottom="20" left="20" right="20" top="20" />
+		    </padding>
+		
+		    <!-- Cột trái -->
+		    <Label text="Tên người dùng" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+		    <TextField fx:id="txtTenNguoiDung" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
+		
+		    <Label text="Họ tên" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+		    <TextField fx:id="txtHoTen" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+		
+		    <Label text="Số điện thoại" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+		    <TextField fx:id="txtSoDienThoai" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+		
+		    <!-- Nút chức năng -->
+		    <HBox alignment="CENTER" prefHeight="90.0" prefWidth="759.0" spacing="10" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5">
+		        <children>
+		            <Button fx:id="btnThemAcc" onAction="#handleThemUser" style="-fx-background-color: #B2FFFF;" text="Thêm tài khoản" />
+                  <Button fx:id="btnSuaAcc" layoutX="552.0" layoutY="109.0" onAction="#handleSuaUser" style="-fx-background-color: #B2FFFF;" text="Sửa tài khoản" />
+		            <Button fx:id="btnHuyAcc" onAction="#handleBackAcc" style="-fx-background-color: #FF6961;" text="Hủy thao tác" />
+		        </children>
+		    </HBox>
+            <Label text="Email" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Label text="Vai trò" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <TextField fx:id="txtEmail" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbbStatusUser" prefHeight="26.0" prefWidth="290.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+		
+		    <!-- Cho phép các cột có thể co giãn -->
+		    <columnConstraints>
+		        <ColumnConstraints halignment="RIGHT" maxWidth="383.20001220703125" minWidth="82.39996337890625" prefWidth="344.79998779296875" />
+		        <ColumnConstraints hgrow="ALWAYS" maxWidth="1166.6000366210938" minWidth="865.7999877929688" prefWidth="904.2000122070312" />
+		        <ColumnConstraints halignment="RIGHT" />
+		    </columnConstraints>
+		    
+		    <rowConstraints>
+		        <RowConstraints vgrow="ALWAYS" />
+		        <RowConstraints vgrow="ALWAYS" />
+		        <RowConstraints maxHeight="194.80001220703127" minHeight="0.0" prefHeight="66.79998168945315" vgrow="ALWAYS" />
+               <RowConstraints maxHeight="194.80001220703127" minHeight="10.0" prefHeight="66.79998168945315" vgrow="ALWAYS" />
+               <RowConstraints maxHeight="194.80001220703127" minHeight="10.0" prefHeight="66.79998168945315" vgrow="ALWAYS" />
+		        <RowConstraints maxHeight="290.0" minHeight="30.399987792968773" prefHeight="223.20001831054685" />
+		    </rowConstraints>
+		</GridPane>
    </StackPane>
    </center>
 </BorderPane>
