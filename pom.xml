@@ -63,6 +63,7 @@
 			<version>0.7.4</version>
 		</dependency>
 
+<!--		Thêm thư viện Swagger (Springdoc OpenAPI)-->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>

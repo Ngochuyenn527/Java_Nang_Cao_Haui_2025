@@ -75,20 +75,24 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO addUser(UserDTO userDTO) {
         try {
-            UserEntity entity = userConverter.convertToUserEntity(userDTO);
-            entity.setStatus(1);
-            entity.setPassword(passwordEncoder.encode(SystemConstant.PASSWORD_DEFAULT));
-            userRepository.save(entity);
-            return userConverter.convertToUserDto(entity);
+            // Map lại entity từ DTO
+            UserEntity userEntity = userConverter.convertToUserEntity(userDTO);
+
+            userEntity.setStatus(1);
+            userEntity.setPassword(passwordEncoder.encode(SystemConstant.PASSWORD_DEFAULT));
+
+            userRepository.save(userEntity);
+            return userConverter.convertToUserDto(userEntity);
         } catch (Exception e) {
-            throw new RuntimeException("Có lỗi xảy ra khi thêm user: " + e.getMessage());
+            throw new RuntimeException("Có lỗi xảy ra khi cập nhật user: " + e.getMessage());
         }
-    }
+        }
 
     @Override
     public UserDTO updateUser(Long id, UserDTO userDTO) {
         try {
             UserEntity existingUser = checkUserById(id);
+
             UserEntity updatedUser = userConverter.convertToUserEntity(userDTO);
 
             updatedUser.setId(id);
