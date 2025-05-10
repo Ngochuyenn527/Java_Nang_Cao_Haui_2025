@@ -6,7 +6,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.util.Base64Utils;
+import java.util.Base64;
 
 import com.example.demo.model.dto.BuildingDTO;
 
@@ -98,7 +98,8 @@ public class BuildingEditViewController {
         String username = "admin";
         String password = "123456";
         String auth = username + ":" + password;
-        String encodedAuth = Base64Utils.encodeToString(auth.getBytes());
+        String encodedAuth = java.util.Base64.getEncoder().encodeToString(auth.getBytes());
+
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Basic " + encodedAuth);

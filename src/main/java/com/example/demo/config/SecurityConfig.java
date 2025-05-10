@@ -32,7 +32,8 @@ public class SecurityConfig {
                         ).permitAll()
 
                         // Các request đến API building yêu cầu xác thực
-                        .requestMatchers("/api/building/**").authenticated()
+                        .requestMatchers(
+                                "/api/building/**").authenticated()
 
                         // Các request còn lại (nếu có) thì cho phép
                         .anyRequest().permitAll()

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="589.0" prefWidth="808.0" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demo.views.AddApartmentController">
+
+    <!-- ID tòa nhà -->
+    <Label layoutX="150.0" layoutY="103.0" text="ID tòa nhà" />
+    <TextField fx:id="txtBuildingId" layoutX="242.0" layoutY="103.0" prefWidth="200" />
+
+    <!-- Mã căn hộ -->
+    <Label layoutX="150.0" layoutY="143.0" text="Mã căn hộ" />
+    <TextField fx:id="txtApartmentId" layoutX="242.0" layoutY="143.0" prefWidth="200" />
+
+    <!-- Tên căn hộ -->
+    <Label layoutX="150.0" layoutY="183.0" text="Tên căn hộ" />
+    <TextField fx:id="txtApartmentName" layoutX="242.0" layoutY="179.0" prefWidth="200" />
+
+    <!-- Tầng -->
+    <Label layoutX="150.0" layoutY="223.0" text="Tầng" />
+    <TextField fx:id="txtFloor" layoutX="242.0" layoutY="223.0" prefWidth="200" />
+
+    <!-- Diện tích -->
+    <Label layoutX="150.0" layoutY="263.0" text="Diện tích" />
+    <TextField fx:id="txtArea" layoutX="242.0" layoutY="268.0" prefWidth="200" />
+
+    <!-- Số phòng ngủ -->
+    <Label layoutX="150.0" layoutY="303.0" text="Số phòng ngủ" />
+    <TextField fx:id="txtBedrooms" layoutX="242.0" layoutY="303.0" prefWidth="200" />
+
+    <!-- Số phòng tắm -->
+    <Label layoutX="150.0" layoutY="343.0" text="Số phòng tắm" />
+    <TextField fx:id="txtBathrooms" layoutX="242.0" layoutY="343.0" prefWidth="200" />
+
+    <!-- Giá -->
+    <Label layoutX="480.0" layoutY="103.0" text="Giá" />
+    <TextField fx:id="txtPrice" layoutX="580.0" layoutY="103.0" prefWidth="130" />
+
+    <!-- Trạng thái -->
+    <Label layoutX="476.0" layoutY="143.0" text="Trạng thái" />
+    <ComboBox fx:id="cbStatus" layoutX="580.0" layoutY="143.0" prefWidth="130">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Available" />
+                <String fx:value="Sold" />
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <!-- Hướng chính -->
+    <Label layoutX="475.0" layoutY="183.0" text="Hướng chính" />
+    <TextField fx:id="txtDirection" layoutX="580.0" layoutY="183.0" prefWidth="130" />
+
+    <!-- Chiều cao trần nhà -->
+    <Label layoutX="476.0" layoutY="227.0" text="Chiều cao trần nhà" />
+    <TextField fx:id="txtCeilingHeight" layoutX="580.0" layoutY="223.0" prefWidth="130" />
+
+    <!-- View -->
+    <Label layoutX="476.0" layoutY="267.0" text="View" />
+    <TextField fx:id="txtView" layoutX="580.0" layoutY="263.0" prefWidth="130" />
+
+    <!-- Tiền điện -->
+    <Label layoutX="474.0" layoutY="303.0" text="Tiền một số điện" />
+    <TextField fx:id="txtElectricityFee" layoutX="580.0" layoutY="303.0" prefWidth="130" />
+
+    <!-- Tiền nước -->
+    <Label layoutX="472.0" layoutY="343.0" text="Tiền một k nước" />
+    <TextField fx:id="txtWaterFee" layoutX="580.0" layoutY="343.0" prefWidth="130" />
+
+    <!-- Mô tả -->
+    <Label layoutX="149.0" layoutY="396.0" text="Mô tả" />
+    <TextField fx:id="txtDescription" layoutX="242.0" layoutY="392.0" prefHeight="87.0" prefWidth="472.0" />
+
+    <!-- Tiêu đề -->
+    <Label layoutX="303.0" layoutY="45.0" prefHeight="32.0" prefWidth="284.0" text="Thêm căn hộ mới" textAlignment="CENTER" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+    <!-- Các nút -->
+    <Button fx:id="btnAdd" layoutX="280.0" layoutY="523.0" onAction="#handleAdd" prefWidth="100" style="-fx-background-color: #32CD32;" text="Thêm" />
+    <Button fx:id="btnCancel" layoutX="514.0" layoutY="523.0" onAction="#cancel" prefWidth="100" style="-fx-background-color: #FF6347;" text="Hủy" />
+</AnchorPane>

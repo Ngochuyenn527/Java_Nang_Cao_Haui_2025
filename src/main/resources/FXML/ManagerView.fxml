@@ -14,7 +14,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="1500.0" styleClass="login-bg" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.views.ManagerViewController">
    <top>
-      <AnchorPane prefHeight="81.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="89.0" prefWidth="1510.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="31.0" layoutY="27.0" styleClass="label-header" text="Trang quản trị" />
             <Button layoutX="1401.0" layoutY="28.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Logout" />
@@ -53,7 +53,7 @@
    </left>
    <center>
    <StackPane fx:id="stackPaneMain" BorderPane.alignment="CENTER">
-      <BorderPane fx:id="paneBuildingManager" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <BorderPane fx:id="paneBuildingManager" managed="false" prefHeight="200.0" prefWidth="200.0" visible="false" BorderPane.alignment="CENTER">
          <center>
             <BorderPane prefHeight="302.0" prefWidth="1303.0" BorderPane.alignment="CENTER">
                <top>
@@ -81,6 +81,7 @@
                      <children>
                         <TableView fx:id="buildingList" layoutX="16.8" layoutY="-256.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1303.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
+                              <TableColumn fx:id="colCode" text="Mã căn hộ" />
                               <TableColumn fx:id="name" prefWidth="100.0" text="Tên tòa nhà" />
                               <TableColumn fx:id="address" prefWidth="150.0" text="Địa chỉ" />
                               <TableColumn fx:id="developerName" prefWidth="100.0" text="Nhà đầu tư" />
@@ -99,47 +100,50 @@
             </BorderPane>
          </center>
       </BorderPane>
-      <BorderPane fx:id="paneApartManager" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" managed="false" visible="false">
+      <BorderPane fx:id="paneApartManager" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
             <BorderPane prefHeight="302.0" prefWidth="1303.0" BorderPane.alignment="CENTER">
                <top>
                   <AnchorPane prefHeight="228.0" prefWidth="1318.0" BorderPane.alignment="CENTER">
                         <children>
-                        <Button fx:id="btnEditApart" layoutX="1003.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleEditApart" prefHeight="25.0" prefWidth="48.0" text="Sửa" />
-                        <Button fx:id="btnDeleteApart" layoutX="1086.0" layoutY="182.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="Xóa" />
+                           <Button fx:id="btnEditApart" layoutX="1003.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleEditApartButton" prefHeight="25.0" prefWidth="48.0" text="Sửa" />
+                        <Button fx:id="btnDeleteApart" layoutX="1086.0" layoutY="182.0" mnemonicParsing="false"  prefHeight="25.0" prefWidth="50.0" text="Xóa" />
                         <Button fx:id="btnAddApart" layoutX="1173.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleAddApart" prefHeight="26.0" prefWidth="126.0" text="Thêm căn hộ" />
-                           <TextField fx:id="txtSearchByFloor" layoutX="422.0" layoutY="29.0" prefHeight="42.0" prefWidth="706.0" />
+                           <TextField fx:id="txtSearchByFloor" layoutX="422.0" layoutY="29.0" onKeyReleased="#handleSearchByFloor" prefHeight="42.0" prefWidth="706.0" />
+
                            <ComboBox fx:id="cbbSearchByStatus" layoutX="422.0" layoutY="93.0" prefHeight="43.0" prefWidth="306.0" />
                            <Label layoutX="56.0" layoutY="30.0" text="Tìm kiếm theo tầng">
                               <font>
                                  <Font size="28.0" />
                               </font>
                            </Label>
-                           <Button fx:id="btnSearchbyFloor" layoutX="1186.0" layoutY="28.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="71.0" text="Tìm kiếm" />
                            <Label layoutX="56.0" layoutY="95.0" text="Tìm kiếm theo trạng thái">
                               <font>
                                  <Font size="28.0" />
                               </font>
                            </Label>
-                           <Button fx:id="btnSearchByStatus" layoutX="1186.0" layoutY="99.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="71.0" text="Tìm kiếm" />
+                           <Button fx:id="btnReFreash" layoutX="912.0" layoutY="183.0" mnemonicParsing="false" onAction="#handleRefreshTable" prefHeight="25.0" prefWidth="73.0" text="Lam moi" />
                         </children>
                   </AnchorPane>
                </top>
                   <center>
                   <AnchorPane prefHeight="529.0" prefWidth="1320.0" BorderPane.alignment="CENTER">
                      <children>
-                        <TableView fx:id="buildingList" layoutX="16.8" layoutY="-256.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1303.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="buildingApartList" prefHeight="527.0" prefWidth="1494.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
-                              <TableColumn fx:id="name" prefWidth="100.0" text="Tên tòa nhà" />
-                              <TableColumn fx:id="address" prefWidth="150.0" text="Địa chỉ" />
-                              <TableColumn fx:id="developerName" prefWidth="100.0" text="Nhà đầu tư" />
-                              <TableColumn fx:id="rank" prefWidth="75.0" text="Phân loại" />
-                              <TableColumn fx:id="totalArea" prefWidth="100.0" text="Tổng diện tích" />
-                              <TableColumn fx:id="minSellingPrice" prefWidth="100.0" text="Giá bán tối thiểu" />
-                              <TableColumn fx:id="maxSellingPrice" prefWidth="100.0" text="Giá bán tối đa" />
-                              <TableColumn fx:id="numberEle" prefWidth="100.0" text="Số thang máy" />
-                              <TableColumn fx:id="numberLivingFloor" prefWidth="100.0" text="Số phòng" />
-                              <TableColumn fx:id="numberBasement" prefWidth="100.0" text="Số tầng hầm" />
+                              <TableColumn fx:id="colCode" prefWidth="100" text="Mã căn hộ" />
+                              <TableColumn fx:id="colName" prefWidth="150" text="Tên căn hộ" />
+                              <TableColumn fx:id="colFloor" prefWidth="60" text="Tầng" />
+                              <TableColumn fx:id="colArea" prefWidth="90" text="Diện tích" />
+                              <TableColumn fx:id="colBedrooms" prefWidth="100" text="Số phòng ngủ" />
+                              <TableColumn fx:id="colBathrooms" prefWidth="100" text="Số phòng tắm" />
+                              <TableColumn fx:id="colPrice" prefWidth="100" text="Giá" />
+                              <TableColumn fx:id="colStatus" prefWidth="100" text="Trạng thái" />
+                              <TableColumn fx:id="colFacing" prefWidth="100" text="Hướng" />
+                              <TableColumn fx:id="colDescription" prefWidth="200" text="Mô tả" />
+                              <TableColumn fx:id="colElectricity" prefWidth="130" text="Tiền điện (1 kWh)" />
+                              <TableColumn fx:id="colWater" prefWidth="130" text="Tiền nước (1 m³)" />
+                              <TableColumn fx:id="colCeiling" prefWidth="100" text="Độ cao trần" />
                            </columns>
                         </TableView>
                      </children>

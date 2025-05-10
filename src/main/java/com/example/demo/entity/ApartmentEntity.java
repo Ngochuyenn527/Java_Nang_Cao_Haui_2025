@@ -74,5 +74,64 @@ public class ApartmentEntity extends BaseEntity {
     @JoinColumn(name = "building_id")
     private BuildingEntity building;
 
+    public String getCode() {
+        return code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Double getArea() {
+        return area;
+    }
+
+    public Integer getFloor() {
+        return floor;
+    }
+
+    public Integer getNumberOfBedrooms() {
+        return numberOfBedrooms;
+    }
+
+    public Integer getNumberOfBathrooms() {
+        return numberOfBathrooms;
+    }
+
+    public Long getPrice() {
+        return price;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getFacingDirection() {
+        return facingDirection;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Integer getElectricityPricePerKwh() {
+        return electricityPricePerKwh;
+    }
+
+    public String getView() {
+        return view;
+    }
+
+    public Integer getWaterPricePerM3() {
+        return waterPricePerM3;
+    }
+
+    public Double getCeilingHeight() {
+        return ceilingHeight;
+    }
+
+    public BuildingEntity getBuilding() {
+        return building ;
+    }
 }
 
