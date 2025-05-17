@@ -28,7 +28,6 @@ public class BuildingController {
         return new ResponseEntity<>(buildings, HttpStatus.OK);
     }
 
-
     @Operation(summary = "API search building")
     @GetMapping("/search")
     public List<BuildingSearchResponse> searchBuildings(@ModelAttribute BuildingSearchRequest buildingSearchRequest) {
@@ -36,13 +35,11 @@ public class BuildingController {
         return res;
     }
 
-
     @Operation(summary = "API get building by id")
     @GetMapping("/{id}")
     public ResponseEntity<BuildingDTO> getBuildingById(@PathVariable Long id) {
         return ResponseEntity.ok(buildingService.getBuildingById(id));
     }
-
 
     @Operation(summary = "API add new building")
     @PostMapping
@@ -50,13 +47,11 @@ public class BuildingController {
         return ResponseEntity.ok(buildingService.addBuilding(buildingDTO));
     }
 
-
     @Operation(summary = "API update building by id")
     @PutMapping("/{id}")
     public ResponseEntity<BuildingDTO> updateBuilding(@Valid @PathVariable Long id, @RequestBody BuildingDTO buildingDTO) {
         return ResponseEntity.ok(buildingService.updateBuilding(id, buildingDTO));
     }
-
 
     @Operation(summary = "API delete building by id")
     @DeleteMapping("/{id}")
@@ -64,6 +59,4 @@ public class BuildingController {
         buildingService.deleteBuilding(id);
         return ResponseEntity.ok("Deleted successfully!");
     }
-
-
 }

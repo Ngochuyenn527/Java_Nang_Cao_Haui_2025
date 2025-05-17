@@ -76,7 +76,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-<!--		giúp chuyển đổi giữa Java object và JSON (db_building_etity.json)-->
+<!--		giúp chuyển đổi giữa Java object và JSON -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
