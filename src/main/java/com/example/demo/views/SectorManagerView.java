@@ -10,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -20,6 +21,7 @@ import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.List;
 
 public class SectorManagerView {
@@ -95,25 +97,36 @@ public class SectorManagerView {
     }
 
     public SectorDTO getSectorInputFromForm(TextField txtMaPhanKhu, TextField txtTenPhanKhu, TextField txtViTri,
-                                           TextField txtTongDienTich, TextField txtMoTa, TextField txtTenQuanLy,
-                                           TextField txtSoTangCaoNhat, TextField txtNgayKhoiCong, TextField txtNgayHoanThanh,
-                                           ComboBox<String> comboTrangThai) {
+            TextField txtTongDienTich, TextField txtMoTa, TextField txtTenQuanLy,
+            TextField txtSoTangCaoNhat, DatePicker datePickerKhoiCong, DatePicker datePickerHoanThanh,
+            ComboBox<String> comboTrangThai) {
         try {
-            SectorDTO dto = new SectorDTO();
-            dto.setCode(txtMaPhanKhu.getText());
-            dto.setName(txtTenPhanKhu.getText());
-            dto.setLocation(txtViTri.getText());
-            dto.setTotalArea(Double.parseDouble(txtTongDienTich.getText()));
-            dto.setDescription(txtMoTa.getText());
-            dto.setManagerName(txtTenQuanLy.getText());
-            dto.setMaxFloors(Integer.parseInt(txtSoTangCaoNhat.getText()));
-            dto.setStatus(comboTrangThai.getValue());
+        	SectorDTO dto = new SectorDTO();
+        	dto.setCode(txtMaPhanKhu.getText());
+        	dto.setName(txtTenPhanKhu.getText());
+        	dto.setLocation(txtViTri.getText());
+        	dto.setTotalArea(Double.parseDouble(txtTongDienTich.getText()));
+        	dto.setDescription(txtMoTa.getText());
+        	dto.setManagerName(txtTenQuanLy.getText());
+        	dto.setMaxFloors(Integer.parseInt(txtSoTangCaoNhat.getText()));
+        	dto.setStatus(comboTrangThai.getValue());
 
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            dto.setStartDate(dateFormat.parse(txtNgayKhoiCong.getText()));
-            dto.setExpectedCompletionDate(dateFormat.parse(txtNgayHoanThanh.getText()));
+        	LocalDate startDate = datePickerKhoiCong.getValue();
+        	LocalDate endDate = datePickerHoanThanh.getValue();
 
-            return dto;
+        	if (startDate == null || endDate == null) {
+        	    CommonUtils.showError("Vui lòng chọn ngày khởi công và ngày hoàn thành.");
+        	    return null;
+        	}
+        	if (startDate.isAfter(endDate)) {
+        	    CommonUtils.showError("Ngày khởi công phải trước ngày hoàn thành!");
+        	    return null;
+        	}
+
+        	dto.setStartDate(java.sql.Date.valueOf(startDate));
+        	dto.setExpectedCompletionDate(java.sql.Date.valueOf(endDate));
+
+        	return dto;
         } catch (Exception e) {
             CommonUtils.showError("Vui lòng nhập đúng định dạng ngày: yyyy-MM-dd và các trường số.");
             return null;
@@ -130,10 +143,10 @@ public class SectorManagerView {
     public void handleAddSector_2(Pane paneSectorManager, Pane paneEditSector, TableView<SectorDTO> sectorList,
                                   TextField txtMaPhanKhu, TextField txtTenPhanKhu, TextField txtViTri,
                                   TextField txtTongDienTich, TextField txtMoTa, TextField txtTenQuanLy,
-                                  TextField txtSoTangCaoNhat, TextField txtNgayKhoiCong, TextField txtNgayHoanThanh,
+                                  TextField txtSoTangCaoNhat, DatePicker datePickerKhoiCong, DatePicker datePickerHoanThanh,
                                   ComboBox<String> comboTrangThai) {
         SectorDTO sector = getSectorInputFromForm(txtMaPhanKhu, txtTenPhanKhu, txtViTri, txtTongDienTich, txtMoTa,
-                txtTenQuanLy, txtSoTangCaoNhat, txtNgayKhoiCong, txtNgayHoanThanh, comboTrangThai);
+                txtTenQuanLy, txtSoTangCaoNhat, datePickerKhoiCong, datePickerHoanThanh, comboTrangThai);
         if (sector == null) return;
 
         try {
@@ -158,10 +171,10 @@ public class SectorManagerView {
     public void handleUpdateSector(Pane paneSectorManager, Pane paneEditSector, TableView<SectorDTO> sectorList,
                                    TextField txtMaPhanKhu, TextField txtTenPhanKhu, TextField txtViTri,
                                    TextField txtTongDienTich, TextField txtMoTa, TextField txtTenQuanLy,
-                                   TextField txtSoTangCaoNhat, TextField txtNgayKhoiCong, TextField txtNgayHoanThanh,
+                                   TextField txtSoTangCaoNhat, DatePicker datePickerKhoiCong, DatePicker datePickerHoanThanh,
                                    ComboBox<String> comboTrangThai) {
         SectorDTO sector = getSectorInputFromForm(txtMaPhanKhu, txtTenPhanKhu, txtViTri, txtTongDienTich, txtMoTa,
-                txtTenQuanLy, txtSoTangCaoNhat, txtNgayKhoiCong, txtNgayHoanThanh, comboTrangThai);
+                txtTenQuanLy, txtSoTangCaoNhat, datePickerKhoiCong, datePickerHoanThanh, comboTrangThai);
         if (sector == null) return;
 
         try {
@@ -188,7 +201,7 @@ public class SectorManagerView {
     public void handleEditSector(TableView<SectorDTO> sectorList, Pane paneSectorManager, Pane paneEditSector,
                                  TextField txtMaPhanKhu, TextField txtTenPhanKhu, TextField txtViTri,
                                  TextField txtTongDienTich, TextField txtMoTa, TextField txtTenQuanLy,
-                                 TextField txtSoTangCaoNhat, TextField txtNgayKhoiCong, TextField txtNgayHoanThanh,
+                                 TextField txtSoTangCaoNhat, DatePicker datePickerKhoiCong, DatePicker datePickerHoanThanh,
                                  ComboBox<String> comboTrangThai) {
         SectorDTO selected = sectorList.getSelectionModel().getSelectedItem();
         if (selected == null) {
@@ -210,10 +223,17 @@ public class SectorManagerView {
         txtTenQuanLy.setText(selected.getManagerName());
         txtSoTangCaoNhat.setText(String.valueOf(selected.getMaxFloors()));
 
-        txtNgayKhoiCong.setText(
-                selected.getStartDate() != null ? dateFormatter.format(selected.getStartDate()) : "");
-        txtNgayHoanThanh.setText(
-                selected.getExpectedCompletionDate() != null ? dateFormatter.format(selected.getExpectedCompletionDate()) : "");
+        if (selected.getStartDate() != null) {
+            datePickerKhoiCong.setValue(selected.getStartDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate());
+        } else {
+            datePickerKhoiCong.setValue(null);
+        }
+
+        if (selected.getExpectedCompletionDate() != null) {
+            datePickerHoanThanh.setValue(selected.getExpectedCompletionDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate());
+        } else {
+            datePickerHoanThanh.setValue(null);
+        }
 
         comboTrangThai.setValue(selected.getStatus());
     }
@@ -265,4 +285,55 @@ public class SectorManagerView {
         paneEditSector.setManaged(false);
         CommonUtils.clearAllTextFieldsIn(paneEditSector);
     }
+    
+    public void handleSearchByLocation(TableView<SectorDTO> sectorList, TextField txtPosPk) {
+        String location = txtPosPk.getText().trim();
+        if (location.isEmpty()) {
+            CommonUtils.showError("Vui lòng nhập vị trí để tìm kiếm.");
+            return;
+        }
+
+        try {
+            String url = "http://localhost:8081/api/sector/location/" + location;
+            HttpHeaders headers = CommonUtils.createAuthHeaders();
+            HttpEntity<String> entity = new HttpEntity<>(headers);
+
+            ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+
+            if (response.getStatusCode() == HttpStatus.OK) {
+                List<SectorDTO> sectors = objectMapper.readValue(response.getBody(), new TypeReference<>() {});
+                sectorList.setItems(FXCollections.observableArrayList(sectors));
+            } else {
+                CommonUtils.handleApiError(response.getStatusCode(), response.getBody());
+            }
+        } catch (Exception e) {
+            CommonUtils.showError("Lỗi khi tìm kiếm theo vị trí: " + e.getMessage());
+        }
+    }
+
+    public void handleSearchByStatus(TableView<SectorDTO> sectorList, ComboBox<String> statusComboBox) {
+        String status = statusComboBox.getValue();
+        if (status == null || status.trim().isEmpty()) {
+            CommonUtils.showError("Vui lòng chọn trạng thái để tìm kiếm.");
+            return;
+        }
+
+        try {
+            String url = "http://localhost:8081/api/sector/status/" + status;
+            HttpHeaders headers = CommonUtils.createAuthHeaders();
+            HttpEntity<String> entity = new HttpEntity<>(headers);
+
+            ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+
+            if (response.getStatusCode() == HttpStatus.OK) {
+                List<SectorDTO> sectors = objectMapper.readValue(response.getBody(), new TypeReference<>() {});
+                sectorList.setItems(FXCollections.observableArrayList(sectors));
+            } else {
+                CommonUtils.handleApiError(response.getStatusCode(), response.getBody());
+            }
+        } catch (Exception e) {
+            CommonUtils.showError("Lỗi khi tìm kiếm theo trạng thái: " + e.getMessage());
+        }
+    }
+
 }

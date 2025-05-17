@@ -19,6 +19,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -58,6 +60,7 @@ public class UserManagerView {
                         new TypeReference<>() {}
                 );
                 userList.setItems(FXCollections.observableArrayList(users));
+                System.out.println("Đã tải " + users.size() + " người dùng.");
             } else {
                 CommonUtils.showError("Không thể lấy dữ liệu người dùng: " + response.getStatusCode());
             }
@@ -76,6 +79,7 @@ public class UserManagerView {
         paneUserManager.setManaged(false);
         paneEditUser.setVisible(true);
         paneEditUser.setManaged(true);
+        CommonUtils.clearAllTextFieldsIn(paneEditUser); // Xóa dữ liệu form trước khi thêm mới
     }
 
     public void handleAddUser_2(Pane paneUserManager, Pane paneEditUser, TableView<UserDTO> userList,
@@ -89,17 +93,27 @@ public class UserManagerView {
             HttpHeaders headers = CommonUtils.createAuthHeaders();
             HttpEntity<String> request = new HttpEntity<>(json, headers);
 
-            ResponseEntity<String> response = restTemplate.exchange("http://localhost:8081/api/user", HttpMethod.POST, request, String.class);
+            ResponseEntity<String> response = restTemplate.exchange(
+                    "http://localhost:8081/api/user",
+                    HttpMethod.POST,
+                    request,
+                    String.class
+            );
+
             if (response.getStatusCode() == HttpStatus.OK) {
-                CommonUtils.showSuccess("Đã thêm người dùng!");
+                CommonUtils.showAlert(Alert.AlertType.INFORMATION, "Thành công",
+                        "Đã thêm tài khoản mới!", null);
                 backToUserManager(paneUserManager, paneEditUser);
-                CommonUtils.clearAllTextFieldsIn(paneEditUser);
                 loadUserList(userList);
             } else {
                 CommonUtils.handleApiError(response.getStatusCode(), response.getBody());
             }
+        } catch (HttpClientErrorException | HttpServerErrorException httpEx) {
+            CommonUtils.showAlert(Alert.AlertType.ERROR, "Thêm thất bại",
+                    "Lỗi từ phía máy chủ: " + httpEx.getStatusCode(), httpEx.getResponseBodyAsString());
         } catch (Exception e) {
-            CommonUtils.showError("Lỗi khi thêm người dùng: " + e.getMessage());
+            CommonUtils.showAlert(Alert.AlertType.ERROR, "Thêm thất bại",
+                    "Đã xảy ra lỗi không xác định.", e.getMessage());
         }
     }
 
@@ -108,7 +122,8 @@ public class UserManagerView {
                                TextField txtEmail, ComboBox<String> cbbStatusUser) {
         UserDTO selected = userList.getSelectionModel().getSelectedItem();
         if (selected == null) {
-            CommonUtils.showError("Chưa chọn người dùng!");
+            CommonUtils.showAlert(Alert.AlertType.WARNING, "Chưa chọn tài khoản",
+                    null, "Vui lòng chọn một tài khoản trong bảng để chỉnh sửa.");
             return;
         }
 
@@ -140,28 +155,33 @@ public class UserManagerView {
             ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.PUT, entity, String.class);
 
             if (response.getStatusCode() == HttpStatus.OK) {
-                CommonUtils.showSuccess("Đã cập nhật người dùng!");
+                CommonUtils.showAlert(Alert.AlertType.INFORMATION, "Cập nhật thành công",
+                        "Tài khoản đã được cập nhật thành công!", null);
                 backToUserManager(paneUserManager, paneEditUser);
-                CommonUtils.clearAllTextFieldsIn(paneEditUser);
                 loadUserList(userList);
             } else {
                 CommonUtils.handleApiError(response.getStatusCode(), response.getBody());
             }
+        } catch (HttpClientErrorException | HttpServerErrorException httpEx) {
+            CommonUtils.showAlert(Alert.AlertType.ERROR, "Cập nhật thất bại",
+                    "Lỗi từ phía máy chủ: " + httpEx.getStatusCode(), httpEx.getResponseBodyAsString());
         } catch (Exception e) {
-            CommonUtils.showError("Lỗi khi cập nhật người dùng: " + e.getMessage());
+            CommonUtils.showAlert(Alert.AlertType.ERROR, "Cập nhật thất bại",
+                    "Đã xảy ra lỗi không xác định.", e.getMessage());
         }
     }
 
     public void handleDeleteUser(TableView<UserDTO> userList) {
         UserDTO selected = userList.getSelectionModel().getSelectedItem();
         if (selected == null) {
-            CommonUtils.showError("Vui lòng chọn người dùng cần xóa!");
+            CommonUtils.showAlert(Alert.AlertType.WARNING, "Chưa chọn tài khoản",
+                    null, "Vui lòng chọn một tài khoản cần xóa!");
             return;
         }
 
         Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
         confirm.setTitle("Xác nhận xóa");
-        confirm.setHeaderText("Xóa người dùng " + selected.getUserName() + "?"); // Sửa từ getUsername thành getUserName
+        confirm.setHeaderText("Xóa tài khoản " + selected.getUserName() + "?");
         confirm.setContentText("Thao tác này không thể hoàn tác.");
 
         confirm.showAndWait().ifPresent(result -> {
@@ -173,13 +193,15 @@ public class UserManagerView {
                     ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.DELETE, entity, String.class);
 
                     if (response.getStatusCode() == HttpStatus.OK) {
-                        CommonUtils.showSuccess("Đã xóa thành công!");
+                        CommonUtils.showAlert(Alert.AlertType.INFORMATION, "Xóa thành công",
+                                "Đã xóa tài khoản thành công!", null);
                         loadUserList(userList);
                     } else {
                         CommonUtils.handleApiError(response.getStatusCode(), response.getBody());
                     }
                 } catch (Exception e) {
-                    CommonUtils.showError("Lỗi khi xóa: " + e.getMessage());
+                    CommonUtils.showAlert(Alert.AlertType.ERROR, "Xóa thất bại",
+                            "Lỗi khi xóa tài khoản: ", e.getMessage());
                 }
             }
         });
@@ -202,17 +224,21 @@ public class UserManagerView {
                 UserDTO user = objectMapper.readValue(response.getBody(), UserDTO.class);
                 userList.setItems(FXCollections.observableArrayList(user));
             } else {
-                CommonUtils.showError("Không tìm thấy người dùng: " + response.getStatusCode());
+                CommonUtils.showAlert(Alert.AlertType.WARNING, "Không tìm thấy",
+                        "Không tìm thấy người dùng: ", String.valueOf(response.getStatusCode()));
             }
         } catch (Exception e) {
-            CommonUtils.showError("Lỗi khi tìm kiếm người dùng: " + e.getMessage());
+            CommonUtils.showAlert(Alert.AlertType.ERROR, "Lỗi tìm kiếm",
+                    "Lỗi khi tìm kiếm người dùng: ", e.getMessage());
         }
     }
 
-    public void handleSearchByRole(TableView<UserDTO> userList, TextField txtSearchRole) {
-        String roleCode = txtSearchRole.getText().trim();
-        if (roleCode.isEmpty()) {
+    public void handleSearchByRole(TableView<UserDTO> userList, ComboBox<String> cbbSearchRole) {
+        String roleCode = cbbSearchRole.getValue();
+        if (roleCode == null || roleCode.isEmpty()) {
             loadUserList(userList);
+            CommonUtils.showAlert(Alert.AlertType.WARNING, "Chưa chọn vai trò",
+                    null, "Vui lòng chọn một vai trò để tìm kiếm!");
             return;
         }
 
@@ -226,25 +252,36 @@ public class UserManagerView {
                 List<UserDTO> users = objectMapper.readValue(response.getBody(), new TypeReference<>() {});
                 userList.setItems(FXCollections.observableArrayList(users));
             } else {
-                CommonUtils.showError("Không tìm thấy người dùng với vai trò này: " + response.getStatusCode());
+                CommonUtils.showAlert(Alert.AlertType.WARNING, "Không tìm thấy",
+                        "Không tìm thấy người dùng với vai trò này: ", String.valueOf(response.getStatusCode()));
             }
         } catch (Exception e) {
-            CommonUtils.showError("Lỗi khi tìm kiếm theo vai trò: " + e.getMessage());
+            CommonUtils.showAlert(Alert.AlertType.ERROR, "Lỗi tìm kiếm",
+                    "Lỗi khi tìm kiếm theo vai trò: ", e.getMessage());
         }
     }
 
     private UserDTO getUserInputFromForm(TextField txtTenNguoiDung, TextField txtHoTen, TextField txtSoDienThoai,
                                         TextField txtEmail, ComboBox<String> cbbStatusUser) {
         try {
+            // Kiểm tra các trường bắt buộc
+            if (txtTenNguoiDung.getText().isEmpty() || txtHoTen.getText().isEmpty() ||
+                txtEmail.getText().isEmpty() || cbbStatusUser.getValue() == null) {
+                CommonUtils.showAlert(Alert.AlertType.ERROR, "Lỗi nhập liệu",
+                        "Dữ liệu không hợp lệ", "Vui lòng nhập đầy đủ các trường bắt buộc.");
+                return null;
+            }
+
             UserDTO dto = new UserDTO();
-            dto.setUserName(txtTenNguoiDung.getText()); // Sửa từ setUsername thành setUserName
+            dto.setUserName(txtTenNguoiDung.getText());
             dto.setFullName(txtHoTen.getText());
             dto.setPhone(txtSoDienThoai.getText());
             dto.setEmail(txtEmail.getText());
             dto.setRoleCode(cbbStatusUser.getValue());
             return dto;
         } catch (Exception e) {
-            CommonUtils.showError("Vui lòng nhập đầy đủ thông tin!");
+            CommonUtils.showAlert(Alert.AlertType.ERROR, "Lỗi nhập liệu",
+                    "Dữ liệu không hợp lệ", "Vui lòng kiểm tra lại các trường nhập liệu.");
             return null;
         }
     }

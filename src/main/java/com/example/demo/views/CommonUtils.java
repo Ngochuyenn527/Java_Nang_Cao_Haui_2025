@@ -3,6 +3,8 @@ package com.example.demo.views;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import org.springframework.http.HttpHeaders;
@@ -92,9 +94,18 @@ public class CommonUtils {
 
     public static void clearAllTextFieldsIn(Pane rootPane) {
         for (javafx.scene.Node node : rootPane.getChildrenUnmodifiable()) {
+
             if (node instanceof TextField) {
                 ((TextField) node).clear();
+
+            } else if (node instanceof DatePicker) {
+                ((DatePicker) node).setValue(null);
+
+            } else if (node instanceof ComboBox) {
+                ((ComboBox<?>) node).setValue(null);
+
             } else if (node instanceof Pane) {
+                // Đệ quy nếu bên trong có container lồng
                 clearAllTextFieldsIn((Pane) node);
             }
         }
