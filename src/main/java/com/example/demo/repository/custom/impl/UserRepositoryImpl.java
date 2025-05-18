@@ -2,13 +2,25 @@ package com.example.demo.repository.custom.impl;
 
 import com.example.demo.entity.UserEntity;
 import com.example.demo.repository.custom.UserRepositoryCustom;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
-import jakarta.persistence.TypedQuery;
-import jakarta.transaction.Transactional;
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
+import com.example.demo.builder.BuildingSearchBuilder;
+import com.example.demo.entity.ApartmentEntity;
+import com.example.demo.entity.BuildingEntity;
+import com.example.demo.repository.custom.ApartmentRepositoryCustom;
+import com.example.demo.repository.custom.BuildingRepositoryCustom;
+import com.example.demo.utils.NumberUtils;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
+import java.lang.reflect.Field;
+import java.util.List;
 
 
 import java.util.List;

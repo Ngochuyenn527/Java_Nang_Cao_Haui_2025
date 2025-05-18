@@ -1,14 +1,11 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.BuildingEntity;
 import com.example.demo.model.dto.BuildingDTO;
 import com.example.demo.model.request.BuildingSearchRequest;
 import com.example.demo.model.response.BuildingSearchResponse;
 import com.example.demo.service.BuildingService;
 import io.swagger.v3.oas.annotations.Operation;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,7 +46,7 @@ public class BuildingController {
 
     @Operation(summary = "API update building by id")
     @PutMapping("/{id}")
-    public ResponseEntity<BuildingDTO> updateBuilding(@Valid @PathVariable Long id, @RequestBody BuildingDTO buildingDTO) {
+    public ResponseEntity<BuildingDTO> updateBuilding(@PathVariable Long id, @RequestBody BuildingDTO buildingDTO) {
         return ResponseEntity.ok(buildingService.updateBuilding(id, buildingDTO));
     }
 

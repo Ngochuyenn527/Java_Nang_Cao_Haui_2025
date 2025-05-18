@@ -1,13 +1,14 @@
 package com.example.demo.repository.custom.impl;
 
 import com.example.demo.entity.ApartmentEntity;
-import com.example.demo.repository.ApartmentRepository;
 import com.example.demo.repository.custom.ApartmentRepositoryCustom;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.TypedQuery;
+import org.springframework.stereotype.Repository;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
+@Repository
 public class ApartmentRepositoryImpl implements ApartmentRepositoryCustom {
 
     @PersistenceContext

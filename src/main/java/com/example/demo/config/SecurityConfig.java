@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -24,28 +23,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
-                        // Cho phép truy cập swagger mà không cần đăng nhập
-                        .requestMatchers(
-                                "/swagger-ui/**",
-                                "/v3/api-docs/**",
-                                "/swagger-ui.html"
-                        ).permitAll()
-
-                        // ADMIN mới được quản lý tài khoản
-                        .requestMatchers("/api/users/**").hasRole("MANAGER")
-
-                        // ADMIN và STAFF được truy cập các API này
-                        .requestMatchers("/api/building/**").hasAnyRole("MANAGER", "STAFF")
-                        .requestMatchers("/api/sector/**").hasAnyRole("MANAGER", "STAFF")
-                        .requestMatchers("/api/apt/**").hasAnyRole("MANAGER", "STAFF")
-
-                        // Các request còn lại (nếu có) thì cần xác thực
-                        .anyRequest().authenticated()
-                )
-                .httpBasic(Customizer.withDefaults()); // Dùng Basic Auth
-
+                .csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
+                .antMatchers("/api/users/**").hasRole("MANAGER")
+                .antMatchers("/api/building/**", "/api/sector/**", "/api/apt/**").hasAnyRole("MANAGER", "STAFF")
+                .anyRequest().authenticated()
+                .and()
+                .httpBasic(); // hoặc .formLogin() tùy nhu cầu
         return http.build();
     }
 

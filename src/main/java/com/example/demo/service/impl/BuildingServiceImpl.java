@@ -11,12 +11,12 @@ import com.example.demo.model.response.BuildingSearchResponse;
 import com.example.demo.repository.BuildingRepository;
 import com.example.demo.repository.SectorRepository;
 import com.example.demo.service.BuildingService;
-import jakarta.transaction.Transactional;
-import jakarta.validation.Valid;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -84,7 +84,8 @@ public class BuildingServiceImpl implements BuildingService{
 
         List<BuildingSearchResponse> result = buildingEntities.stream()
                 .map(entity -> modelMapper.map(entity, BuildingSearchResponse.class))
-                .toList();
+                .collect(Collectors.toList());
+
         return result;
     }
 
@@ -108,7 +109,7 @@ public class BuildingServiceImpl implements BuildingService{
     Nếu không thỏa, thì ném ngoại lệ kèm thông báo: "Địa chỉ tòa nhà không phù hợp với khu vực phân khu. Vui lòng kiểm tra lại sector_id."
     */
     @Override
-    public BuildingDTO addBuilding(@Valid BuildingDTO buildingDTO) {
+    public BuildingDTO addBuilding( BuildingDTO buildingDTO) {
         try {
             // Nếu có sector, kiểm tra hợp lệ
             if (buildingDTO.getSector() != null && buildingDTO.getSector().getId() != null) {
@@ -140,7 +141,7 @@ public class BuildingServiceImpl implements BuildingService{
 
 
     @Override
-    public BuildingDTO updateBuilding(@Valid Long id, BuildingDTO buildingDTO) {
+    public BuildingDTO updateBuilding(Long id, BuildingDTO buildingDTO) {
         try {
             BuildingEntity existingBuilding = checkBuildingById(id);
 

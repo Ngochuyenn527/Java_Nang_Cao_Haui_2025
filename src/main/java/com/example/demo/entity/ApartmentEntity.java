@@ -1,15 +1,17 @@
 package com.example.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "apartment")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class ApartmentEntity extends BaseEntity {
 
     @JsonProperty("code")

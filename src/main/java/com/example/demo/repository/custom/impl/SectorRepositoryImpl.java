@@ -2,10 +2,10 @@ package com.example.demo.repository.custom.impl;
 
 import com.example.demo.entity.SectorEntity;
 import com.example.demo.repository.custom.SectorRepositoryCustom;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.TypedQuery;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class SectorRepositoryImpl implements SectorRepositoryCustom {

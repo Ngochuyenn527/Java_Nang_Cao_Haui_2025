@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class TrashServiceImpl<T extends BaseEntity> implements TrashService<T> {
@@ -49,7 +50,7 @@ public class TrashServiceImpl<T extends BaseEntity> implements TrashService<T> {
         try {
             List<T> trashItems = repository.findAll().stream()
                     .filter(e -> e.getIsActive() == 0)
-                    .toList();
+                    .collect(Collectors.toList());
             repository.deleteAll(trashItems);
         } catch (Exception e) {
             throw new RuntimeException("Lỗi khi xóa tất cả đối tượng trong thùng rác: " + e.getMessage(), e);
@@ -64,7 +65,7 @@ public class TrashServiceImpl<T extends BaseEntity> implements TrashService<T> {
             LocalDateTime expiredTime = LocalDateTime.now().minusDays(30);
             List<T> expired = repository.findAll().stream()
                     .filter(e -> e.getIsActive() == 0 && e.getDeletedAt() != null && e.getDeletedAt().isBefore(expiredTime))
-                    .toList();
+                    .collect(Collectors.toList());
             repository.deleteAll(expired);
         } catch (Exception e) {
             throw new RuntimeException("Lỗi khi xóa các đối tượng quá hạn trong thùng rác: " + e.getMessage(), e);

@@ -1,16 +1,15 @@
 package com.example.demo.repository.custom.impl;
 
-
 import com.example.demo.builder.BuildingSearchBuilder;
 import com.example.demo.entity.BuildingEntity;
 import com.example.demo.repository.custom.BuildingRepositoryCustom;
 import com.example.demo.utils.NumberUtils;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.lang.reflect.Field;
 import java.util.List;
 
