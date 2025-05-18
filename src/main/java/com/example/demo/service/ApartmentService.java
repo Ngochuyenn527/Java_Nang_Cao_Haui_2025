@@ -6,9 +6,9 @@ import com.example.demo.model.dto.ApartmentDTO;
 
 import java.util.List;
 
-public interface ApartmentService {
+public interface ApartmentService extends TrashService<ApartmentEntity> {
 
-    List<ApartmentDTO> getAllApartments();
+    List<ApartmentDTO> getApartmentsByActive(int isActive);
 
     ApartmentDTO getApartmentById(Long id);
 
@@ -20,6 +20,6 @@ public interface ApartmentService {
 
     ApartmentDTO updateApartment(Long id, ApartmentDTO apartmentDTO);
 
-    void deleteApartment(Long id);
+    void moveToTrash(Long id);
 }
 

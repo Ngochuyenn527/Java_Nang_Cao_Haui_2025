@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.config.MyExceptionConfig;
 import com.example.demo.constant.SystemConstant;
+import com.example.demo.model.dto.BuildingDTO;
 import com.example.demo.model.dto.PasswordDTO;
 import com.example.demo.model.dto.UserDTO;
 import com.example.demo.service.UserService;
@@ -26,8 +27,8 @@ public class UserController {
 
     @Operation(summary = "API get all users which have status = 1")
     @GetMapping
-    public ResponseEntity<List<UserDTO>> getAllUsersHasStatus1() {
-        return ResponseEntity.ok(userService.getAllUsersHasStatus1());
+    public ResponseEntity<List<UserDTO>> getActiveUsers() {
+        return ResponseEntity.ok(userService.getUsersByStatus(1));
     }
 
 

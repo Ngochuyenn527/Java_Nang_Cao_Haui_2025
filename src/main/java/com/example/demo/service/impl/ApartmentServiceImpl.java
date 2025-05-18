@@ -3,7 +3,9 @@ package com.example.demo.service.impl;
 import com.example.demo.converter.ApartmentConverter;
 import com.example.demo.entity.ApartmentEntity;
 import com.example.demo.entity.BuildingEntity;
+import com.example.demo.entity.SectorEntity;
 import com.example.demo.model.dto.ApartmentDTO;
+import com.example.demo.model.dto.BuildingDTO;
 import com.example.demo.repository.ApartmentRepository;
 import com.example.demo.repository.BuildingRepository;
 import com.example.demo.service.ApartmentService;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,6 +30,9 @@ public class ApartmentServiceImpl implements ApartmentService {
     @Autowired
     private BuildingRepository buildingRepository;
 
+    @Autowired
+    private ApartmentTrashServiceImpl trashService;
+
     // Kiểm tra xem căn hộ có tồn tại không
     private ApartmentEntity checkApartmentById(Long id) {
         return apartmentRepository.findById(id)
@@ -41,9 +47,9 @@ public class ApartmentServiceImpl implements ApartmentService {
     }
 
     @Override
-    public List<ApartmentDTO> getAllApartments() {
-        return apartmentRepository.findAll().stream()
-                .map(apartmentConverter::convertToApartmentDto)
+    public List<ApartmentDTO> getApartmentsByActive(int isActive) {
+        return apartmentRepository.findByIsActive(isActive)
+                .stream().map(apartmentConverter::convertToApartmentDto)
                 .collect(Collectors.toList());
     }
 
@@ -144,14 +150,35 @@ public class ApartmentServiceImpl implements ApartmentService {
 
 
     @Override
-    @Transactional
-    public void deleteApartment(Long id) {
+    public void moveToTrash(Long id) {
         try {
-            checkApartmentById(id); // Kiểm tra tồn tại
-            apartmentRepository.deleteById(id); // Xóa
-
-        } catch (RuntimeException e) {
-            throw new RuntimeException("Có lỗi xảy ra khi xóa căn hộ: " + e.getMessage());
+            ApartmentEntity entity = checkApartmentById(id);
+            entity.setIsActive(0);
+            entity.setDeletedAt(LocalDateTime.now());
+            apartmentRepository.save(entity);
+        } catch (Exception e) {
+            throw new RuntimeException("Lỗi khi chuyển vào thùng rác: " + e.getMessage(), e);
         }
+    }
+
+    @Override
+    public void restoreFromTrash(Long id) {
+        trashService.restoreFromTrash(id);
+    }
+
+    @Override
+    public void deletePermanently(Long id) {
+        trashService.deletePermanently(id);
+
+    }
+
+    @Override
+    public void deleteAllInTrash() {
+        trashService.deleteAllInTrash();
+    }
+
+    @Override
+    public void deleteExpiredTrash() {
+        trashService.deleteExpiredTrash();
     }
 }

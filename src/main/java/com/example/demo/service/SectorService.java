@@ -1,29 +1,24 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.SectorEntity;
 import com.example.demo.model.dto.SectorDTO;
 
 import java.util.List;
 
-public interface SectorService {
+public interface SectorService extends TrashService<SectorEntity> {
 
-    // Lấy tất cả các phân khu
-    List<SectorDTO> getAllSectors();
+    List<SectorDTO> getSectorsByActive(int isActive);
 
-    // Tìm phân khu theo ID
     SectorDTO getSectorById(long id);
 
-    // Tìm phân khu theo location
     List<SectorDTO> getSectorsByLocation(String location);
 
-    // Tìm phân khu theo status
     List<SectorDTO> getSectorsByStatus(String status);
 
-    // Thêm phân khu mới
     SectorDTO addSector(SectorDTO sectorDTO);
 
-    // Cập nhật thông tin phân khu
     SectorDTO updateSector(Long id, SectorDTO sectorDTO);
 
-    // Xóa phân khu
-    void deleteSector(Long id);
+    void moveToTrash(Long id);
+
 }

@@ -18,11 +18,10 @@ public class SectorController {
     @Autowired
     private SectorService sectorService;
 
-    @Operation(summary = "API get all sectors")
+    @Operation(summary = "API get sectors has isActive = 1")
     @GetMapping
-    public ResponseEntity<List<SectorDTO>> getAllSectors() {
-        List<SectorDTO> sectors = sectorService.getAllSectors();
-        return new ResponseEntity<>(sectors, HttpStatus.OK);
+    public ResponseEntity<List<SectorDTO>> getActiveSectors() {
+        return ResponseEntity.ok(sectorService.getSectorsByActive(1));
     }
 
 
@@ -65,12 +64,45 @@ public class SectorController {
         return new ResponseEntity<>(updatedSector, HttpStatus.OK);
     }
 
+    @Operation(summary = "API get sectors in trash has isActive = 0")
+    @GetMapping("/trash")
+    public ResponseEntity<List<SectorDTO>> getSectorsInTrash() {
+        return ResponseEntity.ok(sectorService.getSectorsByActive(0));
+    }
 
-    @Operation(summary = "API delete sector by id")
+    @Operation(summary = "API move sector to trash")
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteSector(@PathVariable Long id) {
-        sectorService.deleteSector(id);
-        return ResponseEntity.ok("Deleted successfully!");
+    public ResponseEntity<String> softDeleteSector(@PathVariable Long id) {
+        sectorService.moveToTrash(id);
+        return ResponseEntity.ok("Moved sector to trash successfully!");
+    }
+
+    @Operation(summary = "API restore sector from trash")
+    @PutMapping("/restore/{id}")
+    public ResponseEntity<String> restoreSector(@PathVariable Long id) {
+        sectorService.restoreFromTrash(id);
+        return ResponseEntity.ok("Restored sector successfully!");
+    }
+
+    @Operation(summary = "API permanently delete sector")
+    @DeleteMapping("/permanent-delete/{id}")
+    public ResponseEntity<String> permanentDeleteSector(@PathVariable Long id) {
+        sectorService.deletePermanently(id);
+        return ResponseEntity.ok("Permanently deleted sector successfully!");
+    }
+
+    @Operation(summary = "API delete all sectors in trash")
+    @DeleteMapping("/trash")
+    public ResponseEntity<String> deleteAllSectorsInTrash() {
+        sectorService.deleteAllInTrash();
+        return ResponseEntity.ok("Deleted all sectors in trash successfully!");
+    }
+
+    @Operation(summary = "API delete expired sectors in trash")
+    @DeleteMapping("/trash/expired")
+    public ResponseEntity<String> deleteExpiredSectors() {
+        sectorService.deleteExpiredTrash();
+        return ResponseEntity.ok("Deleted expired sectors from trash successfully!");
     }
 }
 

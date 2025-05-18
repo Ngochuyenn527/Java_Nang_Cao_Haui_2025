@@ -8,8 +8,6 @@ import java.util.List;
 public interface UserRepositoryCustom {
     List<UserEntity> getByRoleCode(String roleCode);
 
-    List<UserEntity> getAllUsersHasStatus1();
-
     void updatePasswordById(Long id, String encodedPassword);
 
 }

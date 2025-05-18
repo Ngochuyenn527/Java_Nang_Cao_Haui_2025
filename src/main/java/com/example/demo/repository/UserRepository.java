@@ -4,6 +4,12 @@ import com.example.demo.entity.UserEntity;
 import com.example.demo.repository.custom.UserRepositoryCustom;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 public interface UserRepository extends JpaRepository<UserEntity, Long>, UserRepositoryCustom {
+
     UserEntity findOneByUserNameAndStatus(String name, int status);
+
+    List<UserEntity> findByStatus(Integer status);
+
 }

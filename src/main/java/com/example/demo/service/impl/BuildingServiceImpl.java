@@ -17,12 +17,13 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 @Transactional
-public class BuildingServiceImpl implements BuildingService {
+public class BuildingServiceImpl implements BuildingService{
 
     @Autowired
     private ModelMapper modelMapper;
@@ -39,6 +40,17 @@ public class BuildingServiceImpl implements BuildingService {
     @Autowired
     private SectorRepository sectorRepository;
 
+    @Autowired
+    private  BuildingTrashServiceImpl trashService;
+
+
+//    private final BuildingTrashServiceImpl trashService;
+//
+//    public BuildingServiceImpl(BuildingTrashServiceImpl trashService) {
+//        this.trashService = trashService;
+//    }
+
+
     // ✅ Kiểm tra tòa nhà theo ID có tồn tại không, nếu không có thì ném ngoại lệ
     public BuildingEntity checkBuildingById(Long id) {
         BuildingEntity existingBuilding = buildingRepository.findById(id)
@@ -54,9 +66,9 @@ public class BuildingServiceImpl implements BuildingService {
     }
 
     @Override
-    public List<BuildingDTO> getAllBuildings() {
-        return buildingRepository.findAll().stream()
-                .map(buildingConverter::convertToBuildingDTO)
+    public List<BuildingDTO> getBuildingsByActive(int isActive) {
+        return buildingRepository.findByIsActive(isActive)
+                .stream().map(buildingConverter::convertToBuildingDTO)
                 .collect(Collectors.toList());
     }
 
@@ -160,16 +172,36 @@ public class BuildingServiceImpl implements BuildingService {
         }
     }
 
-
     @Override
-    public void deleteBuilding(Long id) {
+    public void moveToTrash(Long id) {
         try {
-            checkBuildingById(id);// Kiểm tra tồn tại
-            buildingRepository.deleteById(id); // Xóa
-
-        } catch (RuntimeException e) {
-            throw new RuntimeException("Có lỗi xảy ra khi xóa tòa nhà: " + e.getMessage());
+            BuildingEntity entity = checkBuildingById(id);
+            entity.setIsActive(0);
+            entity.setDeletedAt(LocalDateTime.now());
+            buildingRepository.save(entity);
+        } catch (Exception e) {
+            throw new RuntimeException("Lỗi khi chuyển vào thùng rác: " + e.getMessage(), e);
         }
     }
 
+    @Override
+    public void restoreFromTrash(Long id) {
+        trashService.restoreFromTrash(id);
+    }
+
+    @Override
+    public void deletePermanently(Long id) {
+        trashService.deletePermanently(id);
+
+    }
+
+    @Override
+    public void deleteAllInTrash() {
+        trashService.deleteAllInTrash();
+    }
+
+    @Override
+    public void deleteExpiredTrash() {
+        trashService.deleteExpiredTrash();
+    }
 }

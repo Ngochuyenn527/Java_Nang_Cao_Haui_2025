@@ -27,13 +27,6 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
         return query.getResultList();
     }
 
-    @Override
-    public List<UserEntity> getAllUsersHasStatus1() {
-        String sql = "SELECT * FROM user u WHERE u.status = 1";
-        Query query = entityManager.createNativeQuery(sql.toString(), UserEntity.class);
-        return query.getResultList();
-    }
-
 
     @Override
     @Transactional

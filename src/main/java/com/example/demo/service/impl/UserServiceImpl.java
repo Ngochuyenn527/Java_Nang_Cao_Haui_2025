@@ -4,6 +4,7 @@ import com.example.demo.config.MyExceptionConfig;
 import com.example.demo.constant.SystemConstant;
 import com.example.demo.converter.UserConverter;
 import com.example.demo.entity.UserEntity;
+import com.example.demo.model.dto.BuildingDTO;
 import com.example.demo.model.dto.PasswordDTO;
 import com.example.demo.model.dto.UserDTO;
 import com.example.demo.repository.RoleRepository;
@@ -16,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -37,15 +39,12 @@ public class UserServiceImpl implements UserService {
         return existingUser;
     }
 
+
     @Override
-    public List<UserDTO> getAllUsersHasStatus1() {
-        List<UserEntity> userEntities = userRepository.getAllUsersHasStatus1();
-        List<UserDTO> results = new ArrayList<>();
-        for (UserEntity userEntity : userEntities) {
-            UserDTO userDTO = userConverter.convertToUserDto(userEntity);
-            results.add(userDTO);
-        }
-        return results;
+    public List<UserDTO> getUsersByStatus(int status) {
+        return userRepository.findByStatus(status)
+                .stream().map(userConverter::convertToUserDto)
+                .collect(Collectors.toList());
     }
 
 

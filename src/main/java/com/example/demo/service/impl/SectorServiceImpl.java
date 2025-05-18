@@ -1,7 +1,9 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.converter.SectorConverter;
+import com.example.demo.entity.BuildingEntity;
 import com.example.demo.entity.SectorEntity;
+import com.example.demo.model.dto.ApartmentDTO;
 import com.example.demo.model.dto.SectorDTO;
 import com.example.demo.repository.SectorRepository;
 import com.example.demo.service.SectorService;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,6 +25,9 @@ public class SectorServiceImpl implements SectorService {
     @Autowired
     private SectorConverter sectorConverter;
 
+    @Autowired
+    private  SectorTrashServiceImpl trashService;
+
     // Kiểm tra xem phân khu có tồn tại hay không
     private SectorEntity checkSectorById(Long id) {
         return sectorRepository.findById(id)
@@ -29,9 +35,9 @@ public class SectorServiceImpl implements SectorService {
     }
 
     @Override
-    public List<SectorDTO> getAllSectors() {
-        return sectorRepository.findAll().stream()
-                .map(sectorConverter::convertToSectorDto)
+    public List<SectorDTO> getSectorsByActive(int isActive) {
+        return sectorRepository.findByIsActive(isActive)
+                .stream().map(sectorConverter::convertToSectorDto)
                 .collect(Collectors.toList());
     }
 
@@ -84,14 +90,37 @@ public class SectorServiceImpl implements SectorService {
         }
     }
 
+
     @Override
-    @Transactional
-    public void deleteSector(Long id) {
+    public void moveToTrash(Long id) {
         try {
-            SectorEntity existingSector = checkSectorById(id);
-            sectorRepository.delete(existingSector);
+            SectorEntity entity = checkSectorById(id);
+            entity.setIsActive(0);
+            entity.setDeletedAt(LocalDateTime.now());
+            sectorRepository.save(entity);
         } catch (Exception e) {
-            throw new RuntimeException("Có lỗi xảy ra khi xóa phân khu: " + e.getMessage());
+            throw new RuntimeException("Lỗi khi chuyển vào thùng rác: " + e.getMessage(), e);
         }
+    }
+
+    @Override
+    public void restoreFromTrash(Long id) {
+        trashService.restoreFromTrash(id);
+    }
+
+    @Override
+    public void deletePermanently(Long id) {
+        trashService.deletePermanently(id);
+
+    }
+
+    @Override
+    public void deleteAllInTrash() {
+        trashService.deleteAllInTrash();
+    }
+
+    @Override
+    public void deleteExpiredTrash() {
+        trashService.deleteExpiredTrash();
     }
 }
