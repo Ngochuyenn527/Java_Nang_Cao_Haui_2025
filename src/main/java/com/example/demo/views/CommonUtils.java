@@ -3,6 +3,7 @@ package com.example.demo.views;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -119,11 +120,27 @@ public class CommonUtils {
     }
 
     public static void showOnly(Pane visiblePane, Pane... allPanes) {
+    	visiblePane.setVisible(true);
+    	visiblePane.setManaged(true);
         List<Pane> panes = Arrays.asList(allPanes);
         for (Pane pane : panes) {
             boolean isVisible = pane == visiblePane;
             pane.setVisible(isVisible);
             pane.setManaged(isVisible);
         }
+    }
+    
+    public static void showEditBtn(Button editBtn, Button addBtn) {
+    	editBtn.setVisible(true);
+    	editBtn.setManaged(true);
+    	addBtn.setVisible(false);
+    	addBtn.setManaged(false);
+    }
+    
+    public static void showAddBtn(Button editBtn, Button addBtn) {
+    	editBtn.setVisible(false);
+    	editBtn.setManaged(false);
+    	addBtn.setVisible(true);
+    	addBtn.setManaged(true);
     }
 }

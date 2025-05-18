@@ -18,42 +18,43 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="844.0" prefWidth="1500.0" styleClass="login-bg" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.views.ManagerViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1500.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.views.ManagerViewController">
    <top>
-      <AnchorPane prefHeight="81.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="81.0" prefWidth="1920.0" styleClass="header" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="29.0" layoutY="18.0" styleClass="label-header" text="Trang quản trị">
+            <Label layoutX="20.0" layoutY="12.0" prefHeight="56.0" prefWidth="331.0" styleClass="admin-title-label" text="Trang quản trị">
                <font>
                   <Font size="24.0" />
                </font></Label>
-            <Button layoutX="1411.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" styleClass="logout-button" />
-            <Button fx:id="btnChanPwd" layoutX="1292.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleChangePassword" prefHeight="25.0" prefWidth="92.0" text="Đổi mật khẩu" />
+            <Button layoutX="1378.0" layoutY="21.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="132.0" styleClass="logout-button" text="Logout" />
+            <Button fx:id="btnChanPwd" layoutX="1226.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleChangePassword" prefHeight="26.0" prefWidth="140.0" styleClass="change-pass-button" text="Đổi mật khẩu" />
+            <Label fx:id="txtNameMng" layoutX="576.0" layoutY="13.0" styleClass="admin-title-label" />
          </children>
       </AnchorPane>
    </top>
    <left>
-      <AnchorPane prefHeight="968.0" prefWidth="180.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="762.0" prefWidth="198.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox layoutX="25.0" layoutY="59.0" prefHeight="200.0" prefWidth="100.0" styleClass="inner-bg" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+            <VBox layoutX="25.0" layoutY="59.0" prefHeight="200.0" prefWidth="100.0" styleClass="mng-vbox" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                <children>
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="53.0" prefWidth="110.0">
                      <children>
-                        <Button fx:id="btnSectorMng" layoutX="63.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleSectorMng" text="Quản lý phân khu" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                        <Button fx:id="btnSectorMng" layoutX="63.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleSectorMng" styleClass="nav-button" text="Quản lý phân khu" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="117.0" prefHeight="53.0" prefWidth="110.0">
                      <children>
-                        <Button fx:id="btnBuildMng" layoutX="63.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBuildingMng" text="Quản lý tòa nhà" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                        <Button fx:id="btnBuildMng" layoutX="-4.8" layoutY="14.0" mnemonicParsing="false" onAction="#handleBuildingMng" prefHeight="44.0" prefWidth="165.0" styleClass="nav-button" text="Quản lý tòa nhà" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="53.0" prefWidth="110.0">
                      <children>
-                        <Button fx:id="btnApartMng" layoutX="63.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleApartMng" text="Quản lý căn hộ" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                        <Button fx:id="btnApartMng" layoutX="63.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleApartMng" styleClass="nav-button" text="Quản lý căn hộ" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="53.0" prefWidth="110.0">
                      <children>
-                        <Button fx:id="btnAccMng" layoutX="71.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleAccMng" text="Quản lý tài khoản" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                        <Button fx:id="btnAccMng" layoutX="71.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleAccMng" styleClass="nav-button" text="Quản lý tài khoản" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
                      </children>
                   </AnchorPane>
                </children></VBox>
@@ -66,29 +67,28 @@
          <center>
             <BorderPane prefHeight="302.0" prefWidth="1303.0" BorderPane.alignment="CENTER">
                <top>
-                  <AnchorPane prefHeight="228.0" prefWidth="1318.0" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="189.0" prefWidth="1299.0" BorderPane.alignment="CENTER">
                         <children>
-                        <TextField fx:id="txtname" layoutX="45.0" layoutY="26.0" prefHeight="25.0" prefWidth="213.0" promptText="Tên tòa nhà" />
-                        <TextField fx:id="txtward" layoutX="375.0" layoutY="26.0" prefHeight="25.0" prefWidth="211.0" promptText="Phường" />
-                        <TextField fx:id="txtdistrict" layoutX="704.0" layoutY="26.0" prefHeight="26.0" prefWidth="208.0" promptText="Quận" />
-                        <TextField fx:id="txtrank" layoutX="1016.0" layoutY="26.0" prefHeight="26.0" prefWidth="196.0" promptText="Phân loại" />
-                        <TextField fx:id="txtareaFrom" layoutX="46.0" layoutY="80.0" prefHeight="25.0" prefWidth="212.0" promptText="Diện tích từ" />
-                        <TextField fx:id="txtareaTo" layoutX="375.0" layoutY="80.0" prefHeight="26.0" prefWidth="210.0" promptText="Diện tích tới" />
-                        <TextField fx:id="txtnumberLivingFloor" layoutX="704.0" layoutY="80.0" prefHeight="25.0" prefWidth="208.0" promptText="Số phòng" />
-                        <TextField fx:id="txtnumberBasement" layoutX="1016.0" layoutY="80.0" prefHeight="26.0" prefWidth="197.0" promptText="Số tầng hầm" />
-                        <TextField fx:id="txtsellingPrice" layoutX="46.0" layoutY="132.0" prefHeight="25.0" prefWidth="211.0" promptText="Giá bán" />
-                        <Button fx:id="btnsearch" layoutX="22.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleSearch" styleClass="search-button" />
-                        <Button fx:id="btnfet" layoutX="987.0" layoutY="181.0" minHeight="20.0" mnemonicParsing="false" onAction="#fetchDataFromApi" prefHeight="26.0" prefWidth="73.0" text="Làm mới" />
-                        <Button fx:id="btnEdit" layoutX="1089.0" layoutY="181.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="25.0" prefWidth="48.0" text="Sửa" />
-                        <Button fx:id="btnDelete" layoutX="1165.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleDeleteBuilding" prefHeight="25.0" prefWidth="50.0" text="Xóa" />
-                        <Button fx:id="btnAdd" layoutX="1249.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleAddBuilding" prefHeight="25.0" prefWidth="50.0" text="Thêm" />
+                        <TextField fx:id="txtname" layoutX="45.0" layoutY="26.0" prefHeight="25.0" prefWidth="213.0" promptText="Tên tòa nhà" styleClass="custom-text-field" />
+                        <TextField fx:id="txtward" layoutX="375.0" layoutY="26.0" prefHeight="25.0" prefWidth="211.0" promptText="Phường" styleClass="custom-text-field" />
+                        <TextField fx:id="txtdistrict" layoutX="704.0" layoutY="26.0" prefHeight="26.0" prefWidth="208.0" promptText="Quận" styleClass="custom-text-field" />
+                        <TextField fx:id="txtrank" layoutX="1016.0" layoutY="26.0" prefHeight="26.0" prefWidth="196.0" promptText="Phân loại" styleClass="custom-text-field" />
+                        <TextField fx:id="txtareaFrom" layoutX="46.0" layoutY="80.0" prefHeight="25.0" prefWidth="212.0" promptText="Diện tích từ" styleClass="custom-text-field" />
+                        <TextField fx:id="txtareaTo" layoutX="375.0" layoutY="80.0" prefHeight="26.0" prefWidth="210.0" promptText="Diện tích tới" styleClass="custom-text-field" />
+                        <TextField fx:id="txtnumberLivingFloor" layoutX="704.0" layoutY="80.0" prefHeight="25.0" prefWidth="208.0" promptText="Số phòng" styleClass="custom-text-field" />
+                        <TextField fx:id="txtnumberBasement" layoutX="1016.0" layoutY="80.0" prefHeight="26.0" prefWidth="197.0" promptText="Số tầng hầm" styleClass="custom-text-field" />
+                        <TextField fx:id="txtsellingPrice" layoutX="46.0" layoutY="132.0" prefHeight="25.0" prefWidth="211.0" promptText="Giá bán" styleClass="custom-text-field" />
+                        <Button fx:id="btnsearch" layoutX="891.0" layoutY="130.0" minHeight="35.0" mnemonicParsing="false" onAction="#handleSearch" prefHeight="35.0" prefWidth="54.0" styleClass="search-button" />
+                        <Button fx:id="btnEdit" layoutX="976.0" layoutY="130.0" mnemonicParsing="false" onAction="#handleEdit" prefHeight="35.0" prefWidth="80.0" styleClass="edit-button" text="Sửa" />
+                        <Button fx:id="btnDelete" layoutX="1075.0" layoutY="130.0" mnemonicParsing="false" onAction="#handleDeleteBuilding" prefHeight="35.0" prefWidth="79.0" styleClass="delete-button" text="Xóa" />
+                        <Button fx:id="btnAdd" layoutX="1185.0" layoutY="130.0" mnemonicParsing="false" onAction="#handleAddBuilding" prefHeight="35.0" prefWidth="90.0" styleClass="add-button" text="Thêm" />
                         </children>
                   </AnchorPane>
                </top>
                   <center>
-                  <AnchorPane prefHeight="529.0" prefWidth="1320.0" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="545.0" prefWidth="1298.0" BorderPane.alignment="CENTER">
                      <children>
-                        <TableView fx:id="buildingList" editable="false" layoutX="16.8" layoutY="-256.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1303.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="buildingList" layoutX="16.8" layoutY="-256.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1303.0" styleClass="custom-table" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
                                  <TableColumn fx:id="sectorId" editable="false" prefWidth="73.60003662109375" text="ID phân khu" />
                                  <TableColumn fx:id="code" editable="false" prefWidth="93.60005187988281" text="Mã tòa nhà" />
@@ -112,24 +112,24 @@
             </BorderPane>
          </center>
       </BorderPane>
-      <BorderPane fx:id="paneApartManager" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" managed="false" visible="false">
+      <BorderPane fx:id="paneApartManager" managed="false" prefHeight="200.0" prefWidth="200.0" visible="false" BorderPane.alignment="CENTER">
          <center>
             <BorderPane prefHeight="302.0" prefWidth="1303.0" BorderPane.alignment="CENTER">
                <top>
                   <AnchorPane prefHeight="228.0" prefWidth="1318.0" BorderPane.alignment="CENTER">
                         <children>
-                        <Button fx:id="btnEditApart" layoutX="1003.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleSuaCH" prefHeight="25.0" prefWidth="48.0" text="Sửa" />
-                        <Button fx:id="btnDeleteApart" layoutX="1086.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleDeleteApart" prefHeight="25.0" prefWidth="50.0" text="Xóa" />
-                        <Button fx:id="btnAddApart" layoutX="1173.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleThemCH" prefHeight="26.0" prefWidth="126.0" text="Thêm căn hộ" />
-                           <TextField fx:id="txtSearchByFloor" layoutX="422.0" layoutY="29.0" prefHeight="42.0" prefWidth="706.0" />
-                           <ComboBox fx:id="cbbSearchByStatus" layoutX="422.0" layoutY="93.0" prefHeight="43.0" prefWidth="306.0" />
-                           <Label layoutX="56.0" layoutY="30.0" text="Tìm kiếm theo tầng">
+                        <Button fx:id="btnEditApart" layoutX="937.0" layoutY="178.0" mnemonicParsing="false" onAction="#handleSuaCH" prefHeight="35.0" prefWidth="85.0" styleClass="edit-button" text="Sửa" />
+                        <Button fx:id="btnDeleteApart" layoutX="1043.0" layoutY="178.0" mnemonicParsing="false" onAction="#handleDeleteApart" prefHeight="35.0" prefWidth="78.0" styleClass="delete-button" text="Xóa" />
+                        <Button fx:id="btnAddApart" layoutX="1144.0" layoutY="178.0" mnemonicParsing="false" onAction="#handleThemCH" prefHeight="35.0" prefWidth="140.0" styleClass="add-button" text="Thêm căn hộ" />
+                           <TextField fx:id="txtSearchByFloor" layoutX="422.0" layoutY="29.0" prefHeight="42.0" prefWidth="706.0" styleClass="custom-text-field" />
+                           <ComboBox fx:id="cbbSearchByStatus" layoutX="422.0" layoutY="93.0" prefHeight="43.0" prefWidth="306.0" styleClass="custom-combo-box" />
+                           <Label layoutX="56.0" layoutY="30.0" styleClass="search-label" text="Tìm kiếm theo tầng">
                               <font>
                                  <Font size="28.0" />
                               </font>
                            </Label>
                            <Button fx:id="btnSearchbyFloor" layoutX="1186.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleSearchbyFloor" prefHeight="30.0" prefWidth="71.0" styleClass="search-button" />
-                           <Label layoutX="56.0" layoutY="95.0" text="Tìm kiếm theo trạng thái">
+                           <Label layoutX="56.0" layoutY="95.0" prefWidth="395.0" styleClass="search-label" text="Tìm kiếm theo trạng thái">
                               <font>
                                  <Font size="28.0" />
                               </font>
@@ -141,7 +141,7 @@
                   <center>
                   <AnchorPane prefHeight="529.0" prefWidth="1320.0" BorderPane.alignment="CENTER">
                      <children>
-                        <TableView fx:id="ApartList" layoutX="16.8" layoutY="-256.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1303.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="ApartList" layoutX="16.8" layoutY="-256.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1303.0" styleClass="custom-table" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
                               <TableColumn fx:id="colCode" prefWidth="100" text="Mã căn hộ" />
                               <TableColumn fx:id="colName" prefWidth="150" text="Tên căn hộ" />
@@ -170,30 +170,30 @@
                <top>
                   <AnchorPane prefHeight="228.0" prefWidth="1318.0" BorderPane.alignment="CENTER">
                         <children>
-                        <Button fx:id="btnEditPK" layoutX="1039.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleEditSector" prefHeight="25.0" prefWidth="48.0" text="Sửa" />
-                        <Button fx:id="btnDeletePK" layoutX="1111.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleDeleteSector" prefHeight="25.0" prefWidth="50.0" text="Xóa" />
-                        <Button fx:id="btnAddPK" layoutX="1188.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleAddSector" prefHeight="26.0" prefWidth="111.0" text="Thêm phân khu" />
-                           <TextField fx:id="txtPosPk" layoutX="422.0" layoutY="29.0" prefHeight="42.0" prefWidth="706.0" />
-                           <ComboBox fx:id="cbbSearchStatusPK" layoutX="422.0" layoutY="93.0" prefHeight="43.0" prefWidth="306.0" />
-                           <Label layoutX="66.0" layoutY="30.0" text="Tìm kiếm theo vị trí">
+                        <Button fx:id="btnEditPK" layoutX="933.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleEditSector" prefHeight="35.0" prefWidth="77.0" styleClass="edit-button" text="Sửa" />
+                        <Button fx:id="btnDeletePK" layoutX="1030.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleDeleteSector" prefHeight="35.0" prefWidth="77.0" styleClass="delete-button" text="Xóa" />
+                        <Button fx:id="btnAddPK" layoutX="1130.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleAddSector" prefHeight="35.0" prefWidth="155.0" styleClass="add-button" text="Thêm phân khu" />
+                           <TextField fx:id="txtPosPk" layoutX="422.0" layoutY="29.0" prefHeight="42.0" prefWidth="706.0" styleClass="custom-text-field" />
+                           <ComboBox fx:id="cbbSearchStatusPK" layoutX="422.0" layoutY="93.0" prefHeight="43.0" prefWidth="306.0" styleClass="custom-combo-box" />
+                           <Label layoutX="66.0" layoutY="30.0" styleClass="search-label" text="Tìm kiếm theo vị trí">
                               <font>
                                  <Font name="System Bold" size="28.0" />
                               </font>
                            </Label>
-                           <Button fx:id="btnSearchByPos" layoutX="1220.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleSearchByPos" prefHeight="30.0" prefWidth="71.0" styleClass="search-button" stylesheets="@../CSS/style.css" />
-                           <Label layoutX="66.0" layoutY="95.0" text="Tìm kiếm theo trạng thái">
+                           <Button fx:id="btnSearchByPos" layoutX="1172.0" layoutY="32.0" mnemonicParsing="false" onAction="#handleSearchByPos" prefHeight="30.0" prefWidth="71.0" styleClass="search-button" stylesheets="@../CSS/style.css" />
+                           <Label layoutX="66.0" layoutY="95.0" styleClass="search-label" text="Tìm kiếm theo trạng thái">
                               <font>
                                  <Font name="System Bold" size="28.0" />
                               </font>
                            </Label>
-                           <Button fx:id="btnSearchByStatusPK" layoutX="1220.0" layoutY="102.0" mnemonicParsing="false" onAction="#handleSearchByStatusPK" prefHeight="30.0" prefWidth="71.0" styleClass="search-button" />
+                           <Button fx:id="btnSearchByStatusPK" layoutX="1172.0" layoutY="97.0" mnemonicParsing="false" onAction="#handleSearchByStatusPK" prefHeight="30.0" prefWidth="71.0" styleClass="search-button" />
                         </children>
                   </AnchorPane>
                </top>
                   <center>
                   <AnchorPane prefHeight="529.0" prefWidth="1320.0" BorderPane.alignment="CENTER">
                      <children>
-                        <TableView fx:id="SectorList" layoutX="16.8" layoutY="-256.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1303.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="SectorList" layoutX="16.8" layoutY="-256.8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="627.0" prefWidth="1303.0" styleClass="custom-table" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
                               <TableColumn fx:id="MaPK" prefWidth="100.0" text="Mã phân khu" />
                               <TableColumn fx:id="TenPK" prefWidth="150.0" text="Tên phân khu" />
@@ -217,28 +217,28 @@
 	    <top>
 	        <AnchorPane prefHeight="262.0" prefWidth="1310.0" BorderPane.alignment="CENTER">
 	            <children>
-	                <Button fx:id="btnThemUser" layoutX="1190.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleThemUser" text="Thêm tài khoản" />
-	                <Button fx:id="btnSuaUser" layoutX="1126.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleSuaUser" text="Sửa" />
-	                <Button fx:id="btnDeleteUser" layoutX="1059.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleDeleteUser" text="Xóa" />
+	                <Button fx:id="btnThemUser" layoutX="1142.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleThemUser" prefHeight="35.0" styleClass="add-button" text="Thêm tài khoản" />
+	                <Button fx:id="btnSuaUser" layoutX="951.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleSuaUser" prefHeight="35.0" styleClass="edit-button" text="Sửa" />
+	                <Button fx:id="btnDeleteUser" layoutX="1045.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleDeleteUser" prefHeight="35.0" styleClass="delete-button" text="Xóa" />
 	                <Button fx:id="btnSearchUsername" layoutX="1158.0" layoutY="32.0" mnemonicParsing="false" onAction="#handleSearchByUsername" styleClass="search-button" />
-	                <TextField fx:id="txtSearchUsername" layoutX="446.0" layoutY="32.0" prefHeight="26.0" prefWidth="558.0" promptText="Tên người dùng" />
-	                <Label layoutX="79.0" layoutY="37.0" text="Tìm kiếm theo tên người dùng">
+	                <TextField fx:id="txtSearchUsername" layoutX="446.0" layoutY="32.0" prefHeight="26.0" prefWidth="558.0" promptText="Tên người dùng" styleClass="custom-text-field" />
+	                <Label layoutX="79.0" layoutY="37.0" styleClass="search-label" text="Tìm kiếm theo tên người dùng">
 	                    <font>
 	                        <Font name="System Bold" size="20.0" />
 	                    </font>
 	                </Label>
-	                <Label layoutX="79.0" layoutY="105.0" text="Tìm kiếm theo vai trò">
+	                <Label layoutX="79.0" layoutY="106.0" styleClass="search-label" text="Tìm kiếm theo vai trò">
 	                    <font>
 	                        <Font name="System Bold" size="20.0" />
 	                    </font>
 	                </Label>
-	                <ComboBox fx:id="cbbSearchRole" layoutX="446.0" layoutY="107.0" prefHeight="26.0" prefWidth="558.0" />
+	                <ComboBox fx:id="cbbSearchRole" layoutX="446.0" layoutY="107.0" prefHeight="26.0" prefWidth="558.0" styleClass="custom-combo-box" />
 	                <Button fx:id="btnSearchRole" layoutX="1158.0" layoutY="107.0" mnemonicParsing="false" onAction="#handleSearchByRole" styleClass="search-button" />
 	            </children>
 	        </AnchorPane>
 	    </top>
 	    <center>
-	        <TableView fx:id="userList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="610.0" prefWidth="1320.0" BorderPane.alignment="CENTER">
+	        <TableView fx:id="userList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="610.0" prefWidth="1320.0" styleClass="custom-table" BorderPane.alignment="CENTER">
 	            <columns>
 	                <TableColumn fx:id="nameUser" prefWidth="216.80001831054688" text="Tên người dùng" />
 	                <TableColumn fx:id="fullNameUser" prefWidth="319.1999206542969" text="Họ tên" />
@@ -249,49 +249,49 @@
 	        </TableView>
 	    </center>
 	</BorderPane>
-        <GridPane fx:id="PaneEditSector" hgap="15" managed="false" vgap="10" visible="false">
+        <GridPane fx:id="PaneEditSector" hgap="15" managed="false" styleClass="edit-pane" vgap="10" visible="false">
             <padding>
                 <Insets bottom="20" left="20" right="20" top="20" />
             </padding>
 
             <!-- Cột trái -->
-            <Label text="Mã phân khu" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-            <TextField fx:id="txtMaPhanKhu" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
+            <Label styleClass="custom-label" text="Mã phân khu" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+            <TextField fx:id="txtMaPhanKhu" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
 
-            <Label text="Tên phân khu" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <TextField fx:id="txtTenPhanKhu" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+            <Label styleClass="custom-label" text="Tên phân khu" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <TextField fx:id="txtTenPhanKhu" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
 
-            <Label text="Vị trí" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <TextField fx:id="txtViTri" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+            <Label styleClass="custom-label" text="Vị trí" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <TextField fx:id="txtViTri" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
 
-            <Label text="Tổng diện tích" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <TextField fx:id="txtTongDienTich" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+            <Label styleClass="custom-label" text="Tổng diện tích" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <TextField fx:id="txtTongDienTich" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
 
-            <Label text="Mô tả" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <TextField fx:id="txtMoTa" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+            <Label styleClass="custom-label" text="Mô tả" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <TextField fx:id="txtMoTa" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
 
             <!-- Cột phải -->
-            <Label text="Tên quản lý" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-            <TextField fx:id="txtTenQuanLy" prefHeight="45.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
+            <Label styleClass="custom-label" text="Tên quản lý" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+            <TextField fx:id="txtTenQuanLy" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
 
-            <Label text="Số tầng cao nhất" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <TextField fx:id="txtSoTangCaoNhat" prefHeight="45.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+            <Label styleClass="custom-label" text="Số tầng cao nhất" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <TextField fx:id="txtSoTangCaoNhat" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
 
-            <Label text="Ngày khởi công" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-			<DatePicker fx:id="datePickerKhoiCong" prefHeight="45.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+            <Label styleClass="custom-label" text="Ngày khởi công" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+			<DatePicker fx:id="datePickerKhoiCong" prefHeight="45.0" styleClass="custom-date-picker" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
 
-            <Label text="Ngày hoàn thành dự kiến" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <DatePicker fx:id="datePickerHoanThanh" prefHeight="45.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+            <Label styleClass="custom-label" text="Ngày hoàn thành dự kiến" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <DatePicker fx:id="datePickerHoanThanh" prefHeight="45.0" styleClass="custom-date-picker" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
 
-            <Label text="Trạng thái" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <ComboBox fx:id="comboTrangThai" prefHeight="46.0" prefWidth="184.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+            <Label styleClass="custom-label" text="Trạng thái" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <ComboBox fx:id="comboTrangThai" prefHeight="46.0" prefWidth="184.0" styleClass="custom-combo-box" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
 
             <!-- Nút chức năng -->
-            <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5">
+            <HBox alignment="CENTER" spacing="10" styleClass="button-box" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5">
                 <children>
-                    <Button fx:id="btnSuaPK" onAction="#handleUpdateSector" style="-fx-background-color: #B2FFFF;" text="Sửa phân khu" />
-                  <Button fx:id="btnThemPK" layoutX="512.0" layoutY="42.0" onAction="#handleAddSector_2" style="-fx-background-color: #B2FFFF;" text="Thêm phân khu" />
-                    <Button fx:id="btnHuyPK" onAction="#handleBackSector" style="-fx-background-color: #FF6961;" text="Hủy thao tác" />
+                    <Button fx:id="btnSuaPK" onAction="#handleUpdateSector" styleClass="custom-button" text="Sửa phân khu" />
+                  <Button fx:id="btnThemPK" layoutX="512.0" layoutY="42.0" onAction="#handleAddSector_2" styleClass="custom-button" text="Thêm phân khu" />
+                    <Button fx:id="btnHuyPK" onAction="#handleBackSector" styleClass="back-button" text="Hủy thao tác" />
                 </children>
             </HBox>
 
@@ -313,59 +313,59 @@
 			</rowConstraints>
 
         </GridPane>
-        <GridPane fx:id="PaneEditBuilding" hgap="15" managed="false" vgap="10" visible="false">
+        <GridPane fx:id="PaneEditBuilding" hgap="15" managed="false" styleClass="edit-pane" vgap="10" visible="false">
             <padding>
                 <Insets bottom="20" left="20" right="20" top="20" />
             </padding>
 
             <!-- Cột trái -->
-            <Label text="ID phân khu" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-            <TextField fx:id="txtMaPhanKhu_building" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
+            <Label styleClass="custom-label" text="ID phân khu" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+            <TextField fx:id="txtMaPhanKhu_building" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
 
-            <Label text="Mã tòa nhà" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <TextField fx:id="txtMaToaNha" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+            <Label styleClass="custom-label" text="Mã tòa nhà" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <TextField fx:id="txtMaToaNha" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
 
-            <Label text="Tên tòa nhà" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <TextField fx:id="txtTenToaNha" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+            <Label styleClass="custom-label" text="Tên tòa nhà" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <TextField fx:id="txtTenToaNha" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
 
-            <Label text="Địa chỉ" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <TextField fx:id="txtDiaChiToaNha" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+            <Label styleClass="custom-label" text="Địa chỉ" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <TextField fx:id="txtDiaChiToaNha" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
 
-            <Label text="Tên chủ đàu tư" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <TextField fx:id="txtTenChuDauTuToaNha" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+            <Label styleClass="custom-label" text="Tên chủ đàu tư" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <TextField fx:id="txtTenChuDauTuToaNha" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
 
             <!-- Cột phải -->
-            <Label text="Giá bán thấp nhất" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-            <TextField fx:id="txtGiaBanThapNhat" prefHeight="45.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
+            <Label styleClass="custom-label" text="Giá bán thấp nhất" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+            <TextField fx:id="txtGiaBanThapNhat" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
 
-            <Label text="Giá bán cao nhất" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <TextField fx:id="txtGiaBanCaoNhat" prefHeight="45.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+            <Label styleClass="custom-label" text="Giá bán cao nhất" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <TextField fx:id="txtGiaBanCaoNhat" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
 
-            <Label text="Số lượng thang máy" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <TextField fx:id="txtSoThangMay" prefHeight="45.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+            <Label styleClass="custom-label" text="Số lượng thang máy" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <TextField fx:id="txtSoThangMay" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
 
-            <Label text="Số tầng ở " GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <TextField fx:id="txtSoTangO" prefHeight="45.0" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+            <Label styleClass="custom-label" text="Số tầng ở " GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <TextField fx:id="txtSoTangO" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
 
-            <Label text="Số tầng hầm" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <Label styleClass="custom-label" text="Số tầng hầm" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
 
             <!-- Nút chức năng -->
-            <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7">
+            <HBox alignment="CENTER" spacing="10" styleClass="button-box" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7">
                 <children>
-                    <Button fx:id="btnSuaBuilding" onAction="#handleUpdateBuilding" style="-fx-background-color: #B2FFFF;" text="Sửa tòa nhà" />
-                  <Button fx:id="btnThemBuilding" layoutX="512.0" layoutY="42.0" onAction="#handleAddBuilding_2" style="-fx-background-color: #B2FFFF;" text="Thêm tòa nhà" />
-                    <Button fx:id="btnHuyBuilding" onAction="#handleBackBuilding" style="-fx-background-color: #FF6961;" text="Hủy thao tác" />
+                    <Button fx:id="btnSuaBuilding" onAction="#handleUpdateBuilding" styleClass="custom-button" text="Sửa tòa nhà" />
+                  <Button fx:id="btnThemBuilding" layoutX="512.0" layoutY="42.0" onAction="#handleAddBuilding_2" styleClass="custom-button" text="Thêm tòa nhà" />
+                    <Button fx:id="btnHuyBuilding" onAction="#handleBackBuilding" styleClass="back-button" text="Hủy thao tác" />
                 </children>
             </HBox>
-            <TextField fx:id="txtSoTangHam" prefHeight="50.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Label text="Hạng" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <Label text="Tổng diện tích" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-            <Label text="Phí gửi xe máy/tháng" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <Label text="Phí gửi ô tô/tháng" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-            <TextField fx:id="txtHangToaNha" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="txtTongDienTichToaNha" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField fx:id="txtPhiXeMay" prefHeight="50.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <TextField fx:id="txtPhiOTo" prefHeight="50.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <TextField fx:id="txtSoTangHam" prefHeight="50.0" styleClass="custom-text-field" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Label styleClass="custom-label" text="Hạng" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <Label styleClass="custom-label" text="Tổng diện tích" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <Label styleClass="custom-label" text="Phí gửi xe máy/tháng" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <Label styleClass="custom-label" text="Phí gửi ô tô/tháng" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <TextField fx:id="txtHangToaNha" prefHeight="50.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="txtTongDienTichToaNha" prefHeight="50.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="txtPhiXeMay" prefHeight="50.0" styleClass="custom-text-field" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <TextField fx:id="txtPhiOTo" prefHeight="50.0" styleClass="custom-text-field" GridPane.columnIndex="3" GridPane.rowIndex="6" />
 
             <!-- Cho phép các cột có thể co giãn -->
             <columnConstraints>
@@ -387,69 +387,69 @@
 			</rowConstraints>
 
         </GridPane>
-		<GridPane fx:id="PaneEditApart" hgap="15" managed="false" vgap="10" visible="false">
+		<GridPane fx:id="PaneEditApart" hgap="15" managed="false" styleClass="edit-pane" vgap="10" visible="false">
 		    <padding>
 		        <Insets bottom="20" left="20" right="20" top="20" />
 		    </padding>
 		
 		    <!-- Cột trái -->
-		    <Label text="ID tòa nhà" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-		    <TextField fx:id="txtMaToaNha_CH" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
+		    <Label styleClass="custom-label" text="ID tòa nhà" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+		    <TextField fx:id="txtMaToaNha_CH" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
 		
-		    <Label text="Mã căn hộ" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-		    <TextField fx:id="txtMaCanHo" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+		    <Label styleClass="custom-label" text="Mã căn hộ" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+		    <TextField fx:id="txtMaCanHo" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
 		
-		    <Label text="Tên căn hộ" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-		    <TextField fx:id="txtTenCanHo" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+		    <Label styleClass="custom-label" text="Tên căn hộ" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+		    <TextField fx:id="txtTenCanHo" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
 		
-		    <Label text="Tầng" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-		    <TextField fx:id="TxtSoTangCH" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+		    <Label styleClass="custom-label" text="Tầng" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+		    <TextField fx:id="TxtSoTangCH" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
 		
-		    <Label text="Diện tích" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-		    <TextField fx:id="txtDienTichCH" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+		    <Label styleClass="custom-label" text="Diện tích" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+		    <TextField fx:id="txtDienTichCH" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
 		
 		    <!-- Cột phải -->
-		    <Label text="Giá" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-		    <TextField fx:id="txtGiaCH" prefHeight="45.0" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" />
+		    <Label styleClass="custom-label" text="Giá" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+		    <TextField fx:id="txtGiaCH" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" />
 		
-		    <Label text="Trạng thái" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+		    <Label styleClass="custom-label" text="Trạng thái" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
 		
-		    <Label text="Hướng chính" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-		    <TextField fx:id="txtHuongCH" prefHeight="45.0" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+		    <Label styleClass="custom-label" text="Hướng chính" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+		    <TextField fx:id="txtHuongCH" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
 		
-		    <Label text="Mô tả" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-		    <TextField fx:id="txtMoTaCH" prefHeight="45.0" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+		    <Label styleClass="custom-label" text="Mô tả" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+		    <TextField fx:id="txtMoTaCH" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
 		
-		    <Label text="View" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+		    <Label styleClass="custom-label" text="View" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
 		
 		    <!-- Nút chức năng -->
-		    <HBox alignment="CENTER" prefHeight="90.0" prefWidth="759.0" spacing="10" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7">
+		    <HBox alignment="CENTER" prefHeight="90.0" prefWidth="759.0" spacing="10" styleClass="button-box" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7">
 		        <children>
-		            <Button fx:id="btnSuaCH" onAction="#handleUpdateApart" style="-fx-background-color: #B2FFFF;" text="Sửa căn hộ" />
-		            <Button fx:id="btnThemCH" onAction="#handleAddApart_2" style="-fx-background-color: #B2FFFF;" text="Thêm căn hộ" />
-		            <Button fx:id="btnHuyCH" onAction="#handleBackApart" style="-fx-background-color: #FF6961;" text="Hủy thao tác" />
+		            <Button fx:id="btnSuaCH" onAction="#handleUpdateApart" styleClass="custom-button" text="Sửa căn hộ" />
+		            <Button fx:id="btnThemCH" onAction="#handleAddApart_2" styleClass="custom-button" text="Thêm căn hộ" />
+		            <Button fx:id="btnHuyCH" onAction="#handleBackApart" styleClass="back-button" text="Hủy thao tác" />
 		        </children>
 		    </HBox>
-		    <TextField fx:id="txtViewCH" prefHeight="50.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-		    <Label text="Số phòng ngủ" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-		    <Label text="Số phòng tắm" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-		    <Label text="Tiền một số điện" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-		    <Label text="Tiền một khối nước" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-		    <TextField fx:id="txtSoPhongNgu" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-		    <TextField fx:id="txtSoPhongTam" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-		    <TextField fx:id="txtTienDienCH" prefHeight="50.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-		    <TextField fx:id="txtTienNuocCH" prefHeight="50.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-		    <ComboBox fx:id="cbbTrangThaiCH" prefHeight="26.0" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-		    <TextField fx:id="txtChieuCaoCH" prefHeight="50.0" prefWidth="263.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
-		    <Label text="Chiều cao trần nhà" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+		    <TextField fx:id="txtViewCH" prefHeight="50.0" styleClass="custom-text-field" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+		    <Label styleClass="custom-label" text="Số phòng ngủ" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+		    <Label styleClass="custom-label" text="Số phòng tắm" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+		    <Label styleClass="custom-label" text="Tiền một số điện" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+		    <Label styleClass="custom-label" text="Tiền một khối nước" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+		    <TextField fx:id="txtSoPhongNgu" prefHeight="50.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+		    <TextField fx:id="txtSoPhongTam" prefHeight="50.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+		    <TextField fx:id="txtTienDienCH" prefHeight="50.0" styleClass="custom-text-field" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+		    <TextField fx:id="txtTienNuocCH" prefHeight="50.0" styleClass="custom-text-field" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+		    <ComboBox fx:id="cbbTrangThaiCH" prefHeight="26.0" prefWidth="150.0" styleClass="custom-combo-box" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+		    <TextField fx:id="txtChieuCaoCH" prefHeight="50.0" prefWidth="263.0" styleClass="custom-text-field" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+		    <Label styleClass="custom-label" text="Chiều cao trần nhà" GridPane.columnIndex="2" GridPane.rowIndex="7" />
 		
 		    <!-- Cho phép các cột có thể co giãn -->
 		    <columnConstraints>
 		        <ColumnConstraints halignment="RIGHT" />
-		        <ColumnConstraints hgrow="ALWAYS" />
-		        <ColumnConstraints halignment="RIGHT" />
-		        <ColumnConstraints halignment="RIGHT" />
-		        <ColumnConstraints hgrow="ALWAYS" />
+		        <ColumnConstraints hgrow="ALWAYS" maxWidth="654.0000244140625" minWidth="284.0000061035156" prefWidth="480.0" />
+		        <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" maxWidth="543.9999938964844" minWidth="152.79997558593743" prefWidth="196.79999999999995" />
+		        <ColumnConstraints halignment="RIGHT" maxWidth="172.0" minWidth="0.0" prefWidth="0.0" />
+		        <ColumnConstraints hgrow="ALWAYS" maxWidth="500.0" minWidth="263.20000000000005" prefWidth="480.0" />
 		    </columnConstraints>
 		    
 		    <rowConstraints>
@@ -463,26 +463,26 @@
 		        <RowConstraints maxHeight="123.19997558593752" minHeight="30.399987792968773" prefHeight="89.60000000000002" />
 		    </rowConstraints>
 		</GridPane>
-		<GridPane fx:id="PaneChangePwd" hgap="15" managed="false" vgap="10" visible="false">
+		<GridPane fx:id="PaneChangePwd" hgap="15" managed="false" styleClass="edit-pane" vgap="10" visible="false">
 		    <padding>
 		        <Insets bottom="20" left="20" right="20" top="20" />
 		    </padding>
 		
 		    <!-- Cột trái -->
-		    <Label text="Mật khẩu cũ" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-		    <TextField fx:id="txtMatKhauCu" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
+		    <Label styleClass="custom-label" text="Mật khẩu cũ" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+		    <TextField fx:id="txtMatKhauCu" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
 		
-		    <Label text="Mật khẩu mới" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-		    <TextField fx:id="txtMatKhauMoi" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+		    <Label styleClass="custom-label" text="Mật khẩu mới" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+		    <TextField fx:id="txtMatKhauMoi" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
 		
-		    <Label text="Nhập lại mật khẩu mới" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-		    <TextField fx:id="txtNhapLaiMKMoi" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+		    <Label styleClass="custom-label" text="Nhập lại mật khẩu mới" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+		    <TextField fx:id="txtNhapLaiMKMoi" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
 		
 		    <!-- Nút chức năng -->
-		    <HBox alignment="CENTER" prefHeight="90.0" prefWidth="759.0" spacing="10" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
+		    <HBox alignment="CENTER" prefHeight="90.0" prefWidth="759.0" spacing="10" styleClass="button-box" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
 		        <children>
-		            <Button fx:id="btnChangePwd" style="-fx-background-color: #B2FFFF;" text="Đổi mật khẩu" />
-		            <Button fx:id="btnHuyChangePwd" onAction="#handleBackBuilding_2" style="-fx-background-color: #FF6961;" text="Hủy thao tác" />
+		            <Button fx:id="btnChangePwd" onAction="#handleBackBuilding_2" styleClass="custom-button" text="Đổi mật khẩu" />
+		            <Button fx:id="btnHuyChangePwd" onAction="#handleBackBuilding_2" styleClass="back-button" text="Hủy thao tác" />
 		        </children>
 		    </HBox>
 		
@@ -500,33 +500,33 @@
 		        <RowConstraints maxHeight="290.0" minHeight="30.399987792968773" prefHeight="223.20001831054685" />
 		    </rowConstraints>
 		</GridPane>
-        <GridPane fx:id="PaneEditUser" hgap="15" managed="false" vgap="10" visible="false">
+        <GridPane fx:id="PaneEditUser" hgap="15" managed="false" styleClass="edit-pane" vgap="10" visible="false">
 		    <padding>
 		        <Insets bottom="20" left="20" right="20" top="20" />
 		    </padding>
 		
 		    <!-- Cột trái -->
-		    <Label text="Tên người dùng" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-		    <TextField fx:id="txtTenNguoiDung" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
+		    <Label styleClass="custom-label" text="Tên người dùng" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+		    <TextField fx:id="txtTenNguoiDung" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
 		
-		    <Label text="Họ tên" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-		    <TextField fx:id="txtHoTen" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+		    <Label styleClass="custom-label" text="Họ tên" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+		    <TextField fx:id="txtHoTen" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
 		
-		    <Label text="Số điện thoại" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-		    <TextField fx:id="txtSoDienThoai" prefHeight="45.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+		    <Label styleClass="custom-label" text="Số điện thoại" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+		    <TextField fx:id="txtSoDienThoai" prefHeight="45.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
 		
 		    <!-- Nút chức năng -->
-		    <HBox alignment="CENTER" prefHeight="90.0" prefWidth="759.0" spacing="10" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5">
+		    <HBox alignment="CENTER" prefHeight="90.0" prefWidth="759.0" spacing="10" styleClass="button-box" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5">
 		        <children>
-		            <Button fx:id="btnThemAcc" onAction="#handleAddUser_2" style="-fx-background-color: #B2FFFF;" text="Thêm tài khoản" />
-                  <Button fx:id="btnSuaAcc" layoutX="552.0" layoutY="109.0" onAction="#handleUpdateUser" style="-fx-background-color: #B2FFFF;" text="Sửa tài khoản" />
-		            <Button fx:id="btnHuyAcc" onAction="#handleBackAcc" style="-fx-background-color: #FF6961;" text="Hủy thao tác" />
+		            <Button fx:id="btnThemAcc" onAction="#handleAddUser_2" styleClass="custom-button" text="Thêm tài khoản" />
+                  <Button fx:id="btnSuaAcc" layoutX="552.0" layoutY="109.0" onAction="#handleUpdateUser" styleClass="custom-button" text="Sửa tài khoản" />
+		            <Button fx:id="btnHuyAcc" onAction="#handleBackAcc" styleClass="back-button" text="Hủy thao tác" />
 		        </children>
 		    </HBox>
-            <Label text="Email" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Label text="Vai trò" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <TextField fx:id="txtEmail" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ComboBox fx:id="cbbStatusUser" prefHeight="26.0" prefWidth="290.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label styleClass="custom-label" text="Email" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Label styleClass="custom-label" text="Vai trò" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <TextField fx:id="txtEmail" prefHeight="50.0" styleClass="custom-text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbbStatusUser" prefHeight="26.0" prefWidth="290.0" styleClass="custom-combo-box" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 		
 		    <!-- Cho phép các cột có thể co giãn -->
 		    <columnConstraints>

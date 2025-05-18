@@ -15,6 +15,7 @@ import javafx.scene.layout.Pane;
 
 public class ManagerViewController {
 
+	@FXML private Label txtNameMng;
     @FXML private TextField txtname, txtward, txtdistrict, txtrank, txtareaFrom, txtareaTo, txtsellingPrice, txtnumberLivingFloor, txtnumberBasement;
     @FXML private TextField txtMaPhanKhu_building, txtMaToaNha, txtTenToaNha, txtDiaChiToaNha, txtTenChuDauTuToaNha, txtGiaBanThapNhat, txtGiaBanCaoNhat, txtSoThangMay, txtSoTangO, txtSoTangHam, txtPhiOTo, txtPhiXeMay, txtTongDienTichToaNha, txtHangToaNha;
     @FXML private TextField txtMaPhanKhu, txtTenPhanKhu,txtPosPk, txtViTri, txtTongDienTich, txtMoTa, txtTenQuanLy, txtSoTangCaoNhat;
@@ -123,77 +124,78 @@ public class ManagerViewController {
     public void handleAccMng() {
         userManager.handleUserMng(paneUserManager, paneApartManager, paneSectorManager, paneBuildingManager, userList,
                 PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser);
+        txtNameMng.setText("Quản Lý Tài Khoản");
     }
 
     @FXML
     public void handleSectorMng() {
         sectorManager.handleSectorMng(paneSectorManager, paneApartManager, paneBuildingManager, paneUserManager, SectorList,
                 PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser);
+        txtNameMng.setText("Quản Lý Phân Khu");
     }
 
     @FXML
     public void handleBuildingMng() {
         buildingManager.handleBuildingMng(paneBuildingManager, paneApartManager, paneSectorManager, paneUserManager, buildingList,
                 PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser);
+        txtNameMng.setText("Quản Lý Tòa Nhà");
     }
 
     @FXML
     public void handleApartMng() {
         apartmentView.handleApartMng(paneApartManager, paneBuildingManager, paneSectorManager, paneUserManager, ApartList,
                 PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser);
+        txtNameMng.setText("Quản Lý Căn Hộ");
     }
 
     @FXML
     public void handleChangePassword() {
-        CommonUtils.showOnly(null, paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager);
-        PaneChangePwd.setVisible(true);
-        PaneChangePwd.setManaged(true);
+        CommonUtils.showOnly(PaneChangePwd, paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager,
+        		PaneEditSector, PaneEditBuilding, PaneEditApart, PaneEditUser);
+        txtNameMng.setText("Đổi Mật Khẩu");
     }
 
     @FXML
     public void handleBackSector() {
         sectorManager.backToSectorManager(paneSectorManager, PaneEditSector);
+        txtNameMng.setText("Quản Lý Phân Khu");
     }
 
     @FXML
     public void handleBackBuilding() {
         buildingManager.handleBackBuilding(paneBuildingManager, PaneEditBuilding);
+        txtNameMng.setText("Quản Lý Tòa Nhà");
     }
 
     @FXML
     public void handleBackBuilding_2() {
-        buildingManager.handleBackBuilding_2(paneBuildingManager, PaneChangePwd);
+        CommonUtils.hideEditPanes(PaneChangePwd);
     }
 
     @FXML
     public void handleBackAcc() {
         userManager.backToUserManager(paneUserManager, PaneEditUser);
+        txtNameMng.setText("Quản Lý Tài Khoản");
     }
 
     @FXML
     public void handleBackApart() {
-        CommonUtils.showOnly(paneApartManager, paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager);
-        PaneEditApart.setVisible(false);
-        PaneEditApart.setManaged(false);
-        CommonUtils.clearAllTextFieldsIn(PaneEditApart);
+        apartmentView.backToApartManager(paneApartManager, PaneEditApart);
+        txtNameMng.setText("Quản Lý Căn Hộ");
     }
 
     @FXML
     public void handleAddSector() {
-        sectorManager.handleAddSector(paneSectorManager, PaneEditSector);
-        btnThemPK.setVisible(true);
-        btnThemPK.setManaged(true);
-        btnSuaPK.setVisible(false);
-        btnSuaPK.setManaged(false);
+        sectorManager.handleAddSector(paneSectorManager, PaneEditSector);      
+        CommonUtils.showAddBtn(btnSuaPK, btnThemPK);
+        txtNameMng.setText("Thêm Phân Khu");
     }
 
     @FXML
     public void handleAddBuilding() {
         buildingManager.handleAddBuilding(paneBuildingManager, PaneEditBuilding);
-        btnThemBuilding.setVisible(true);
-        btnThemBuilding.setManaged(true);
-        btnSuaBuilding.setVisible(false);
-        btnSuaBuilding.setManaged(false);
+        CommonUtils.showAddBtn(btnSuaBuilding, btnThemBuilding);
+        txtNameMng.setText("Thêm Tòa Nhà");
     }
 
     @FXML
@@ -201,10 +203,8 @@ public class ManagerViewController {
         buildingManager.handleEdit(buildingList, paneBuildingManager, PaneEditBuilding, txtMaPhanKhu_building, txtMaToaNha,
                 txtTenToaNha, txtDiaChiToaNha, txtTenChuDauTuToaNha, txtGiaBanThapNhat, txtGiaBanCaoNhat,
                 txtSoThangMay, txtSoTangO, txtSoTangHam, txtHangToaNha, txtTongDienTichToaNha, txtPhiXeMay, txtPhiOTo);
-        btnSuaBuilding.setVisible(true);
-        btnSuaBuilding.setManaged(true);
-        btnThemBuilding.setVisible(false);
-        btnThemBuilding.setManaged(false);
+        CommonUtils.showEditBtn(btnSuaBuilding, btnThemBuilding);
+        txtNameMng.setText("Sửa Tòa Nhà");
     }
 
     @FXML
@@ -212,6 +212,7 @@ public class ManagerViewController {
         buildingManager.handleUpdateBuilding(paneBuildingManager, PaneEditBuilding, buildingList, txtMaPhanKhu_building, txtMaToaNha,
                 txtTenToaNha, txtDiaChiToaNha, txtTenChuDauTuToaNha, txtGiaBanThapNhat, txtGiaBanCaoNhat,
                 txtSoThangMay, txtSoTangO, txtSoTangHam, txtHangToaNha, txtTongDienTichToaNha, txtPhiXeMay, txtPhiOTo);
+        txtNameMng.setText("Quản Lý Tòa Nhà");
     }
 
     @FXML
@@ -219,59 +220,50 @@ public class ManagerViewController {
         buildingManager.handleAddBuilding_2(paneBuildingManager, PaneEditBuilding, buildingList, txtMaPhanKhu_building, txtMaToaNha,
                 txtTenToaNha, txtDiaChiToaNha, txtTenChuDauTuToaNha, txtGiaBanThapNhat, txtGiaBanCaoNhat,
                 txtSoThangMay, txtSoTangO, txtSoTangHam, txtHangToaNha, txtTongDienTichToaNha, txtPhiXeMay, txtPhiOTo);
+        txtNameMng.setText("Quản Lý Tòa Nhà");
     }
 
     @FXML
     public void handleAddApart() {
-        CommonUtils.showOnly(null, paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager);
-        PaneEditApart.setVisible(true);
-        PaneEditApart.setManaged(true);
-        btnThemCH.setVisible(true);
-        btnThemCH.setManaged(true);
-        btnSuaCH.setVisible(false);
-        btnSuaCH.setManaged(false);
+        CommonUtils.showOnly(PaneEditApart, paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager);      
+        CommonUtils.showAddBtn(btnSuaCH, btnThemCH);
+        txtNameMng.setText("Thêm Căn Hộ");
     }
 
     @FXML
     public void handleEditApart() {
-        CommonUtils.showOnly(null, paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager);
-        PaneEditApart.setVisible(true);
-        PaneEditApart.setManaged(true);
-        btnSuaCH.setVisible(true);
-        btnSuaCH.setManaged(true);
-        btnThemCH.setVisible(false);
-        btnThemCH.setManaged(false);
+        CommonUtils.showOnly(PaneEditApart, paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager);
+        CommonUtils.showEditBtn(btnSuaCH, btnThemCH);
+        txtNameMng.setText("Sửa Căn Hộ");
     }
 
     @FXML
     public void handleThemUser() {
         userManager.handleAddUser(paneUserManager, PaneEditUser);
-        btnThemAcc.setVisible(true);
-        btnThemAcc.setManaged(true);
-        btnSuaAcc.setVisible(false);
-        btnSuaAcc.setManaged(false);
+        CommonUtils.showAddBtn(btnSuaAcc, btnThemAcc);
+        txtNameMng.setText("Thêm Tài Khoản");
     }
 
     @FXML
     public void handleSuaUser() {
         userManager.handleEditUser(userList, paneUserManager, PaneEditUser, txtTenNguoiDung, txtHoTen, txtSoDienThoai,
                 txtEmail, cbbStatusUser);
-        btnSuaAcc.setVisible(true);
-        btnSuaAcc.setManaged(true);
-        btnThemAcc.setVisible(false);
-        btnThemAcc.setManaged(false);
+        CommonUtils.showEditBtn(btnSuaAcc, btnThemAcc);
+        txtNameMng.setText("Sửa Tài Khoản");
     }
 
     @FXML
     public void handleAddUser_2() {
         userManager.handleAddUser_2(paneUserManager, PaneEditUser, userList, txtTenNguoiDung, txtHoTen, txtSoDienThoai,
                 txtEmail, cbbStatusUser);
+        txtNameMng.setText("Quản Lý Tài Khoản");
     }
 
     @FXML
     public void handleUpdateUser() {
         userManager.handleUpdateUser(paneUserManager, PaneEditUser, userList, txtTenNguoiDung, txtHoTen, txtSoDienThoai,
                 txtEmail, cbbStatusUser);
+        txtNameMng.setText("Quản Lý Tài Khoản");
     }
 
     @FXML
@@ -279,6 +271,7 @@ public class ManagerViewController {
         sectorManager.handleAddSector_2(paneSectorManager, PaneEditSector, SectorList, txtMaPhanKhu, txtTenPhanKhu,
                 txtViTri, txtTongDienTich, txtMoTa, txtTenQuanLy, txtSoTangCaoNhat, datePickerKhoiCong, datePickerHoanThanh,
                 comboTrangThai);
+        txtNameMng.setText("Quản Lý Phân Khu");
     }
 
     @FXML
@@ -286,6 +279,7 @@ public class ManagerViewController {
         sectorManager.handleUpdateSector(paneSectorManager, PaneEditSector, SectorList, txtMaPhanKhu, txtTenPhanKhu,
                 txtViTri, txtTongDienTich, txtMoTa, txtTenQuanLy, txtSoTangCaoNhat, datePickerKhoiCong, datePickerHoanThanh,
                 comboTrangThai);
+        txtNameMng.setText("Quản Lý Phân Khu");
     }
 
     @FXML
@@ -293,10 +287,8 @@ public class ManagerViewController {
         sectorManager.handleEditSector(SectorList, paneSectorManager, PaneEditSector, txtMaPhanKhu, txtTenPhanKhu,
                 txtViTri, txtTongDienTich, txtMoTa, txtTenQuanLy, txtSoTangCaoNhat, datePickerKhoiCong, datePickerHoanThanh,
                 comboTrangThai);
-        btnThemPK.setVisible(false);
-        btnThemPK.setManaged(false);
-        btnSuaPK.setVisible(true);
-        btnSuaPK.setManaged(true);
+        CommonUtils.showEditBtn(btnSuaPK, btnThemPK);
+        txtNameMng.setText("Sửa Phân Khu");
     }
 
     @FXML
@@ -317,10 +309,8 @@ public class ManagerViewController {
     @FXML
     private void handleThemCH() {
         apartmentView.handleAddApart(paneApartManager, PaneEditApart);
-        btnThemCH.setVisible(true);
-        btnThemCH.setManaged(true);
-        btnSuaCH.setVisible(false);
-        btnSuaCH.setManaged(false);
+        CommonUtils.showAddBtn(btnSuaCH, btnThemCH);
+        txtNameMng.setText("Thêm Căn Hộ");
     }
 
     @FXML
@@ -329,10 +319,8 @@ public class ManagerViewController {
                 txtMaToaNha_CH, txtMaCanHo, txtTenCanHo, TxtSoTangCH, txtDienTichCH, txtSoPhongNgu,
                 txtSoPhongTam, txtGiaCH, cbbTrangThaiCH, txtHuongCH, txtMoTaCH, txtViewCH,
                 txtTienDienCH, txtTienNuocCH, txtChieuCaoCH);
-        btnThemCH.setVisible(false);
-        btnThemCH.setManaged(false);
-        btnSuaCH.setVisible(true);
-        btnSuaCH.setManaged(true);
+        CommonUtils.showEditBtn(btnSuaCH, btnThemCH);
+        txtNameMng.setText("Sửa Căn Hộ");
     }
 
     @FXML
@@ -341,6 +329,7 @@ public class ManagerViewController {
                 txtMaToaNha_CH, txtMaCanHo, txtTenCanHo, TxtSoTangCH, txtDienTichCH, txtSoPhongNgu,
                 txtSoPhongTam, txtGiaCH, cbbTrangThaiCH, txtHuongCH, txtMoTaCH, txtViewCH,
                 txtTienDienCH, txtTienNuocCH, txtChieuCaoCH);
+        txtNameMng.setText("Quản Lý Căn Hộ");
     }
 
     @FXML
@@ -349,6 +338,7 @@ public class ManagerViewController {
                 txtMaToaNha_CH, txtMaCanHo, txtTenCanHo, TxtSoTangCH, txtDienTichCH, txtSoPhongNgu,
                 txtSoPhongTam, txtGiaCH, cbbTrangThaiCH, txtHuongCH, txtMoTaCH, txtViewCH,
                 txtTienDienCH, txtTienNuocCH, txtChieuCaoCH);
+        txtNameMng.setText("Quản Lý Căn Hộ");
     }
 
     @FXML

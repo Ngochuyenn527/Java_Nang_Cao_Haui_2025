@@ -1,92 +1,378 @@
-.signup-bg{
-	-fx-background-image: url(../Images/signup-bg.png);
-	-fx-background-size: cover;
+/* Root styles for consistent typography and background */
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: linear-gradient(to bottom right, #e0f7fa, #b2ebf2);
 }
 
-.login-bg{
-	-fx-background-image: url(../Images/login-bg.png);
-	-fx-background-size: cover;
+/* Style for main panes (paneApartManager, paneBuildingManager, paneSectorManager, paneUserManager) */
+.main-pane {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: #0288d1;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 2);
 }
 
-.inner-bg{
-	-fx-background-color: rgb(203, 245, 255, 0.5);
-	-fx-background-radius: 10;
+/* Style for edit panes (PaneEditApart, PaneEditBuilding, PaneEditSector, PaneEditUser, PaneChangePwd) */
+.edit-pane {
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #4fc3f7;
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 8, 0, 0, 2);
 }
 
-.label-normal{
-	-fx-font-weight: bold;
-	-fx-font-size: 12;
+/* Style for TableView (ApartList, buildingList, SectorList, userList) */
+.custom-table {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #fbc02d;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0, 0, 1);
 }
 
-.label-header{
-	-fx-text-fill: blue;
-	-fx-font-weight: bold;
-	-fx-font-size: 30;
+/* TableView header background */
+.custom-table .column-header-background {
+    -fx-background-color: linear-gradient(to right, #fbc02d, #ffeb3b);
+    -fx-background-radius: 10 10 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
 }
 
-.search-button {
+/* TableView column headers */
+.custom-table .column-header .label {
+    -fx-text-fill: #000000;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
     -fx-background-color: transparent;
-    -fx-background-image: url("../Images/search-icon.png");
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-size: 50px 40px;
-    -fx-padding: 0;
-    -fx-cursor: hand;
+}
+
+/* Ensure column header itself is styled */
+.custom-table .column-header {
+    -fx-background-color: transparent;
     -fx-border-color: transparent;
-
-    -fx-pref-width: 50px;
-    -fx-pref-height: 40px;
-
-    -fx-scale-x: 1;
-    -fx-scale-y: 1;
 }
 
-.search-button:hover {
-    -fx-scale-x: 1.5;
-    -fx-scale-y: 1.5;
+/* TableView rows */
+.custom-table .table-row-cell {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1 0;
+    -fx-cell-size: 42;
 }
 
-.search-label {
-    -fx-text-fill: white; /* hoặc dùng #FFFFFF */
+/* TableView row hover effect */
+.custom-table .table-row-cell:hover {
+    -fx-background-color: #fffde7;
+}
+
+/* TableView selected row */
+.custom-table .table-row-cell:selected {
+    -fx-background-color: #ffecb3;
+    -fx-text-fill: #000000;
+}
+
+.custom-table .table-row-cell:selected .text {
+    -fx-fill: black;
+}
+
+/* Style for Buttons (btnAddApart, btnEditApart, btnDeleteApart, btnThemCH, btnSuaCH, etc.) */
+.custom-button {
+    -fx-background-color: linear-gradient(to right, #0288d1, #4fc3f7);
+    -fx-background-radius: 6;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+    -fx-cursor: hand;
+}
+
+/* Button hover effect */
+.custom-button:hover {
+    -fx-background-color: linear-gradient(to right, #0277bd, #29b6f6);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0, 0, 2);
+}
+
+/* Style for delete/cancel button (btnDeleteApart, btnHuyCH, btnHuyBuilding, etc.) */
+.delete-button {
+    -fx-background-color: linear-gradient(to right, #e57373, #ef5350); /* Giữ nền đỏ */
+    -fx-background-radius: 6;
+    -fx-text-fill: #ffffff; /* Chữ trắng */
+    -fx-font-weight: bold;
+    -fx-graphic: url("../Images/delete-icon.png"); /* Icon dấu X */
+    -fx-content-display: left; /* Icon bên trái text */
+    -fx-graphic-text-gap: 8; /* Khoảng cách icon-text */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+    -fx-cursor: hand;
+}
+
+/* Delete button hover effect */
+.delete-button:hover {
+    -fx-background-color: linear-gradient(to right, #d32f2f, #e53935); /* Đỏ đậm */
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0, 0, 2);
+}
+
+/* Style for TextFields (txtMaCanHo, txtTenCanHo, txtSearchByFloor, etc.) */
+.custom-text-field {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-color: #b0bec5;
+    -fx-border-width: 1.5;
+    -fx-text-fill: #212121;
+    -fx-prompt-text-fill: #78909c;
+}
+
+/* TextField focus effect */
+.custom-text-field:focused {
+    -fx-border-color: #0288d1;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, #0288d1, 5, 0, 0, 0);
+}
+
+/* Style for ComboBoxes (cbbTrangThaiCH, cbbSearchByStatus, comboTrangThai, etc.) */
+.custom-combo-box {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-color: #b0bec5;
+    -fx-border-width: 1.5;
+}
+
+/* ComboBox focus effect */
+.custom-combo-box:focused {
+    -fx-border-color: #0288d1;
+    -fx-border-width: 2;
+}
+
+/* ComboBox list cell */
+.custom-combo-box .list-cell {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #212121;
+}
+
+/* ComboBox list cell hover */
+.custom-combo-box .list-cell:hover {
+    -fx-background-color: #e3f2fd;
+}
+
+/* Style for Labels (general) */
+.custom-label {
+    -fx-text-fill: #01579b;
     -fx-font-size: 16px;
     -fx-font-weight: bold;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 2, 0.5, 1, 1);
-    -fx-padding: 5 0 5 0; /* trên và dưới */
 }
 
-.logout-button {
-    -fx-background-color: transparent;
-    -fx-background-image: url("../Images/logout-icon.png"); 
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-size: 45px 40px;
-    -fx-padding: 0;
+/* Style for DatePicker */
+.custom-date-picker {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-color: #b0bec5;
+    -fx-border-width: 1.5;
+}
+
+/* DatePicker focus effect */
+.custom-date-picker:focused {
+    -fx-border-color: #0288d1;
+    -fx-border-width: 2;
+}
+
+/* Style for HBox containing buttons */
+.button-box {
+    -fx-spacing: 10;
+    -fx-alignment: center;
+}
+
+/* Style for navigation buttons (btnfet, btnAccMng, etc.) */
+.nav-button {
+    -fx-background-color: linear-gradient(to right, #43a047, #66bb6a);
+    -fx-background-radius: 6;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
     -fx-cursor: hand;
-    -fx-border-color: transparent;
-
-    -fx-pref-width: 45px;
-    -fx-pref-height: 40px;
-
-    -fx-scale-x: 1;
-    -fx-scale-y: 1;
 }
 
+/* Nav button hover effect */
+.nav-button:hover {
+    -fx-background-color: linear-gradient(to right, #388e3c, #4caf50);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0, 0, 2);
+}
+
+/* Nav button selected effect */
+.nav-button:selected {
+    -fx-background-color: linear-gradient(to right, #fbc02d, #ffeb3b);
+    -fx-text-fill: #000000;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0, 0, 2);
+}
+
+/* Style for Admin Title Label (e.g., "Trang quản trị") */
+.admin-title-label {
+    -fx-text-fill: linear-gradient(to right, #0288d1, #4fc3f7);
+    -fx-font-size: 45px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0, 0, 2);
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+}
+
+/* Style for Search Labels (e.g., "Tìm kiếm theo tầng", "Tìm kiếm theo trạng thái") */
+.search-label {
+    -fx-text-fill: #d81b60;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 6, 0, 0, 2);
+}
+
+/* Style for search buttons (btnSearchbyFloor, btnSearchByStatus, etc.) */
+.search-button {
+    -fx-background-color: linear-gradient(to right, #ff5722, #ff9800) !important; /* Cam để khác custom-button */
+    -fx-background-radius: 8 !important;
+    -fx-text-fill: transparent !important; /* Ẩn chữ */
+    -fx-graphic: url("../Images/search-icon.png") !important; /* Icon kính lúp, khớp với thư mục Images */
+    -fx-graphic-text-gap: 0 !important;
+    -fx-min-width: 35 !important;
+    -fx-min-height: 35 !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 6, 0, 0, 1) !important;
+    -fx-cursor: hand !important;
+}
+
+/* Search button hover effect */
+.search-button:hover {
+    -fx-background-color: linear-gradient(to right, #e64a19, #fb8c00) !important;
+    -fx-scale-x: 1.15 !important;
+    -fx-scale-y: 1.15 !important;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 10, 0, 0, 2) !important;
+}
+
+/* Style for VBox containing management buttons */
+.mng-vbox {
+    -fx-background-color: linear-gradient(to bottom, #0288d1, #01579b);
+    -fx-background-radius: 10;
+    -fx-spacing: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 2);
+}
+
+/* Style for change password button (btnChangePass) */
+.change-pass-button {
+    -fx-background-color: linear-gradient(to right, #7b1fa2, #ab47bc); /* Giữ nền tím */
+    -fx-background-radius: 6;
+    -fx-text-fill: #ffffff; /* Chữ trắng */
+    -fx-font-weight: bold;
+    -fx-graphic: url("../Images/change-password-icon.png"); /* Icon đổi mật khẩu */
+    -fx-content-display: left; /* Icon bên trái text */
+    -fx-graphic-text-gap: 8; /* Khoảng cách icon-text */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+    -fx-cursor: hand;
+}
+
+/* Change password button hover effect */
+.change-pass-button:hover {
+    -fx-background-color: linear-gradient(to right, #6a1b9a, #9c27b0); /* Tím đậm */
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0, 0, 2);
+}
+
+/* Style for logout button */
+.logout-button {
+    -fx-background-color: transparent; /* Nền trong suốt */
+    -fx-background-radius: 6;
+    -fx-text-fill: #000000; /* Chữ trắng */
+    -fx-font-weight: bold;
+    -fx-graphic: url("../Images/logout-icon.png"); /* Icon logout */
+    -fx-content-display: left; /* Icon bên trái text */
+    -fx-graphic-text-gap: 8; /* Khoảng cách icon-text */
+    -fx-min-width: 100; /* Rộng hơn để chứa text */
+    -fx-min-height: 40;
+    -fx-padding: 10 15; /* Không gian cho icon và text */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+    -fx-cursor: hand;
+}
+
+/* Logout button hover effect */
 .logout-button:hover {
-    -fx-scale-x: 1.5;
-    -fx-scale-y: 1.5;
+    -fx-background-color: transparent; /* Vẫn trong suốt */
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0, 0, 2);
 }
 
-.button-add {
-    padding-left: 20px; /* Đảm bảo có khoảng cách giữa dấu cộng và text */
-    position: relative;
-    font-size: 16px;
+/* Style for add button */
+.add-button {
+    -fx-background-color: linear-gradient(to right, #90ee90, #98fb98); /* Lightgreen */
+    -fx-background-radius: 6;
+    -fx-text-fill: #ffffff; /* Chữ trắng */
+    -fx-font-weight: bold;
+    -fx-graphic: url("../Images/add-icon.png"); /* Icon dấu cộng */
+    -fx-content-display: left; /* Icon bên trái text */
+    -fx-graphic-text-gap: 8; /* Khoảng cách giữa icon và text */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+    -fx-cursor: hand;
 }
 
-.button-add::before {
-    content: '\002B'; /* Mã Unicode cho dấu cộng */
-    position: absolute;
-    left: 10px; /* Khoảng cách từ bên trái */
-    top: 50%;
-    transform: translateY(-50%); /* Canh giữa dấu cộng */
-    font-size: 20px;
+/* Add button hover effect */
+.add-button:hover {
+    -fx-background-color: linear-gradient(to right, #7ccc7c, #85e085); /* Lightgreen đậm */
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* Style for edit button */
+.edit-button {
+    -fx-background-color: linear-gradient(to right, #ffd700, #ffea00); /* Vàng */
+    -fx-background-radius: 6;
+    -fx-text-fill: #ffffff; /* Chữ trắng */
+    -fx-font-weight: bold;
+    -fx-graphic: url("../Images/edit-icon.png"); /* Icon bút */
+    -fx-content-display: left; /* Icon bên trái text */
+    -fx-graphic-text-gap: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+    -fx-cursor: hand;
+}
+
+/* Edit button hover effect */
+.edit-button:hover {
+    -fx-background-color: linear-gradient(to right, #e6c200, #ffd600); /* Vàng đậm */
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+/* Style for header (AnchorPane, HBox, or BorderPane top) */
+.header {
+    -fx-background-color: linear-gradient(to right, #b3e5fc, #e1f5fe);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0, 0, 2); /* Shadow nhẹ */
+}
+
+/* Style for content (AnchorPane, VBox, or BorderPane center) */
+.content {
+    -fx-background-color: #f5f6f5; /* Xám nhạt, làm nổi nút và TextField */
+    -fx-spacing: 10; /* Khoảng cách giữa các thành phần (nếu là VBox/HBox) */
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0, 0, 0); /* Shadow nhẹ bên trong */
+}
+
+.back-button {
+    -fx-background-color: linear-gradient(to right, #e53935, #ef5350); /* đỏ tươi */
+    -fx-background-radius: 6;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+    -fx-cursor: hand;
+}
+
+.back-button:hover {
+    -fx-background-color: linear-gradient(to right, #c62828, #e53935); /* đậm hơn khi hover */
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0, 0, 2);
 }
