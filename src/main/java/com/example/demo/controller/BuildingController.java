@@ -54,6 +54,10 @@ public class BuildingController {
     @Operation(summary = "API update building by id")
     @PutMapping("/{id}")
     public ResponseEntity<BuildingDTO> updateBuilding(@Valid @PathVariable Long id, @RequestBody BuildingDTO buildingDTO) {
+    	
+    	System.out.println("ID: " + id);
+        System.out.println("DTO nhận được: " + buildingDTO);
+        
         return ResponseEntity.ok(buildingService.updateBuilding(id, buildingDTO));
     }
 

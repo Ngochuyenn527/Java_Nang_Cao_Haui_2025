@@ -48,7 +48,7 @@
 //
 //
 //                // Đọc danh sách ApartmentEntity từ JSON
-//                InputStream aptStream = getClass().getResourceAsStream("/data/db_apartment_entity_with_buildingId.json");
+//                InputStream aptStream = getClass().getResourceAsStream("/data/all_apartments_with_building.json");
 //                if (aptStream == null) {
 //                    System.err.println("❌ Không tìm thấy file JSON cho ApartmentEntity!");
 //                    return;

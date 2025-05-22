@@ -1,330 +1,358 @@
 package com.example.demo.views;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import javafx.application.Platform;
+import com.example.demo.model.dto.ApartmentDTO;
+import com.example.demo.model.dto.BuildingDTO;
+import com.example.demo.model.dto.SectorDTO;
+import com.example.demo.model.dto.UserDTO;
+import com.example.demo.views.CommonUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
-
-import org.springframework.boot.autoconfigure.amqp.RabbitProperties.Stream;
-import org.springframework.http.*;
-import org.springframework.web.client.RestTemplate;
-import com.example.demo.model.dto.BuildingDTO;
-import com.example.demo.model.response.BuildingSearchResponse;
-
-import java.net.URLEncoder;
-import java.util.Arrays;
-import java.util.Base64;
-import java.util.List;
 
 public class ManagerViewController {
 
-    @FXML
-    private TextField txtname, txtaddress, txtrank, txtareaFrom, txtareaTo, txtsellingPrice, txtnumberLivingFloor, txtnumberBasement;
-    @FXML
-    private Button btnSearch, btnAdd, btnEdit, btnDelete, btnfet, btnAccMng;
-    @FXML
-    private TableView<BuildingSearchResponse> buildingList;
-    @FXML
-    private TableColumn<BuildingSearchResponse, String> name, address, rank, developerName;
-    @FXML
-    private TableColumn<BuildingSearchResponse, Double> totalArea;
-    @FXML
-    private TableColumn<BuildingSearchResponse, Long> minSellingPrice, maxSellingPrice;
-    @FXML
-    private TableColumn<BuildingSearchResponse, Integer> numberEle, numberLivingFloor, numberBasement;
-    @FXML
-    private BorderPane paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager;
+	@FXML private Label txtNameMng;
+    @FXML private TextField txtname, txtward, txtdistrict, txtrank, txtareaFrom, txtareaTo, txtsellingPrice, txtnumberLivingFloor, txtnumberBasement;
+    @FXML private TextField txtMaPhanKhu_building, txtMaToaNha, txtTenToaNha, txtDiaChiToaNha, txtTenChuDauTuToaNha, txtGiaBanThapNhat, txtGiaBanCaoNhat, txtSoThangMay, txtSoTangO, txtSoTangHam, txtPhiOTo, txtPhiXeMay, txtTongDienTichToaNha, txtHangToaNha;
+    @FXML private TextField txtMaPhanKhu, txtTenPhanKhu,txtPosPk, txtViTri, txtTongDienTich, txtMoTa, txtTenQuanLy, txtSoTangCaoNhat;
+    @FXML private TextField txtMaToaNha_CH, txtMaCanHo, txtTenCanHo, TxtSoTangCH, txtDienTichCH, txtSoPhongNgu, txtSoPhongTam, txtGiaCH, txtHuongCH, txtMoTaCH, txtViewCH, txtTienDienCH, txtTienNuocCH, txtChieuCaoCH, txtSearchByFloor;
+    @FXML private DatePicker datePickerKhoiCong, datePickerHoanThanh;
+    @FXML private TextField txtTenNguoiDung, txtHoTen, txtSoDienThoai, txtEmail, txtSearchUsername;
+    @FXML private Button btnSearch, btnAdd, btnEdit, btnDelete, btnfet, btnAccMng, btnSuaPK, btnThemPK, btnHuyPK, btnSuaBuilding, btnThemBuilding, btnHuyBuilding, btnHuyCH, btnThemCH, btnSuaCH, btnHuyAcc, btnThemAcc, btnSuaAcc;
+    @FXML private BorderPane paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager;
+    @FXML private TableView<BuildingDTO> buildingList;
+    @FXML private TableView<ApartmentDTO> ApartList;
+    @FXML private TableColumn<BuildingDTO, Long> sectorId;
+    @FXML private TableColumn<BuildingDTO, String> code, name, address, developerName, rank;
+    @FXML private TableColumn<BuildingDTO, Double> totalArea;
+    @FXML private TableColumn<BuildingDTO, Long> minSellingPrice, maxSellingPrice, bikeParkingMonthly, carParkingMonthly;
+    @FXML private TableColumn<BuildingDTO, Integer> numberEle, numberLivingFloor, numberBasement;
+    @FXML private TableColumn<ApartmentDTO, String> colCode, colName, colStatus, colFacing, colDescription;
+    @FXML private TableColumn<ApartmentDTO, Integer> colFloor, colBedrooms, colBathrooms;
+    @FXML private TableColumn<ApartmentDTO, Double> colArea, colPrice, colElectricity, colWater, colCeiling;
+    @FXML private GridPane PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser;
+    @FXML private TableView<SectorDTO> SectorList;
+    @FXML private TableColumn<SectorDTO, String> MaPK, TenPK, ViTriPK, MoTaPK, QuanLyPK, TrangThaiPK, StartDatePK, EndDatePk;
+    @FXML private TableColumn<SectorDTO, Double> TongDTPK;
+    @FXML private TableColumn<SectorDTO, Integer> SoTangPK;
+    @FXML private ComboBox<String> comboTrangThai, cbbSearchStatusPK, cbbStatusUser, cbbSearchRole, cbbTrangThaiCH, cbbSearchByStatus;
+    @FXML private TableView<UserDTO> userList;
+    @FXML private TableColumn<UserDTO, String> nameUser, fullNameUser, SdtUser, EmailUser, RoleUser;
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
-    private final RestTemplate restTemplate = new RestTemplate();
-
+    private final BuildingManagerView buildingManager = new BuildingManagerView();
+    private final SectorManagerView sectorManager = new SectorManagerView();
+    private final UserManagerView userManager = new UserManagerView();
+    private ApartmentManagerView apartmentView = new ApartmentManagerView();
     public void initialize() {
-        setUpTableColumns();
-//        fetchDataFromApi(); // Fetch data on initialization
+        buildingManager.setUpTableColumns(buildingList, sectorId, code, name, address, developerName, rank, totalArea,
+                minSellingPrice, maxSellingPrice, numberEle, numberLivingFloor, numberBasement, bikeParkingMonthly, carParkingMonthly);
+        sectorManager.setUpSectorTableColumns(MaPK, TenPK, ViTriPK, TongDTPK, SoTangPK, MoTaPK, QuanLyPK, TrangThaiPK, StartDatePK, EndDatePk);
+        userManager.setUpTableColumns(nameUser, fullNameUser, SdtUser, EmailUser, RoleUser);
+        apartmentView.setUpTableColumns(
+                ApartList, colCode, colName, colFloor, colArea, colBedrooms,
+                colBathrooms, colPrice, colStatus, colFacing, colDescription,
+                colElectricity, colWater, colCeiling
+        );
+        
+        setUpComboBoxes();
     }
 
-    private void setUpTableColumns() {
-        name.setCellValueFactory(new PropertyValueFactory<>("name"));
-        address.setCellValueFactory(new PropertyValueFactory<>("address"));
-        rank.setCellValueFactory(new PropertyValueFactory<>("rank"));
-        developerName.setCellValueFactory(new PropertyValueFactory<>("developerName"));
-        totalArea.setCellValueFactory(new PropertyValueFactory<>("totalArea"));
-        minSellingPrice.setCellValueFactory(new PropertyValueFactory<>("minSellingPrice"));
-        maxSellingPrice.setCellValueFactory(new PropertyValueFactory<>("maxSellingPrice"));
-        numberEle.setCellValueFactory(new PropertyValueFactory<>("numberEle"));
-        numberLivingFloor.setCellValueFactory(new PropertyValueFactory<>("numberLivingFloor"));
-        numberBasement.setCellValueFactory(new PropertyValueFactory<>("numberBasement"));
+    private void setUpComboBoxes() {
+        ObservableList<String> statuses = FXCollections.observableArrayList(
+                "Đang triển khai", "Chờ duyệt", "Hoàn thành", "Đang thi công", "Đã phê duyệt"
+        );
+        ObservableList<String> roles = FXCollections.observableArrayList(
+                "STAFF", "MANAGER"
+        );
+        ObservableList<String> apartmentStatuses = FXCollections.observableArrayList(
+                "Available", "Sold", "Reserved"
+        );
+        comboTrangThai.setItems(statuses);
+        cbbSearchStatusPK.setItems(statuses);
+        cbbStatusUser.setItems(roles);
+        cbbSearchRole.setItems(roles);
+        cbbTrangThaiCH.setItems(apartmentStatuses);
+        cbbSearchByStatus.setItems(apartmentStatuses);
     }
 
     @FXML
     private void fetchDataFromApi() {
-        try {
-            String url = "http://localhost:8081/api/building";
-            HttpHeaders headers = createAuthHeaders();
-            HttpEntity<String> entity = new HttpEntity<>(headers);
-            ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-
-            if (response.getStatusCode() == HttpStatus.OK) {
-                List<BuildingSearchResponse> buildings = objectMapper.readValue(response.getBody(), new TypeReference<>() {});
-                buildingList.setItems(FXCollections.observableArrayList(buildings));
-            } else {
-                handleApiError(response);
-            }
-        } catch (Exception e) {
-            showError("Lỗi khi gọi API: " + e.getMessage());
-        }
+        buildingManager.fetchDataFromApi(buildingList);
     }
 
-    private HttpHeaders createAuthHeaders() {
-        String auth = "nguyenvana:123456";
-        String encodedAuth = Base64.getEncoder().encodeToString(auth.getBytes());
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Authorization", "Basic " + encodedAuth);
-        return headers;
+    @FXML
+    private void fetchSectorDataFromApi() {
+        sectorManager.fetchSectorDataFromApi(SectorList);
     }
 
-    private void handleApiError(ResponseEntity<String> response) {
-        if (response.getStatusCode() == HttpStatus.UNAUTHORIZED) {
-            showError("Yêu cầu xác thực - Sai tên người dùng hoặc mật khẩu!");
-        } else if (response.getStatusCode() == HttpStatus.INTERNAL_SERVER_ERROR) {
-            showError("Lỗi máy chủ: API gặp sự cố.");
-        } else {
-            showError("Lỗi khi gọi API: " + response.getStatusCode());
-        }
-    }
-
-    private void showError(String message) {
-        Alert alert = new Alert(AlertType.ERROR);
-        alert.setContentText(message);
-        alert.showAndWait();
+    @FXML
+    private void fetchUserDataFromApi() {
+        userManager.fetchUserDataFromApi(userList);
     }
 
     @FXML
     private void handleSearch() {
-        String query = buildSearchQuery();
-        if (query.isEmpty()) return;
-
-        try {
-            String url = "http://localhost:8081/api/building?" + query;
-            HttpHeaders headers = createAuthHeaders();
-            HttpEntity<String> entity = new HttpEntity<>(headers);
-            ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-
-            if (response.getStatusCode() == HttpStatus.OK) {
-                List<BuildingSearchResponse> buildings = objectMapper.readValue(response.getBody(), new TypeReference<>() {});
-                buildingList.setItems(FXCollections.observableArrayList(buildings));
-            } else {
-                handleApiError(response);
-            }
-        } catch (Exception e) {
-            showError("Lỗi khi gọi API: " + e.getMessage());
-        }
-    }
-
-    private String buildSearchQuery() {
-        StringBuilder query = new StringBuilder();
-        appendQueryParam(query, "name", txtname);
-        appendQueryParam(query, "address", txtaddress);
-        appendQueryParam(query, "rank", txtrank);
-        appendNumericQueryParam(query, "areaFrom", txtareaFrom);
-        appendNumericQueryParam(query, "areaTo", txtareaTo);
-        appendNumericQueryParam(query, "sellingPrice", txtsellingPrice);
-        appendNumericQueryParam(query, "numberLivingFloor", txtnumberLivingFloor);
-        appendNumericQueryParam(query, "numberBasement", txtnumberBasement);
-        return query.toString();
-    }
-
-    private void appendQueryParam(StringBuilder query, String param, TextField textField) {
-        if (!textField.getText().isEmpty()) {
-            try {
-                query.append(param).append("=").append(URLEncoder.encode(textField.getText(), "UTF-8")).append("&");
-            } catch (Exception e) {
-                showError("Lỗi khi mã hóa tham số: " + e.getMessage());
-            }
-        }
-    }
-
-    private void appendNumericQueryParam(StringBuilder query, String param, TextField textField) {
-        if (!textField.getText().isEmpty()) {
-            try {
-                Double.parseDouble(textField.getText());
-                query.append(param).append("=").append(textField.getText()).append("&");
-            } catch (NumberFormatException e) {
-                showError(param + " phải là số hợp lệ!");
-            }
-        }
+        buildingManager.handleSearch(buildingList, txtname, txtrank, txtward, txtdistrict, txtareaFrom, txtareaTo,
+                txtsellingPrice, txtnumberLivingFloor, txtnumberBasement);
     }
 
     @FXML
-    private void handleEdit() {
-        BuildingSearchResponse selected = buildingList.getSelectionModel().getSelectedItem();
-        if (selected == null) {
-            showError("Chưa chọn tòa nhà nào để sửa!");
-            return;
-        }
-
-        fetchBuildingDetails(selected.getId(), (buildingDto) -> {
-            Platform.runLater(() -> openEditWindow(buildingDto, selected.getId()));
-        });
+    private void handleSearchByUsername() {
+        userManager.handleSearchByUsername(userList, txtSearchUsername);
     }
 
-    private void fetchBuildingDetails(Long buildingId, java.util.function.Consumer<BuildingDTO> callback) {
-        String url = "http://localhost:8081/api/building/" + buildingId;
-        try {
-            HttpHeaders headers = createAuthHeaders();
-            HttpEntity<String> entity = new HttpEntity<>(headers);
-            ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-
-            if (response.getStatusCode() == HttpStatus.OK) {
-                BuildingDTO buildingDto = objectMapper.readValue(response.getBody(), BuildingDTO.class);
-                callback.accept(buildingDto);
-            } else {
-                handleApiError(response);
-            }
-        } catch (Exception e) {
-            showError("Lỗi khi lấy dữ liệu chi tiết: " + e.getMessage());
-        }
-    }
-
-    private void openEditWindow(BuildingDTO dto, Long buildingId) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/BuildingEditView.fxml"));
-            Parent root = loader.load();
-            BuildingEditViewController controller = loader.getController();
-            controller.setData(dto, buildingId);
-            Stage stage = new Stage();
-            stage.setTitle("Chỉnh sửa tòa nhà");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            showError("Lỗi khi mở cửa sổ sửa.");
-        }
+    @FXML
+    private void handleSearchByRole() {
+        userManager.handleSearchByRole(userList, cbbSearchRole);
     }
 
     @FXML
     private void handleDeleteBuilding() {
-        BuildingSearchResponse selected = buildingList.getSelectionModel().getSelectedItem();
-        if (selected == null) {
-            showError("Chưa chọn tòa nhà nào để xóa!");
-            return;
-        }
-
-        confirmDelete(selected.getId());
+        buildingManager.handleDeleteBuilding(buildingList);
     }
 
-    private void confirmDelete(Long buildingId) {
-        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmAlert.setTitle("Xác nhận xóa");
-        confirmAlert.setHeaderText("Bạn có chắc chắn muốn xóa tòa nhà này không?");
-        confirmAlert.setContentText("Thao tác này không thể hoàn tác.");
-
-        confirmAlert.showAndWait().ifPresent(result -> {
-            if (result.getText().equals("OK")) {
-                deleteBuilding(buildingId);
-            }
-        });
-    }
-
-    private void deleteBuilding(Long buildingId) {
-        String url = "http://localhost:8081/api/building/" + buildingId;
-        try {
-            HttpHeaders headers = createAuthHeaders();
-            HttpEntity<Void> entity = new HttpEntity<>(headers);
-            ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.DELETE, entity, String.class);
-
-            if (response.getStatusCode() == HttpStatus.OK) {
-                showSuccess("Đã xóa tòa nhà thành công!");
-                fetchDataFromApi();
-            } else {
-                handleApiError(response);
-            }
-        } catch (Exception e) {
-            showError("Lỗi khi xóa tòa nhà: " + e.getMessage());
-        }
-    }
-
-    // Xử lý sự kiện nhấn nút "Thêm Tòa Nhà"
     @FXML
-    public void handleAddBuilding() {
-        try {
-            // Tải FXML của cửa sổ thêm tòa nhà
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/BuildingAddView.fxml"));
-            Parent root = loader.load();
-
-            // Tạo một Stage mới cho cửa sổ Thêm Tòa Nhà
-            Stage addBuildingStage = new Stage();
-            addBuildingStage.setTitle("Thêm Tòa Nhà");
-            addBuildingStage.setScene(new Scene(root));
-
-            // Hiển thị cửa sổ
-            addBuildingStage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    private void handleDeleteUser() {
+        userManager.handleDeleteUser(userList);
     }
-    
+
     @FXML
     public void handleAccMng() {
-    	showOnly(paneUserManager);
+        userManager.handleUserMng(paneUserManager, paneApartManager, paneSectorManager, paneBuildingManager, userList,
+                PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser);
+        txtNameMng.setText("Quản Lý Tài Khoản");
     }
-    
+
     @FXML
     public void handleSectorMng() {
-    	showOnly(paneSectorManager);
+        sectorManager.handleSectorMng(paneSectorManager, paneApartManager, paneBuildingManager, paneUserManager, SectorList,
+                PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser);
+        txtNameMng.setText("Quản Lý Phân Khu");
     }
-    
+
     @FXML
     public void handleBuildingMng() {
-    	showOnly(paneBuildingManager);
+        buildingManager.handleBuildingMng(paneBuildingManager, paneApartManager, paneSectorManager, paneUserManager, buildingList,
+                PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser);
+        txtNameMng.setText("Quản Lý Tòa Nhà");
     }
-    
+
     @FXML
     public void handleApartMng() {
-    	showOnly(paneApartManager);
-    }
-    
-    private void showOnly(Pane visiblePane) {
-        List<Pane> panes = Arrays.asList(paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager);
-        for (Pane pane : panes) {
-            boolean isVisible = pane == visiblePane;
-            pane.setVisible(isVisible);
-            pane.setManaged(isVisible);
-        }
+        apartmentView.handleApartMng(paneApartManager, paneBuildingManager, paneSectorManager, paneUserManager, ApartList,
+                PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser);
+        txtNameMng.setText("Quản Lý Căn Hộ");
     }
 
     @FXML
     public void handleChangePassword() {
-        
+        CommonUtils.showOnly(PaneChangePwd, paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager,
+        		PaneEditSector, PaneEditBuilding, PaneEditApart, PaneEditUser);
+        txtNameMng.setText("Đổi Mật Khẩu");
     }
-    
+
     @FXML
-    public void handleEditApart() {
-        
+    public void handleBackSector() {
+        sectorManager.backToSectorManager(paneSectorManager, PaneEditSector);
+        txtNameMng.setText("Quản Lý Phân Khu");
     }
-    
+
+    @FXML
+    public void handleBackBuilding() {
+        buildingManager.handleBackBuilding(paneBuildingManager, PaneEditBuilding);
+        txtNameMng.setText("Quản Lý Tòa Nhà");
+    }
+
+    @FXML
+    public void handleBackBuilding_2() {
+        CommonUtils.hideEditPanes(PaneChangePwd);
+    }
+
+    @FXML
+    public void handleBackAcc() {
+        userManager.backToUserManager(paneUserManager, PaneEditUser);
+        txtNameMng.setText("Quản Lý Tài Khoản");
+    }
+
+    @FXML
+    public void handleBackApart() {
+        apartmentView.backToApartManager(paneApartManager, PaneEditApart);
+        txtNameMng.setText("Quản Lý Căn Hộ");
+    }
+
+    @FXML
+    public void handleAddSector() {
+        sectorManager.handleAddSector(paneSectorManager, PaneEditSector);      
+        CommonUtils.showAddBtn(btnSuaPK, btnThemPK);
+        txtNameMng.setText("Thêm Phân Khu");
+    }
+
+    @FXML
+    public void handleAddBuilding() {
+        buildingManager.handleAddBuilding(paneBuildingManager, PaneEditBuilding);
+        CommonUtils.showAddBtn(btnSuaBuilding, btnThemBuilding);
+        txtNameMng.setText("Thêm Tòa Nhà");
+    }
+
+    @FXML
+    public void handleEdit() {
+        buildingManager.handleEdit(buildingList, paneBuildingManager, PaneEditBuilding, txtMaPhanKhu_building, txtMaToaNha,
+                txtTenToaNha, txtDiaChiToaNha, txtTenChuDauTuToaNha, txtGiaBanThapNhat, txtGiaBanCaoNhat,
+                txtSoThangMay, txtSoTangO, txtSoTangHam, txtHangToaNha, txtTongDienTichToaNha, txtPhiXeMay, txtPhiOTo);
+        CommonUtils.showEditBtn(btnSuaBuilding, btnThemBuilding);
+        txtNameMng.setText("Sửa Tòa Nhà");
+    }
+
+    @FXML
+    public void handleUpdateBuilding() {
+        buildingManager.handleUpdateBuilding(paneBuildingManager, PaneEditBuilding, buildingList, txtMaPhanKhu_building, txtMaToaNha,
+                txtTenToaNha, txtDiaChiToaNha, txtTenChuDauTuToaNha, txtGiaBanThapNhat, txtGiaBanCaoNhat,
+                txtSoThangMay, txtSoTangO, txtSoTangHam, txtHangToaNha, txtTongDienTichToaNha, txtPhiXeMay, txtPhiOTo);
+        txtNameMng.setText("Quản Lý Tòa Nhà");
+    }
+
+    @FXML
+    public void handleAddBuilding_2() {
+        buildingManager.handleAddBuilding_2(paneBuildingManager, PaneEditBuilding, buildingList, txtMaPhanKhu_building, txtMaToaNha,
+                txtTenToaNha, txtDiaChiToaNha, txtTenChuDauTuToaNha, txtGiaBanThapNhat, txtGiaBanCaoNhat,
+                txtSoThangMay, txtSoTangO, txtSoTangHam, txtHangToaNha, txtTongDienTichToaNha, txtPhiXeMay, txtPhiOTo);
+        txtNameMng.setText("Quản Lý Tòa Nhà");
+    }
+
     @FXML
     public void handleAddApart() {
-        
+        CommonUtils.showOnly(PaneEditApart, paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager);      
+        CommonUtils.showAddBtn(btnSuaCH, btnThemCH);
+        txtNameMng.setText("Thêm Căn Hộ");
+    }
+
+    @FXML
+    public void handleEditApart() {
+        CommonUtils.showOnly(PaneEditApart, paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager);
+        CommonUtils.showEditBtn(btnSuaCH, btnThemCH);
+        txtNameMng.setText("Sửa Căn Hộ");
+    }
+
+    @FXML
+    public void handleThemUser() {
+        userManager.handleAddUser(paneUserManager, PaneEditUser);
+        CommonUtils.showAddBtn(btnSuaAcc, btnThemAcc);
+        txtNameMng.setText("Thêm Tài Khoản");
+    }
+
+    @FXML
+    public void handleSuaUser() {
+        userManager.handleEditUser(userList, paneUserManager, PaneEditUser, txtTenNguoiDung, txtHoTen, txtSoDienThoai,
+                txtEmail, cbbStatusUser);
+        CommonUtils.showEditBtn(btnSuaAcc, btnThemAcc);
+        txtNameMng.setText("Sửa Tài Khoản");
+    }
+
+    @FXML
+    public void handleAddUser_2() {
+        userManager.handleAddUser_2(paneUserManager, PaneEditUser, userList, txtTenNguoiDung, txtHoTen, txtSoDienThoai,
+                txtEmail, cbbStatusUser);
+        txtNameMng.setText("Quản Lý Tài Khoản");
+    }
+
+    @FXML
+    public void handleUpdateUser() {
+        userManager.handleUpdateUser(paneUserManager, PaneEditUser, userList, txtTenNguoiDung, txtHoTen, txtSoDienThoai,
+                txtEmail, cbbStatusUser);
+        txtNameMng.setText("Quản Lý Tài Khoản");
+    }
+
+    @FXML
+    public void handleAddSector_2() {
+        sectorManager.handleAddSector_2(paneSectorManager, PaneEditSector, SectorList, txtMaPhanKhu, txtTenPhanKhu,
+                txtViTri, txtTongDienTich, txtMoTa, txtTenQuanLy, txtSoTangCaoNhat, datePickerKhoiCong, datePickerHoanThanh,
+                comboTrangThai);
+        txtNameMng.setText("Quản Lý Phân Khu");
+    }
+
+    @FXML
+    public void handleUpdateSector() {
+        sectorManager.handleUpdateSector(paneSectorManager, PaneEditSector, SectorList, txtMaPhanKhu, txtTenPhanKhu,
+                txtViTri, txtTongDienTich, txtMoTa, txtTenQuanLy, txtSoTangCaoNhat, datePickerKhoiCong, datePickerHoanThanh,
+                comboTrangThai);
+        txtNameMng.setText("Quản Lý Phân Khu");
+    }
+
+    @FXML
+    public void handleEditSector() {
+        sectorManager.handleEditSector(SectorList, paneSectorManager, PaneEditSector, txtMaPhanKhu, txtTenPhanKhu,
+                txtViTri, txtTongDienTich, txtMoTa, txtTenQuanLy, txtSoTangCaoNhat, datePickerKhoiCong, datePickerHoanThanh,
+                comboTrangThai);
+        CommonUtils.showEditBtn(btnSuaPK, btnThemPK);
+        txtNameMng.setText("Sửa Phân Khu");
+    }
+
+    @FXML
+    public void handleDeleteSector() {
+        sectorManager.handleDeleteSector(SectorList);
     }
     
-    private void showSuccess(String message) {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setContentText(message);
-        alert.showAndWait();
+    @FXML
+    public void handleSearchByPos() {
+        sectorManager.handleSearchByLocation(SectorList, txtPosPk);
+    }
+
+    @FXML
+    public void handleSearchByStatusPK() {
+        sectorManager.handleSearchByStatus(SectorList, cbbSearchStatusPK);
+    }
+    
+    @FXML
+    private void handleThemCH() {
+        apartmentView.handleAddApart(paneApartManager, PaneEditApart);
+        CommonUtils.showAddBtn(btnSuaCH, btnThemCH);
+        txtNameMng.setText("Thêm Căn Hộ");
+    }
+
+    @FXML
+    private void handleSuaCH() {
+        apartmentView.handleEditApart(ApartList, paneApartManager, PaneEditApart,
+                txtMaToaNha_CH, txtMaCanHo, txtTenCanHo, TxtSoTangCH, txtDienTichCH, txtSoPhongNgu,
+                txtSoPhongTam, txtGiaCH, cbbTrangThaiCH, txtHuongCH, txtMoTaCH, txtViewCH,
+                txtTienDienCH, txtTienNuocCH, txtChieuCaoCH);
+        CommonUtils.showEditBtn(btnSuaCH, btnThemCH);
+        txtNameMng.setText("Sửa Căn Hộ");
+    }
+
+    @FXML
+    private void handleAddApart_2() {
+        apartmentView.handleAddApart_2(paneApartManager, PaneEditApart, ApartList,
+                txtMaToaNha_CH, txtMaCanHo, txtTenCanHo, TxtSoTangCH, txtDienTichCH, txtSoPhongNgu,
+                txtSoPhongTam, txtGiaCH, cbbTrangThaiCH, txtHuongCH, txtMoTaCH, txtViewCH,
+                txtTienDienCH, txtTienNuocCH, txtChieuCaoCH);
+        txtNameMng.setText("Quản Lý Căn Hộ");
+    }
+
+    @FXML
+    private void handleUpdateApart() {
+        apartmentView.handleUpdateApart(paneApartManager, PaneEditApart, ApartList,
+                txtMaToaNha_CH, txtMaCanHo, txtTenCanHo, TxtSoTangCH, txtDienTichCH, txtSoPhongNgu,
+                txtSoPhongTam, txtGiaCH, cbbTrangThaiCH, txtHuongCH, txtMoTaCH, txtViewCH,
+                txtTienDienCH, txtTienNuocCH, txtChieuCaoCH);
+        txtNameMng.setText("Quản Lý Căn Hộ");
+    }
+
+    @FXML
+    private void handleDeleteApart() {
+        apartmentView.handleDeleteApart(ApartList);
+    }
+
+    @FXML
+    private void handleSearchByStatus() {
+        apartmentView.handleSearchByStatus(ApartList, cbbSearchByStatus);
+    }
+
+    @FXML
+    private void handleSearchbyFloor() {
+        apartmentView.handleSearchByFloor(ApartList, txtSearchByFloor);
     }
 }
