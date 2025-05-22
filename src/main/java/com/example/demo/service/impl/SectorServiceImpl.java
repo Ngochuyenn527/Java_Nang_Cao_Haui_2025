@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -93,5 +94,15 @@ public class SectorServiceImpl implements SectorService {
         } catch (Exception e) {
             throw new RuntimeException("Có lỗi xảy ra khi xóa phân khu: " + e.getMessage());
         }
+    }
+
+	@Override
+	public long getSectorCount() {
+		return sectorRepository.countSector();
+	}
+	
+	@Override
+    public Map<Integer, Long> getSectorCountByYear() {
+        return sectorRepository.getSectorCountByYear();
     }
 }

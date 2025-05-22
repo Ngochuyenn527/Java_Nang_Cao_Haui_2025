@@ -1,18 +1,26 @@
 package com.example.demo.controller;
 
+import com.example.demo.config.CurrentUser;
 import com.example.demo.config.MyExceptionConfig;
+import com.example.demo.config.UserPrincipal;
 import com.example.demo.constant.SystemConstant;
 import com.example.demo.model.dto.PasswordDTO;
 import com.example.demo.model.dto.UserDTO;
+import com.example.demo.model.dto.UserRequestDTO;
+import com.example.demo.service.EmailService;
+import com.example.demo.service.OtpService;
 import com.example.demo.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+import io.swagger.v3.oas.annotations.tags.Tags;
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api/user")
@@ -20,6 +28,12 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private EmailService emailService;
+    
+    @Autowired
+    private OtpService otpService;
 
 
     @Operation(summary = "API get all users which have status = 1")
@@ -88,5 +102,26 @@ public class UserController {
     public ResponseEntity<?> deleteUsers(@PathVariable Long id) {
         userService.deleteUser(id);
         return ResponseEntity.ok("Deleted successfully!");
+    }
+    
+    @PostMapping("/send-otp")
+    public ResponseEntity<String> sendOtp(@RequestParam String email) {
+        String otp = otpService.generateOtp(email);
+        emailService.sendOtpEmail(email, otp);
+        return ResponseEntity.ok("Đã gửi mã OTP");
+    }
+    
+    @PostMapping("/register")
+    public ResponseEntity<String> register(@RequestBody UserRequestDTO dto) {
+        userService.register(dto);
+        return ResponseEntity.ok("Đăng ký thành công");
+    }
+    
+    @Tags({@Tag(name = "user-controller-admin"), @Tag(name = "user-controller")})
+    @Operation(summary = "API get current user login")
+    @GetMapping("/getCurrentUser")
+    public ResponseEntity<?> getCurrentUser(@Parameter(name = "principal", hidden = true)
+                                            @CurrentUser UserPrincipal principal) {
+        return ResponseEntity.ok(userService.getCurrentUser(principal));
     }
 }
