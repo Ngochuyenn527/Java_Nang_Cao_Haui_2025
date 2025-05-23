@@ -7,11 +7,13 @@ import com.example.demo.entity.SectorEntity;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 // một scheduler (bộ lập lịch) trong Spring Boot có chức năng tự động dọn "thùng rác" theo lịch định kỳ.
 @EnableScheduling //Bật tính năng lập lịch (scheduling) trong Spring Boot
 @Component
-
+@Service
 public class AutoDeleteScheduler {
 
     private final TrashServiceImpl<BuildingEntity> buildingTrashService;

@@ -3,9 +3,7 @@ package com.example.demo.service.impl;
 import com.example.demo.converter.ApartmentConverter;
 import com.example.demo.entity.ApartmentEntity;
 import com.example.demo.entity.BuildingEntity;
-import com.example.demo.entity.SectorEntity;
 import com.example.demo.model.dto.ApartmentDTO;
-import com.example.demo.model.dto.BuildingDTO;
 import com.example.demo.repository.ApartmentRepository;
 import com.example.demo.repository.BuildingRepository;
 import com.example.demo.service.ApartmentService;
@@ -60,15 +58,15 @@ public class ApartmentServiceImpl implements ApartmentService {
 
     @Override
     public List<ApartmentDTO> getApartmentsByFloor(Integer floor) {
-        return apartmentRepository.getByFloor(floor).stream()
-                .map(apartmentConverter::convertToApartmentDto)
+        return apartmentRepository.findByFloor(floor)
+                .stream().map(apartmentConverter::convertToApartmentDto)
                 .collect(Collectors.toList());
     }
 
     @Override
     public List<ApartmentDTO> getApartmentsByStatus(String status) {
-        return apartmentRepository.getByStatus(status).stream()
-                .map(apartmentConverter::convertToApartmentDto)
+        return apartmentRepository.findByStatus(status)
+                .stream().map(apartmentConverter::convertToApartmentDto)
                 .collect(Collectors.toList());
     }
 

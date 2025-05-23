@@ -1,9 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.converter.SectorConverter;
-import com.example.demo.entity.BuildingEntity;
 import com.example.demo.entity.SectorEntity;
-import com.example.demo.model.dto.ApartmentDTO;
 import com.example.demo.model.dto.SectorDTO;
 import com.example.demo.repository.SectorRepository;
 import com.example.demo.service.SectorService;
@@ -26,7 +24,7 @@ public class SectorServiceImpl implements SectorService {
     private SectorConverter sectorConverter;
 
     @Autowired
-    private  SectorTrashServiceImpl trashService;
+    private SectorTrashServiceImpl trashService;
 
     // Kiểm tra xem phân khu có tồn tại hay không
     private SectorEntity checkSectorById(Long id) {
@@ -48,17 +46,15 @@ public class SectorServiceImpl implements SectorService {
 
     @Override
     public List<SectorDTO> getSectorsByLocation(String location) {
-        List<SectorEntity> sectorEntities = sectorRepository.getByLocation(location);
-        return sectorEntities.stream()
-                .map(sectorConverter::convertToSectorDto)
+        return sectorRepository.findByLocation(location)
+                .stream().map(sectorConverter::convertToSectorDto)
                 .collect(Collectors.toList());
     }
 
     @Override
     public List<SectorDTO> getSectorsByStatus(String status) {
-        List<SectorEntity> sectorEntities = sectorRepository.getByStatus(status);
-        return sectorEntities.stream()
-                .map(sectorConverter::convertToSectorDto)
+        return sectorRepository.findByStatus(status)
+                .stream().map(sectorConverter::convertToSectorDto)
                 .collect(Collectors.toList());
     }
 
