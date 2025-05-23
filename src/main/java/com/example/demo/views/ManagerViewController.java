@@ -1,28 +1,47 @@
 package com.example.demo.views;
 
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+
 import com.example.demo.model.dto.ApartmentDTO;
 import com.example.demo.model.dto.BuildingDTO;
 import com.example.demo.model.dto.SectorDTO;
 import com.example.demo.model.dto.UserDTO;
+import com.example.demo.service.BuildingService;
+import com.example.demo.service.SectorService;
 import com.example.demo.views.CommonUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
+@Component
 public class ManagerViewController {
+	
+    @Autowired
+    private BuildingService buildingService;
+    
+    @Autowired
+    private SectorService sectorService;
 
-	@FXML private Label txtNameMng;
+	@FXML private Label txtNameMng, totalProjectsLabel, totalDistrictsLabel, avgPriceLabel, TotalSectorLabel;
     @FXML private TextField txtname, txtward, txtdistrict, txtrank, txtareaFrom, txtareaTo, txtsellingPrice, txtnumberLivingFloor, txtnumberBasement;
     @FXML private TextField txtMaPhanKhu_building, txtMaToaNha, txtTenToaNha, txtDiaChiToaNha, txtTenChuDauTuToaNha, txtGiaBanThapNhat, txtGiaBanCaoNhat, txtSoThangMay, txtSoTangO, txtSoTangHam, txtPhiOTo, txtPhiXeMay, txtTongDienTichToaNha, txtHangToaNha;
     @FXML private TextField txtMaPhanKhu, txtTenPhanKhu,txtPosPk, txtViTri, txtTongDienTich, txtMoTa, txtTenQuanLy, txtSoTangCaoNhat;
     @FXML private TextField txtMaToaNha_CH, txtMaCanHo, txtTenCanHo, TxtSoTangCH, txtDienTichCH, txtSoPhongNgu, txtSoPhongTam, txtGiaCH, txtHuongCH, txtMoTaCH, txtViewCH, txtTienDienCH, txtTienNuocCH, txtChieuCaoCH, txtSearchByFloor;
     @FXML private DatePicker datePickerKhoiCong, datePickerHoanThanh;
     @FXML private TextField txtTenNguoiDung, txtHoTen, txtSoDienThoai, txtEmail, txtSearchUsername;
-    @FXML private Button btnSearch, btnAdd, btnEdit, btnDelete, btnfet, btnAccMng, btnSuaPK, btnThemPK, btnHuyPK, btnSuaBuilding, btnThemBuilding, btnHuyBuilding, btnHuyCH, btnThemCH, btnSuaCH, btnHuyAcc, btnThemAcc, btnSuaAcc;
+    @FXML private Button btnSearch, btnAdd, btnEdit, btnDelete, btnfet, btnAccMng, btnSuaPK, btnThemPK, btnHuyPK, btnSuaBuilding, btnThemBuilding, btnHuyBuilding, btnHuyCH, btnThemCH, btnSuaCH, btnHuyAcc, btnThemAcc, btnSuaAcc, btnStatistical;
     @FXML private BorderPane paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager;
     @FXML private TableView<BuildingDTO> buildingList;
     @FXML private TableView<ApartmentDTO> ApartList;
@@ -34,7 +53,7 @@ public class ManagerViewController {
     @FXML private TableColumn<ApartmentDTO, String> colCode, colName, colStatus, colFacing, colDescription;
     @FXML private TableColumn<ApartmentDTO, Integer> colFloor, colBedrooms, colBathrooms;
     @FXML private TableColumn<ApartmentDTO, Double> colArea, colPrice, colElectricity, colWater, colCeiling;
-    @FXML private GridPane PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser;
+    @FXML private GridPane PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser, statisticalPane;
     @FXML private TableView<SectorDTO> SectorList;
     @FXML private TableColumn<SectorDTO, String> MaPK, TenPK, ViTriPK, MoTaPK, QuanLyPK, TrangThaiPK, StartDatePK, EndDatePk;
     @FXML private TableColumn<SectorDTO, Double> TongDTPK;
@@ -42,6 +61,12 @@ public class ManagerViewController {
     @FXML private ComboBox<String> comboTrangThai, cbbSearchStatusPK, cbbStatusUser, cbbSearchRole, cbbTrangThaiCH, cbbSearchByStatus;
     @FXML private TableView<UserDTO> userList;
     @FXML private TableColumn<UserDTO, String> nameUser, fullNameUser, SdtUser, EmailUser, RoleUser;
+    @FXML
+    private PieChart pieChart;
+    @FXML
+    private BarChart<String, Number> barChart;
+    @FXML
+    private LineChart<String, Number> sectorLineChart;
 
     private final BuildingManagerView buildingManager = new BuildingManagerView();
     private final SectorManagerView sectorManager = new SectorManagerView();
@@ -59,6 +84,22 @@ public class ManagerViewController {
         );
         
         setUpComboBoxes();
+        // Tổng số dự án
+        totalProjectsLabel.setText(String.valueOf(buildingService.getDistinctProjectCount()));
+        
+        // Tổng số quận
+        totalDistrictsLabel.setText(String.valueOf(buildingService.getDistinctAddress()));
+        
+        // Giá trung bình
+        avgPriceLabel.setText(String.valueOf(buildingService.getDistinctAverage()));
+        
+        TotalSectorLabel.setText(String.valueOf(sectorService.getSectorCount()));
+        
+        // Biểu đồ số lượng dự án trong quận, xã
+        loadPieChartData();
+        
+        updateSectorLineChart();
+        
     }
 
     private void setUpComboBoxes() {
@@ -126,32 +167,38 @@ public class ManagerViewController {
                 PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser);
         txtNameMng.setText("Quản Lý Tài Khoản");
     }
+    
+    @FXML
+    public void handleStatistical() {
+    	CommonUtils.showOnly(statisticalPane, paneUserManager, paneApartManager, paneSectorManager, paneBuildingManager,
+                PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser);
+    }
 
     @FXML
     public void handleSectorMng() {
         sectorManager.handleSectorMng(paneSectorManager, paneApartManager, paneBuildingManager, paneUserManager, SectorList,
-                PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser);
+                PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser, statisticalPane);
         txtNameMng.setText("Quản Lý Phân Khu");
     }
 
     @FXML
     public void handleBuildingMng() {
         buildingManager.handleBuildingMng(paneBuildingManager, paneApartManager, paneSectorManager, paneUserManager, buildingList,
-                PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser);
+                PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser, statisticalPane);
         txtNameMng.setText("Quản Lý Tòa Nhà");
     }
 
     @FXML
     public void handleApartMng() {
         apartmentView.handleApartMng(paneApartManager, paneBuildingManager, paneSectorManager, paneUserManager, ApartList,
-                PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser);
+                PaneEditSector, PaneEditBuilding, PaneChangePwd, PaneEditApart, PaneEditUser, statisticalPane);
         txtNameMng.setText("Quản Lý Căn Hộ");
     }
 
     @FXML
     public void handleChangePassword() {
         CommonUtils.showOnly(PaneChangePwd, paneApartManager, paneSectorManager, paneBuildingManager, paneUserManager,
-        		PaneEditSector, PaneEditBuilding, PaneEditApart, PaneEditUser);
+        		PaneEditSector, PaneEditBuilding, PaneEditApart, PaneEditUser, statisticalPane);
         txtNameMng.setText("Đổi Mật Khẩu");
     }
 
@@ -354,5 +401,35 @@ public class ManagerViewController {
     @FXML
     private void handleSearchbyFloor() {
         apartmentView.handleSearchByFloor(ApartList, txtSearchByFloor);
+    }
+
+    private void loadPieChartData() {
+        pieChart.getData().clear();
+        var pieChartData = buildingService.getPieChartDataForProjectsByDistrict();
+        if (pieChartData.isEmpty()) {
+            System.out.println("Không có dữ liệu để hiển thị trên PieChart");
+            pieChart.setTitle("Không có dữ liệu");
+        } else {
+            pieChart.getData().addAll(pieChartData);
+            System.out.println("Đã thêm dữ liệu vào PieChart");
+        }
+    }
+    
+    private void updateSectorLineChart() {
+        // Lấy dữ liệu từ service
+        Map<Integer, Long> sectorCountByYear = sectorService.getSectorCountByYear();
+
+        // Tạo series cho biểu đồ đường
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Số lượng phân khu");
+
+        // Thêm dữ liệu vào series
+        for (Map.Entry<Integer, Long> entry : sectorCountByYear.entrySet()) {
+            series.getData().add(new XYChart.Data<>(String.valueOf(entry.getKey()), entry.getValue()));
+        }
+
+        // Xóa dữ liệu cũ và thêm series mới vào biểu đồ
+        sectorLineChart.getData().clear();
+        sectorLineChart.getData().add(series);
     }
 }

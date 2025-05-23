@@ -1,15 +1,19 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.config.MyExceptionConfig;
+import com.example.demo.config.UserPrincipal;
 import com.example.demo.constant.SystemConstant;
 import com.example.demo.converter.UserConverter;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.model.dto.PasswordDTO;
 import com.example.demo.model.dto.UserDTO;
+import com.example.demo.model.dto.UserRequestDTO;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
+import com.example.demo.service.OtpService;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,6 +33,12 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserConverter userConverter;
+    
+    @Autowired
+    private RoleRepository roleRepository;
+    
+    @Autowired
+    private OtpService otpService;
 
     // ✅ Kiểm tra user theo ID có tồn tại không, nếu không có thì ném ngoại lệ
     public UserEntity checkUserById(Long id) {
@@ -145,5 +155,46 @@ public class UserServiceImpl implements UserService {
         } catch (Exception e) {
             throw new RuntimeException("Có lỗi xảy ra khi xóa user: " + e.getMessage());
         }
+    }
+    
+    @Override
+    public void register(UserRequestDTO dto) {
+        if (!otpService.validateOtp(dto.getEmail(), dto.getOtp())) {
+            throw new RuntimeException("Mã OTP không đúng hoặc đã hết hạn");
+        }
+
+        if (userRepository.existsByUserName(dto.getUserName())) {
+            throw new RuntimeException("Tên đăng nhập đã tồn tại");
+        }
+
+        UserEntity user = UserEntity.builder()
+                .userName(dto.getUserName())
+                .fullName(dto.getFullName())
+                .password(passwordEncoder.encode(dto.getPassword()))
+                .email(dto.getEmail())
+                .phone(dto.getPhone())
+                .status(1)
+                .role(roleRepository.findOneByCode("STAFF"))
+                .build();
+
+        userRepository.save(user);
+    }
+    
+    @Override
+    public UserDTO login(String userName, String password) {
+        UserEntity user = userRepository.findOneByUserNameAndStatus(userName, 1); // status=1 active
+        if (user == null) {
+            throw new RuntimeException("Tên đăng nhập không tồn tại hoặc bị khóa");
+        }
+        if (!passwordEncoder.matches(password, user.getPassword())) {
+            throw new RuntimeException("Mật khẩu không đúng");
+        }
+        return userConverter.convertToUserDto(user);
+    }
+    
+    @Override
+    public UserDTO getCurrentUser(UserPrincipal principal) {
+        UserEntity user = userRepository.getUser(principal);
+        return userConverter.convertToUserDto(user);
     }
 }

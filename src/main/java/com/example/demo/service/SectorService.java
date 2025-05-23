@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.model.dto.SectorDTO;
 
 import java.util.List;
+import java.util.Map;
 
 public interface SectorService {
 
@@ -26,4 +27,8 @@ public interface SectorService {
 
     // Xóa phân khu
     void deleteSector(Long id);
+    
+    long getSectorCount();
+    
+    Map<Integer, Long> getSectorCountByYear();
 }
