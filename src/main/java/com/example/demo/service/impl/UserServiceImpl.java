@@ -86,6 +86,7 @@ public class UserServiceImpl implements UserService {
         } catch (Exception e) {
         	throw new RuntimeException("Có lỗi xảy ra khi cập nhật user: " + e.getMessage());
         }
+    }
 
     @Override
     public UserDTO updateUser(Long id, UserDTO userDTO) {
