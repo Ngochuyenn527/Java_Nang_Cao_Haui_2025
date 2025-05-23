@@ -32,7 +32,7 @@ public interface BuildingService {
         
     ObservableList<PieChart.Data> getPieChartDataForProjectsByDistrict();
         
-    List<XYChart.Series<String, Number>> getBarChartDataForProjectsByParkingFees();
+//    List<XYChart.Series<String, Number>> getBarChartDataForProjectsByParkingFees();
 
 }
 

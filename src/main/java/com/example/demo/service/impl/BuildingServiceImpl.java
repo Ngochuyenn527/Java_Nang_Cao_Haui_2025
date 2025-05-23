@@ -208,36 +208,36 @@ public class BuildingServiceImpl implements BuildingService {
 	    return pieChartData;
 	}
 	
-	@Override
-	public List<XYChart.Series<String, Number>> getBarChartDataForProjectsByParkingFees() {
-	    // Tạo hai series: một cho xe máy, một cho ô tô
-	    XYChart.Series<String, Number> bikeSeries = new XYChart.Series<>();
-	    bikeSeries.setName("Phí đỗ xe máy");
-
-	    XYChart.Series<String, Number> carSeries = new XYChart.Series<>();
-	    carSeries.setName("Phí đỗ ô tô");
-
-	    // Lấy dữ liệu từ Repository
-	    var bikeParkingData = buildingRepository.getProjectCountByBikeParkingRange();
-	    var carParkingData = buildingRepository.getProjectCountByCarParkingRange();
-
-	    // Tạo tập hợp tất cả các khoảng giá (hợp của cả xe máy và ô tô)
-	    Set<String> allRanges = new TreeSet<>();
-	    allRanges.addAll(bikeParkingData.keySet());
-	    allRanges.addAll(carParkingData.keySet());
-
-	    // Thêm dữ liệu vào series
-	    for (String range : allRanges) {
-	        // Dữ liệu cho xe máy
-	        Integer bikeCount = bikeParkingData.getOrDefault(range, 0);
-	        bikeSeries.getData().add(new XYChart.Data<>(range, bikeCount));
-
-	        // Dữ liệu cho ô tô
-	        Integer carCount = carParkingData.getOrDefault(range, 0);
-	        carSeries.getData().add(new XYChart.Data<>(range, carCount));
-	    }
-
-	    return List.of(bikeSeries, carSeries);
-	}
+//	@Override
+//	public List<XYChart.Series<String, Number>> getBarChartDataForProjectsByParkingFees() {
+//	    // Tạo hai series: một cho xe máy, một cho ô tô
+//	    XYChart.Series<String, Number> bikeSeries = new XYChart.Series<>();
+//	    bikeSeries.setName("Phí đỗ xe máy");
+//
+//	    XYChart.Series<String, Number> carSeries = new XYChart.Series<>();
+//	    carSeries.setName("Phí đỗ ô tô");
+//
+//	    // Lấy dữ liệu từ Repository
+//	    var bikeParkingData = buildingRepository.getProjectCountByBikeParkingRange();
+//	    var carParkingData = buildingRepository.getProjectCountByCarParkingRange();
+//
+//	    // Tạo tập hợp tất cả các khoảng giá (hợp của cả xe máy và ô tô)
+//	    Set<String> allRanges = new TreeSet<>();
+//	    allRanges.addAll(bikeParkingData.keySet());
+//	    allRanges.addAll(carParkingData.keySet());
+//
+//	    // Thêm dữ liệu vào series
+//	    for (String range : allRanges) {
+//	        // Dữ liệu cho xe máy
+//	        Integer bikeCount = bikeParkingData.getOrDefault(range, 0);
+//	        bikeSeries.getData().add(new XYChart.Data<>(range, bikeCount));
+//
+//	        // Dữ liệu cho ô tô
+//	        Integer carCount = carParkingData.getOrDefault(range, 0);
+//	        carSeries.getData().add(new XYChart.Data<>(range, carCount));
+//	    }
+//
+//	    return List.of(bikeSeries, carSeries);
+//	}
 
 }
